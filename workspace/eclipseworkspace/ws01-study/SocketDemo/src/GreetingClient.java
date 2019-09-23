@@ -1,0 +1,38 @@
+
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class GreetingClient
+{
+   public static void main(String [] args)
+   {
+      String serverName = args[0];
+      int port = Integer.parseInt(args[1]);
+      try
+      {
+    	  Socket client = new Socket(serverName,port);
+         System.out.println("连接到主机：" + serverName + " ，端口号：" + port);
+         
+         System.out.println("远程主机地址：" + client.getRemoteSocketAddress());
+         
+         OutputStream out = client.getOutputStream();
+         DataOutputStream out2 = new DataOutputStream(out);
+ 
+         out2.writeUTF("Hello from " + client.getLocalSocketAddress());
+         
+         InputStream inFromServer = client.getInputStream();
+         DataInputStream in = new DataInputStream(inFromServer);
+         System.out.println("服务器响应： " + in.readUTF());
+         client.close();
+      }catch(IOException e)
+      {
+         e.printStackTrace();
+      }
+   }
+}

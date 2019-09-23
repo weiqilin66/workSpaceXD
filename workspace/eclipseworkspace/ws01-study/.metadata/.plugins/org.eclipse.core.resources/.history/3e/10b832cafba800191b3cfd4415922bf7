@@ -1,0 +1,7 @@
+package com.lwq.spring.factorybean;
+
+import org.springframework.beans.factory.FactoryBean;
+
+public class CarFactoryBean implements FactoryBean<T> {
+
+}

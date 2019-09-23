@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="app">
+<!--事件  v-on -->
+    <p>{{message}}</p>
+    <button @click="reverseMessage">反转消息</button>
+    <!--v-model 指令，它能轻松实现表单输入和应用状态之间的双向绑定-->
+    <br>
+    <input v-model="message">
+    <!--Mustache语法 使用js-->
+    <p>已翻转</p>
+    <p>{{message.split('').reverse().join('')}}</p>
+    <p>计算属性:{{reversedMessage}}</p>
+
+    <!--Mustache语法不能作用于html标签  遇到这种情况应该使用 v-bind 指令-->
+
+
+</div>
+</body>
+<script src="https://cdn.bootcss.com/vue/2.6.9/vue.js"></script>
+<script type="text/javascript">
+    const vm = new Vue({
+        el:'#app',
+        data: {
+            message: 'Hello Vue.js!'
+        },
+        methods: {
+            reverseMessage: function () {
+                this.message = this.message.split('').reverse().join('')
+            }
+        },
+            /*计算属性*/
+            computed:{
+                /*默认为getter方法,常用*/
+                reversedMessage:function(){
+                    return this.message.split('').reverse().join('')
+                },
+                 fullName: {
+                // getter
+                get: function () {
+                return this.firstName + ' ' + this.lastName
+                },
+                // setter
+                set: function (newValue) {
+                var names = newValue.split(' ')
+                 this.firstName = names[0]
+                 this.lastName = names[names.length - 1]
+            }
+         }
+        }
+        /*只要 message 还没有发生改变，多次访问 reversedMessage 计算属性会立即返回之前的计算结果，而不必再次执行函数
+        * 相反的如果不需要缓存就使用函数*/
+
+    })
+</script>
+</html>

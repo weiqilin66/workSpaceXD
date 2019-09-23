@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+
+
+<context:property-placeholder location="classpath:db.config"/>
+	
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+		<property name="username" value="${jdbc.user}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+		<property name="driverClassName" value="${jdbc.driverClass}"></property>
+		<property name="url" value="${jdbc.jdbcUrl}"></property>
+	</bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    	<property name="dataSource" ref="dataSource"></property>
+    </bean>
+    
+    <bean id="namedParmeterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+    	<constructor-arg ref="dataSource"></constructor-arg>
+    </bean>
+    
+   
+	<!-- 基于xml的事务配置 -->
+	<bean id="bookShopDao" class="com.transation.BookshopDaoImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+	<bean id="bookShopService" class="com.transation.BookShopServiceImpl">
+		<property name="bookShopDao" ref="bookShopDao"></property>
+	</bean>
+		
+	<bean id="cashier" class="com.transation.CashierImpl">
+	
+		<property name="bookShopService" ref="bookShopService"></property>
+	</bean>	
+	 <!-- 1.声明配置事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    	<property name="dataSource" ref="dataSource"></property>
+    </bean>
+    
+	<!--2. 配置事务属性
+	 配置完 需要指定事务作用在那些类和方法上?
+	  所以需要第三步aop
+	 -->
+	 <tx:advice id="txAdvice" transaction-manager="transactionManager">
+	 <!--  哪些方法启用事务 *所有 -->
+	 	<tx:attributes>
+	 		<!--  传播行为 隔离级别 在这配置 方法名后面使用res风格,就可以方便的使用name来指定方法群-->
+	 		<tx:method name="*" isolation="DEFAULT"/>
+	 		<tx:method name="purchase" read-only="true"/>
+	 	</tx:attributes>
+	 </tx:advice>
+	 
+	<!-- 3.配置事务切入点,
+	**以及把事务切入点和事务属性关联起来**
+	 -->
+	<aop:config>
+	<aop:pointcut expression="execution(* com.transation.service.BookShopService.*(..))"
+	 id="txPointcut"/>
+	<aop:advisor advice-ref="txAdvice" pointcut="txPointcut"/>
+	</aop:config>
+	
+	
+	 
+</beans>

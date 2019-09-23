@@ -1,0 +1,12 @@
+package com.mvc.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class HelloWorld {
+
+	public String hello() {
+		System.out.println("helloWorld");
+		return "he";
+	}
+}

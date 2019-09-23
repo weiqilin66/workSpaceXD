@@ -1,0 +1,19 @@
+INDEX VERSION 1.131
+G:\workspace\eclipseworkspace\ws01-study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3979604535.index
+\tomcat-servlet\src
+G:\workspace\eclipseworkspace\ws01-study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\263320482.index
+\springmvc-1\src\main\java
+G:\workspace\eclipseworkspace\ws01-study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\406280961.index
+\springmvc-1\src\main\java
+G:\workspace\eclipseworkspace\ws01-study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2231827361.index
+\springmvc-1\src\main\java
+G:\workspace\eclipseworkspace\ws01-study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\293198655.index
+\ssm-crud\src\main\java
+D:\workspace\eclipseWorkspace01\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\375156756.index
+\maven\src\main\resources
+G:\workspace\eclipseworkspace\ws01-study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1609998226.index
+\springmvc-1\src\main\resources
+G:\workspace\eclipseworkspace\ws01-study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3263695215.index
+\wq\src\main\resources
+G:\workspace\eclipseworkspace\ws01-study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2489876943.index
+\ssm-crud\src\main\java

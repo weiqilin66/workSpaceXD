@@ -1,0 +1,34 @@
+package com.mvc.controller;
+
+import java.util.Map;
+
+import org.springframework.objenesis.instantiator.basic.NewInstanceInstantiator;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.mvc.entity.User;
+/**
+ * 如果一个模型数据要多个页面可用 
+ * 放入sessionScope中
+ * 类注解上加上@SessionAttributes({"user"} ) 可以将某个属性加入到session中
+ * @author wayne
+ * @date
+ * @Description
+ *
+ */
+//@SessionAttributes({"user"} )
+@Controller
+public class ModelController_2 {
+	
+	private static final String SUCCESS="success";
+	@RequestMapping("sessionAttributes")
+	public String testsessionAttributes(Map<String, Object> map) {
+		User user = new User("wayne","18");
+		map.put("user", user);
+		
+		return SUCCESS;
+	}
+	
+	
+}

@@ -1,0 +1,15 @@
+package com.lwq.serializable;
+
+import java.util.Scanner;
+
+import javax.management.loading.PrivateClassLoader;
+
+public class Test {
+	private int a;
+	private int b;
+	public static void main(String[] args) {
+		
+		Scanner s = new Scanner(System.in);
+		System.out.println("1");
+	}
+}

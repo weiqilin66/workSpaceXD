@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!--  用spel 为属性赋值 -->
+	<bean id="address" class="com.lwq.spring.relation.Address" >
+		<property name="city" value="#{'beijing'}"></property>
+		<property name="street" value="yunxia"></property>
+	</bean>
+	<!--  使用spel应用类的静态属性-->
+	<bean id="car" class="com.lwq.spring.relation.spel.Car">
+		<property name="brand" value="audio"></property>
+		<property name="tyrePerimeter" value="#{T(java.lang.Math).PI * 80}"></property>
+		
+	</bean>
+</beans>

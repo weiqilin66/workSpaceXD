@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="app">
+    <!--{}传入一个对象,结果<div class="static active"></div>-->
+    <div
+            class="static"
+            v-bind:class="{ active: isActive, 'text-danger': hasError }">1</div>
+    <!--绑定的数据对象不必内联定义在模板-->
+    <div v-bind:class="classObject"></div>
+
+    <!--可以传一个数组-->
+    <div v-bind:class="[activeClass, errorClass]"></div>
+    <!--三元运算符有类似的写法-->
+    <div v-bind:class="[isActive ? activeClass : '', errorClass]"></div>
+
+
+</div>
+</body>
+<script src="https://cdn.bootcss.com/vue/2.6.9/vue.js"></script>
+<script type="text/javascript">
+
+    const vm = new Vue({
+        el:'#app',
+        data: {
+            isActive: true,
+            hasError: false,
+            classObject: {
+                active: true,
+                'text-danger': false
+            },
+            activeClass: 'active',
+            errorClass: 'text-danger'
+        },
+        computed: {
+            /*绑定对象也可是计算属性*/
+            classObject: function () {
+                return {
+                    active: this.isActive && !this.error,
+                    'text-danger': this.error && this.error.type === 'fatal'
+                }
+            }
+    })
+
+</script>
+</html>

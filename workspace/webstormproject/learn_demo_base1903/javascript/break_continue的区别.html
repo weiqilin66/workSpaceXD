@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="t1"></p>
+</body>
+<script>
+    for (i=0;i<10;i++){
+        if(i==3){
+            //continue跳过点前,break跳出当前循环,不是跳出if是 break的上级循环
+            //break;
+            continue;
+        }
+        var x1= "The number is " + i + "<br>";
+        document.write(x1);
+    }
+
+</script>
+<script>
+    var day = new Date().getDay();
+  //alert(day);
+    document.write(day);
+    switch (day) {
+        case 1: x="今天星期一";
+        break;
+        case 3: x="今天星期3";
+        break;
+        default:
+            x='nothing'
+
+    }
+    document.getElementById("t1").innerHTML=x;
+</script>
+</html>

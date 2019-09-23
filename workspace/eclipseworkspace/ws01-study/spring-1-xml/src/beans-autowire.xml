@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id ="address" class="com.lwq.spring.autowire.Address"
+	p:city="fujian" p:street="jianyuanlu" ></bean>
+	
+	<bean id="car" class="com.lwq.spring.autowire.Car"
+	p:brand="bmw" p:balance="290000" p:pay="1"></bean>
+	
+	<!--p:car-ref="car"  p:address-ref="address"  -->
+	
+	<!-- byName 根据bean的id 和当前bean的set风格的属性名 进行装配 若有匹配的则进行自动装配,没有则不匹配
+		 byType 根据bean的class    若ioc有2个以上的匹配的bean  会抛出异常
+		 byconstruct  不好用
+	 -->
+	<bean id="persion0" class="com.lwq.spring.autowire.Persion"
+	p:name="weiqilin" autowire="byName" ></bean>
+	
+</beans>

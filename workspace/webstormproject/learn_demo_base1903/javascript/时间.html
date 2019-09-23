@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3 id="demo1"></h3>
+<h2 id="demo2"></h2>
+</body>
+
+<script>
+    var x = new Date().getDate();
+    var y = new Date().getDay();      //从星期日0 开始
+    var z = new Date().getMonth();      //月份从0 1月开始   3月 返回数值2
+    //小时分秒同理
+    document.write(z);
+    // document.getElementById("demo1").innerHTML(x);  --错误写法  ()
+    document.getElementById("demo1").innerHTML = x;
+    document.getElementById("demo2").innerHTML = y;
+    // document.getElementById("demo1").innerHTML(new Date().getDay());  --错误写法
+    document.write("wayne".constructor.toString());
+
+    var z, s = 1;
+    document.writeln(typeof z);
+
+
+    var obj = [];
+    document.write(typeof obj);
+</script>
+
+</html>

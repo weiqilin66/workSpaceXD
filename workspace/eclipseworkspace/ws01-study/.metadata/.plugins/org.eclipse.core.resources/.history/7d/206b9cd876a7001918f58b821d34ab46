@@ -1,0 +1,5 @@
+package com.lwq.spring.staticfactory;
+
+public class StaticCarFactory {
+
+}

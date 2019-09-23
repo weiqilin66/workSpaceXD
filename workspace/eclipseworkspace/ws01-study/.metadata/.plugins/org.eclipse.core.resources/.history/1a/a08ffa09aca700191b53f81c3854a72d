@@ -1,0 +1,10 @@
+package com.lwq.spring.interfacefactory;
+
+import java.util.Map;
+
+import com.lwq.spring.bean.Car;
+
+public class InterfaceCarFactory {
+	private Map<String, Car> cars = null;
+	public 
+}

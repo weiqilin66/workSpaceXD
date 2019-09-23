@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过自定义事件让子组件传递数据给父组件</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.9/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h3>{{total}}</h3>
+    <button-counter v-on:increment="incrementTotal"></button-counter>
+    <button-counter v-on:increment="incrementTotal"></button-counter>
+
+</div>
+</body>
+
+<script type="text/javascript">
+    //全局定义父组件/命名:W3C规范 全小写加-
+    Vue.component('button-counter',{
+        //定义一个模板 按钮,俺就中显示点击次数 次数通过监视v-on 点击事件click 事件名incrementHandle
+        //v-on:click.native 用于监听组件'根元素'的原生事件
+        template:'<button v-on:click="incrementHandle">{{counter}}</button>',
+        //组件的data必须是一个函数,不能是对象
+        //这样的好处就是每个实例可以维护一份被返回对象的独立的拷贝，如果 data 是一个对象则会影响到其他实例
+        data:function () {
+            return {
+                counter:0  //注意return的函数写法
+            }
+        },
+         methods:{//定义组件的根元素事件
+                incrementHandle:function () {
+                    this.counter+=1
+                    this.$emit('increment')  //$emit(event,[arg])触发event事件,后面数组参数
+                }
+            }
+
+    })
+    new Vue({
+        el:'#app',
+        data:{
+            message:'hello,js!!',
+            total:0
+        },
+        methods:{//通过button-counter点击按钮触发根事件中的$emit()函数调子组件的increment监听
+            //increment监视的是incrementTotal函数
+            incrementTotal:function () {
+                this.total+=1
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>请输入数字1</p>
+<input type="text" id="inputmsg">
+<button onclick="test02()">测试</button>
+<p id="errormsg"></p>
+<br>
+<button onclick="test01()">点我</button>
+</body>
+<script>
+
+    function test02() {
+        try{
+            msg2=document.getElementById("inputmsg").value;
+            //alert(msg2);
+            //console.log(msg2);
+            if(msg2!=1) throw "请输入1";  //throw 写法
+            if(msg2==1) throw '正确';
+
+        }catch (e) {
+            document.getElementById("errormsg").innerText=e; //此时捕捉的e为 throw的值
+            //不使用throw时,一般使用如下的e.message;
+        }
+        var msg="";  //已初始化不提升
+        var msg2;  //未初始化变量提升
+    }
+    function test01() {
+        try{
+            allert("aa");
+        }
+        catch (e) {
+            msg+="错误信息:"+e.message;
+            alert(msg);
+
+        }finally {
+            document.write("我一定会输出");
+        }
+    }
+
+</script>
+
+</html>

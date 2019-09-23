@@ -1,0 +1,82 @@
+package com.jdbc;
+
+import static org.hamcrest.CoreMatchers.nullValue;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+
+import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.test.context.TestExecutionListeners;
+
+import com.mysql.cj.x.protobuf.MysqlxCrud.Update;
+
+public class JDBCTest {
+
+	
+	public JDBCTest() {
+		System.out.println("jdbctest实例化...");
+	}
+
+
+	private ApplicationContext ctx = null;
+	private JdbcTemplate jdbcTemplate;
+
+	{
+		System.out.println("构造方法之前运行构造块,但是必须有构造方法");
+		 ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+		 jdbcTemplate=(JdbcTemplate) ctx.getBean("jdbcTmplate");
+	}
+	/**
+	 * 执行批量更新
+	 */
+	@Test
+	public void testBachUpdate() {
+		System.out.println("批量更新");
+		String sql ="insert into user values(?,?)";
+		List<Object[]> bachObject = new ArrayList<>();
+		bachObject.add(new Object[]{3,"gg"});
+		bachObject.add(new Object[] {4,"ww"});
+		jdbcTemplate.batchUpdate(sql,bachObject);
+	}
+	
+	@Test
+	public void Update() {
+		String sql ="update user set username ='baba' where userid =1";
+		jdbcTemplate.execute(sql);
+		
+	}
+	@Test
+	public void testDataSource() throws SQLException {
+		DataSource dataSource = (DataSource) ctx.getBean("dataSource");
+		System.out.println(dataSource.getConnection());
+		
+	}
+	/**
+	 * 查询 返回对象用queryForObject(sql, rowMapper);
+	 * rowmapper决定如何去印射结果集的行
+	 * 既sql的别名和bean的属性名印射
+	 */
+	@Test
+	public void  testSel() {
+		String sql = "select userId,userName from user where userid = 1";
+		RowMapper<User> rowMapper = new BeanPropertyRowMapper<>(User.class);
+		User user = jdbcTemplate.queryForObject(sql, rowMapper);
+		System.out.println(user);
+	}
+	@Test
+	public void  testSelList() {
+		String sql = "select userId,userName from user where userid>";
+		RowMapper<User> rowMapper = new BeanPropertyRowMapper<>(User.class);
+		List<User> user = jdbcTemplate.query(sql, rowMapper, new Object[] {1});
+		System.out.println(user);
+	}
+}

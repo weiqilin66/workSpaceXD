@@ -1,0 +1,5 @@
+package com.lwq.spring.interfacefactory;
+
+public class InterfaceCarFactory {
+
+}

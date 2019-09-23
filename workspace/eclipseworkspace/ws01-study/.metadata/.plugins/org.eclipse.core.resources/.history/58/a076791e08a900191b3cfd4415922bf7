@@ -1,0 +1,5 @@
+package com.spring.annotation;
+
+public interface Repository {
+	void save();
+}

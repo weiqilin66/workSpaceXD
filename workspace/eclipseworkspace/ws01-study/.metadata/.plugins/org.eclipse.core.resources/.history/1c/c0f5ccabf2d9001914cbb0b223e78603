@@ -1,0 +1,46 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>HOME</h2>
+<br>
+<a href="helloworld"> helloworld</a>
+<a href="test/helloworld"> helloworld2</a>
+<hr>
+<!-- form表单指定method 默认是get -->
+<form action="test/helloworldpost" method="post">
+<input value="post" type="submit">
+</form>
+<hr>
+<a href="test/params?username=joy&age=11"> params</a>
+<hr>
+<h4>rest风格</h4>
+<hr>
+<br>
+<form action="rest/1" method="get">
+<input type="submit" value="get">
+</form>
+<form action="rest" method="post">
+<input type="submit" value="post">
+</form>
+<form action="rest/3" method="post">
+<input  type="hidden" name="_method" value="put">
+<input type="submit" value="put">
+</form>
+<form action="rest/4" method="post">
+<input  type="hidden" name="_method" value="delete">
+<input type="submit" value="delete">
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>

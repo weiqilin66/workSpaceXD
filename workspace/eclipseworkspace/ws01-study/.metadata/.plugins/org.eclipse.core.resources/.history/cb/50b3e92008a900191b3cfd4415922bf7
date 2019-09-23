@@ -1,0 +1,13 @@
+package com.spring.annotation;
+
+import com.spring.annotation.repository.Repository;
+
+@org.springframework.stereotype.Repository(value="repository")
+public class RepositoryImpl implements Repository {
+
+	@Override
+	public void save() {
+		System.out.println(" repository save...");
+	}
+
+}

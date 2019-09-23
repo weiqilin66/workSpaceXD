@@ -1,0 +1,33 @@
+package com.mvc.controller;
+
+
+
+import java.util.Date;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+/**
+ * 模型处理
+ * 1.modelAndView 会把model中数据放入request域对象(requestScope)中
+ * @author wayne
+ * @date
+ * @Description
+ *
+ */
+@Controller
+public class ModelController {
+
+	private static final String SUCCESS="success";
+	
+	//使用modelAndView
+	@RequestMapping("model1")
+	public ModelAndView name() {
+		String viewName = SUCCESS;
+		ModelAndView modelAndView = new ModelAndView(viewName);
+		modelAndView.addObject("time", new Date());
+		return modelAndView;
+	}
+	
+}

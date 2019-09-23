@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	<!-- 
+		指定扫描包和其子包
+		resourse-pattern 指定扫描的资源
+	
+	<context:component-scan base-package="com.spring.annotation"
+	resource-pattern="repository/*.class">
+	</context:component-scan>
+	 -->
+	 
+	 <!--
+		exclude-filter不包含指定表达式的组件 使用时注意use-default-filters="false"要删除 否则扫描不到其他资源:默认filters即全扫描
+	
+	<context:component-scan base-package="com.spring.annotation">
+	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/> 
+	</context:component-scan>
+	 -->
+	 
+	<!-- 
+		include-filter 只包含指定表达式的组件,使用时必须搭配use-default-filters="false"
+	 -->
+	<context:component-scan base-package="com.spring.annotation"
+	use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+	<!-- 
+	使用 annotation注解类型  
+	assignable 指定类 
+	-->
+		<context:include-filter type="assignable" expression="com.spring.annotation.repository.RepositoryImpl"/>
+	</context:component-scan>
+	
+	
+</beans>

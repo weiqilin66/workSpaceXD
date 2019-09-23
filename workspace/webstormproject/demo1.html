@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    <h3>{{msg}}</h3>
+    <demo-cp1
+              msg="msg"
+    ></demo-cp1>
+
+</div>
+</body>
+<script>
+    Vue.component('demo-cp1',{
+        props:['msg'],
+        template:'<h1  style="background-color: green">{{msg}}</h1>'
+    })
+    var vm = new Vue({
+        el:'#demo',
+        data:{
+            msg:'hello world!'
+        }
+    })
+
+</script>
+
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+	<bean id="ArithmeticCalculatorImpl" class="com.spring.aop.helloworld.ArithmeticCalculatorImpl"></bean>
+	
+	<bean id="LoggingAspect_xml" class="com.aopimpl.LoggingAspect_xml"></bean>
+	
+	<!-- 配置aop -->
+	<aop:config>
+	<!-- 配置表达式 -->
+		<aop:pointcut expression="execution(*  com.spring.aop.helloworld.*.*(..))" id="pointcut"/>
+		<!-- 配置切面及通知 -->
+		<aop:aspect ref="LoggingAspect_xml" order="2">
+			<aop:after method="beforeMethod" pointcut-ref="pointcut"/>
+			<!-- 记得必须配置returning throwing 并且值 与方法中定义的 参数名一致 -->
+			<aop:after-returning method="AfterReturning" pointcut-ref="pointcut" returning="result"/>
+			<aop:after-throwing method="afterThowing" pointcut-ref="pointcut" throwing="ex"/>
+			<aop:around method="Around" pointcut-ref="pointcut"/>
+			
+		</aop:aspect> 
+	</aop:config>
+</beans>

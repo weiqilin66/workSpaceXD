@@ -1,0 +1,5 @@
+package com.lwq.serializable;
+
+public class Car {
+
+}

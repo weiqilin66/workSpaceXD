@@ -1,0 +1,25 @@
+1.spring 如何在web应用中使用       (尚硅谷spring 34-35)
+
+a额外jar包:
+spring-web
+spring-webmvc
+
+b.spring配置文件,一样
+
+c.如何创建IOC容器
+非web在main中直接创建
+
+**web应用 应该在web应用被服务器加载时就创建IOC容器** :
+在ServletContextListenner#contextInitialized(ServletContextEvent sce)方法中创建IOC容器
+
+d.在web应用的其他组件中如何访问IOC容器呢?
+
+在ServletContextListenner#contextInitialized(ServletContextEvent sce)方法中创建IOC容器后,可以
+把其放在ServletContext(既application域)的一个属性中.
+
+e.实际上,spring配置文件的名字和位置应该也是可配置的! 将其配置到当前web应用的初始化参数中 较为合适
+
+
+f.spring自己其实也有这么一个Listenner
+  1 配置spring配置文件的名称和位置
+ 2启动ioc容器的 servletContextListener

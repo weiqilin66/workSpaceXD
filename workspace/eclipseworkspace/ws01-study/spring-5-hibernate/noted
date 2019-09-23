@@ -1,0 +1,6 @@
+spring 整合hibernate 整合什么?
+
+1,有ioc容器来管理hiberna 的sessionfactory
+2,让hibernate使用spring的事务
+
+

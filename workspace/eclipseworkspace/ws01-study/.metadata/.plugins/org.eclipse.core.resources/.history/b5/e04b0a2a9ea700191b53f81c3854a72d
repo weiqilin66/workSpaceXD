@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 声明为抽象bean不能被实例化,作为bean模板 被继承使用 -->
+	<!-- 抽象bean的 class可以省略 让子bean指定自己的类,而共享相同的属性配置 -->
+	<bean id = "address" class="com.lwq.spring.relation.Address"
+	p:city="fujian" p:street="yunxialu" abstract="true"></bean>
+	
+	<bean id="car" class="com.lwq.spring.bean.Car"
+	p:brand="bmw" p:balance="29"></bean>
+	
+	
+	
+	<!-- bean的配置继承,使用bean的parent 指定继承哪一个 -->
+	<bean id = "address2" parent="address" p:street="yunxialu"></bean>
+	
+	<!-- depend-on  bean的依赖关系 , 没有car初始化就报错,且 car必须在persion实例化 -->
+	<bean id="persion"  class="com.lwq.spring.relation.Persion"
+	p:name="wayne" depends-on="car"> </bean>
+	
+</beans>

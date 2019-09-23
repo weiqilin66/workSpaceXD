@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 
+		class 指向factorybean的实例
+		property配置的是 factorybean的属性
+		但是返回的实例是factorybean的 getObject方法返回的实例
+		相对于静态工厂和实例工厂不用指定fatory-method
+	 -->
+	<bean id="car" class="com.lwq.spring.factorybean.CarFactoryBean">
+	<property name="brand" value="bmw"></property></bean>
+</beans>

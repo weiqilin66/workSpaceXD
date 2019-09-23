@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	 <!-- 默认单例 singleton 容器初始化时创建bean实例  整个生命周期 只有一个 
+	  prototype 原型,容器初始化时不创建,每次请求时 创建一个新的bean实例
+	  request  每次请求生成一个bean实例
+	  session  每次会话生成一个实例
+	  globalSession 全局的HttpSession中,容器返回bean同一个实例 
+	  -->
+	<bean id="car" class="com.lwq.spring.bean.Car" scope="prototype">
+		<property name="brand"	value="bmw" ></property>
+		 
+	</bean> 
+</beans>
+				

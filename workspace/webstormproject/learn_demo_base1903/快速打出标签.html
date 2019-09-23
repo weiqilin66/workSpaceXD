@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>webstorm快键键</title>
+</head>
+
+<body>
+<!--
+>：下一个子标签
+*：多少个标签
+$：标签的名称序号
+{}:标签的内容
+-->
+
+<!--输入：h1,按tab键-->
+<h1></h1>
+
+<!--输入：div#abc,按Tab键-->
+<div id="abc"></div>
+
+<!--输入：div.abc,按Tab键-->
+<div class="abc"></div>
+
+<!--输入: div>p*6 ,按Tab键-->
+<div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+</div>
+
+<!--输入 a[href=#] 按tab键-->
+<a href="#"></a>
+
+<!--输入：ul.menu>li*6>a[href=#]{HTML} 按tab键-->
+<ul class="menu">
+    <li><a href="#">HTML</a></li>
+    <li><a href="#">HTML</a></li>
+    <li><a href="#">HTML</a></li>
+    <li><a href="#">HTML</a></li>
+    <li><a href="#">HTML</a></li>
+    <li><a href="#">HTML</a></li>
+</ul>
+
+<!--输入  ul>li*5>a[href=#]{我是第$个} 再按tab键-->
+<ul>
+    <li><a href="#">我是第1个</a></li>
+    <li><a href="#">我是第2个</a></li>
+    <li><a href="#">我是第3个</a></li>
+    <li><a href="#">我是第4个</a></li>
+    <li><a href="#">我是第5个</a></li>
+</ul>
+
+<!--输入 img[src='images/$.jpg']*3 再按tab键-->
+<img src="images/1.jpg" alt="">
+<img src="images/2.jpg" alt="">
+<img src="images/3.jpg" alt="">
+
+<!--输入 li*3>div.img>img[src='images/$.jpg'] 再按tab键-->
+<li>
+    <div class="img"><img src="images/1.jpg" alt=""></div>
+</li>
+<li>
+    <div class="img"><img src="images/2.jpg" alt=""></div>
+</li>
+<li>
+    <div class="img"><img src="images/3.jpg" alt=""></div>
+</li>
+
+</body>
+</html>
+
+
+<script>
+    /* for循环：输入itar,再点击tab键*/
+    for (var i = 0; i < array.length; i++) {
+        var obj = array[i];
+
+    }
+</script>
+
++ : 并列的标签
+<!--div#tab1+div#tab2-->
+
+<div id="tab1"></div>
+<div id="tab2"></div>
+
+<!--引入  link   加tab键-->
+<link rel="stylesheet" href="">
+
+<!--引入css   link:css   加tab键 -->
+<link rel="stylesheet" href="css/mycss.css">
+
+<!--引入js    script:src  加tab键-->
+<script src=""></script>
+
+<!--html中插入js   script  加tab键-->
+<script></script>
+
+<!--ul及1个li     ul+     -->
+<ul>
+    <li></li>
+</ul>
+
+<!--ul及3个li     ul>li*3     -->
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+<!--    a:link  -->
+<a href="http://"></a>
+
+<!--1个P标签：p 加 tab-->
+<p></p>
+
+<!--两个P标签：p+p 加 tab-->
+<p></p>
+<p></p>
+
+<!--三个P标签：p*3 加 tab-->
+<p></p>
+<p></p>
+<p></p>
+
+<!--input:button 加tab键-->
+<input type="button" value="">
+
+<!--ul>li.item$*6-->
+<ul>
+    <li class="item1"></li>
+    <li class="item2"></li>
+    <li class="item3"></li>
+    <li class="item4"></li>
+    <li class="item5"></li>
+    <li class="item6"></li>
+</ul>
+
+<!--div.one.two-->
+<div class="one two"></div>
+
+<!--form:get-->
+<form action="" method="get"></form>
+<!--form:post-->
+<form action="" method="post"></form>

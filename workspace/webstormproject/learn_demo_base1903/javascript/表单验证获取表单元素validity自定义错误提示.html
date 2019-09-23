@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="myForm" action="表单验证获取表单元素validity自定义错误提示.html" onsubmit="return validateForm()" method="post">
+    <!--通过name获取元素-->
+    名字:<input type="text" name="fname">
+    email:<input type="text" name="email">
+    <INPUT type="submit" value="提交">
+    <!--HTML的标签元素大小写不敏感,所以vue的js组件名要使用w3c的全小写标准-->
+</form>
+<input id="id1" type="number" min="100" max="300" required>
+<button onclick="myFunction()">验证</button>
+
+<p id="demo"></p>
+</body>
+<script>
+    //自定义提示信息
+    function myFunction3() {
+        var inpObj = document.getElementById("id1");
+        inpObj.setCustomValidity(''); // 取消自定义提示的方式
+        if (inpObj.checkValidity() == false) {
+            if(inpObj.value==""){
+                inpObj.setCustomValidity("不能为空！");
+            }else if(inpObj.value<100 || inpObj.value>300){
+                inpObj.setCustomValidity("请重新输入数值（100~300之间）!");
+            }
+            document.getElementById("demo").innerHTML = inpObj.validationMessage;
+        } else {
+            document.getElementById("demo").innerHTML = "输入正确";
+        }
+    }
+
+</script>
+<script>
+    function myFunction() {
+        var inpObj = document.getElementById("id1");
+        //JavaScript 验证 API    checkValidity
+        if (inpObj.checkValidity() == false) {
+            document.getElementById("demo").innerHTML = inpObj.validationMessage;
+        }else{
+            document.getElementById("demo").innerHTML ="灼大哥最帅"
+        }
+    }
+</script>
+<script>
+
+    function validateForm() {
+        //表单获取元素的值写法
+        // var x = document.forms["myForm"]["fname"].value;
+        // if (x == null || x == "") {
+        //     alert("需要输入名字。");
+        //     return false;
+        // }//标准表单验证
+         var ema =document.forms["myForm"]["email"].value;
+         console.log(ema)
+         var atpos=ema.indexOf("@")//indexOf 是查某个指定的字符串在字符串首次出现的位置（索引值）
+         var dotpos=ema.lastIndexOf(".")  //　lastIndexOf 是从右向左查某个指定的字符串在字符串中最后一次出现的位置（也就是从后往前查）
+            if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length){
+                alert("不是一个有效的 e-mail 地址");
+                return false;
+            }
+
+    }
+
+</script>
+</html>

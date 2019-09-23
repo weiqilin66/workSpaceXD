@@ -1,0 +1,11 @@
+2019-09-04 15:52:31.838  INFO 6392 --- [main] .Springboot03Slf4loggingApplicationTests : Starting Springboot03Slf4loggingApplicationTests on DESKTOP-R5A4AJ0 with PID 6392 (started by 帅奇 in G:\workspace\springboot-03-slf4logging)
+2019-09-04 15:52:31.839 DEBUG 6392 --- [main] .Springboot03Slf4loggingApplicationTests : Running with Spring Boot v2.1.7.RELEASE, Spring v5.1.9.RELEASE
+2019-09-04 15:52:31.841  INFO 6392 --- [main] .Springboot03Slf4loggingApplicationTests : No active profile set, falling back to default profiles: default
+2019-09-04 15:52:33.866  INFO 6392 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-04 15:52:34.262  INFO 6392 --- [main] .Springboot03Slf4loggingApplicationTests : Started Springboot03Slf4loggingApplicationTests in 2.887 seconds (JVM running for 3.95)
+2019-09-04 15:52:34.513 TRACE 6392 --- [main] .Springboot03Slf4loggingApplicationTests : trace
+2019-09-04 15:52:34.513 DEBUG 6392 --- [main] .Springboot03Slf4loggingApplicationTests : debug
+2019-09-04 15:52:34.513  INFO 6392 --- [main] .Springboot03Slf4loggingApplicationTests : info
+2019-09-04 15:52:34.513  WARN 6392 --- [main] .Springboot03Slf4loggingApplicationTests : warn
+2019-09-04 15:52:34.513 ERROR 6392 --- [main] .Springboot03Slf4loggingApplicationTests : error
+2019-09-04 15:52:34.523  INFO 6392 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'

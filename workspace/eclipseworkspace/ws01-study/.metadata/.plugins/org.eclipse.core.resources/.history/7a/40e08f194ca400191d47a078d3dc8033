@@ -1,0 +1,28 @@
+package com.lwq.serializable;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
+public class MainTest {
+	public static void main(String[] args) {
+		Employee e = new Employee();
+		e.setName("wayne");
+		e.setNumber(111);
+		try {
+			FileOutputStream out = new FileOutputStream("test.ser");
+			ObjectOutputStream o = new ObjectOutputStream(out);
+			o.defaultWriteObject();
+			out.close();
+			o.close();
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+	}
+}
