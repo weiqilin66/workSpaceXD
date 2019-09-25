@@ -6,6 +6,26 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<script src="${ctx}/webjars/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+function requestJson(){
+
+    var jsonData = {  
+            "name" : "手机",  
+            "price" : "999"  
+    };
+    $.ajax({
+        type:'post',
+        url:'${pageContext.request.contextPath }/requestJson.action',
+        contentType:'application/json;charset=utf-8',//指定为json类型
+        //数据格式是json串，商品信息
+        data:JSON.stringify(jsonData),
+        success:function(data){//返回json结果
+            alert(data.name);
+        }       
+    }); 
+}
+</script>
 <body>
 <h2>HOME</h2>
 <br>
@@ -44,6 +64,7 @@
 <hr>
 <a href="pojo?username=joy&password=123&address.city=fujian"> testPojo</a>
 <br>
+
 <hr>
 <a href="servlet"> testservlet</a>
 

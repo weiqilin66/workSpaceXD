@@ -1,3 +1,4 @@
 #Tomcat publish data
-#Mon Sep 23 14:13:22 CST 2019
-org.eclipse.jst.jee.server\:/binary\:G\:\\MVN\\localRepository\\org\\springframework\\spring-web\\5.1.5.RELEASE\\spring-web-5.1.5.RELEASE.jar=WEB-INF/lib/spring-web-5.1.5.RELEASE.jar
+#Tue Sep 24 17:46:22 CST 2019
+org.eclipse.jst.jee.server\:springmvc-1=G\:\\apache-tomcat-9.0.22\\webapps\\springmvc-1
+org.eclipse.jst.jee.server\:/binary\:G\:\\MVN\\localRepository\\org\\springframework\\spring-web\\5.1.5.RELEASE\\spring-web-5.1.5.RELEASE.jar=G\:\\apache-tomcat-9.0.22\\webapps\\springmvc-1\\WEB-INF\\lib\\spring-web-5.1.5.RELEASE.jar

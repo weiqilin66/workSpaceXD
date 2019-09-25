@@ -19,6 +19,7 @@ import com.mvc.entity.User;
  * 3.springmvc 把上述对象传入目标方法
  * 
  * 注意:在@modelattribute修饰的方法 放入的键需要和目标方法的入参类型的一致(首字母小写)
+ * 如果 不用这种命名规则,则参数类型中的@ModelAttribute  可以指定键的值
  * @author wayne
  * @date
  * @Description
@@ -41,7 +42,7 @@ public class ModelController_3 {
 	
 	
 	@RequestMapping("testModelAttributes")
-	public String testModelAttributes(User user) {
+	public String testModelAttributes(@ModelAttribute(value ="user") User user) {
 		
 		System.out.println(user);
 		

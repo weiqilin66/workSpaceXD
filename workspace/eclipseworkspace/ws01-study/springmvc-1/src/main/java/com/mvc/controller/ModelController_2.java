@@ -14,6 +14,11 @@ import com.mvc.entity.User;
  * 类上加上@SessionAttributes() 
  * 参数value 里面可以放数组
  * 参数type 放class类型
+ * 
+ * 注意:
+ * sessionattribute 可能产生一个异常
+ * 解决方法  1 加@modelattribute 2 参数名加@modelAttribute()注解成其他属性名
+ * 看modelattribute源码才能理解
  * @author wayne
  * @date
  * @Description
