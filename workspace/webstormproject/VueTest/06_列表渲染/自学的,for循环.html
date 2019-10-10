@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.9/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h3>取值{{}}</h3>
+<h3>{{message}}</h3>
+    <ol>
+        <li v-for="todo in todos">
+            {{ todo.text }}
+        </li>
+    </ol>
+    <ol>
+        <li v-for="todo of todos">
+            {{ todo.text }}
+        </li>
+    </ol>
+    <ul >
+        <h3> 也可以遍历对象属性</h3>
+        <li v-for="value in object">
+            {{ value }}
+        </li>
+        <div v-for="(value, name) in object">
+            {{ name }}: {{ value }}
+        </div>
+        <h3>第一个元素为值,第二个元素是数组的话是下标,对象的话是属性名</h3>
+        <div v-for="(key, index) in todos">
+            {{ index }}-- {{ key }}
+        </div>
+        <hr>
+        <h3>可以搭配使用先遍历数组,在遍历数组中的对象</h3>
+        <div v-for="(object, index) in todos">
+            {{ index }}<br>
+            <div v-for="(value,name) in object">
+                 {{name}}:{{value}}
+            </div>
+
+        </div>
+        <hr>
+        <h3>对象时候还能使用第三个参数</h3>
+        <div v-for="(value, name,index) in object">
+
+            {{index}}--{{name}}:{{value}}
+        </div>
+        <hr>
+        <hr>
+        <h3>函数过滤</h3>
+        <li v-for="n in even(numbers)">{{ n }}</li>
+        <hr>
+        <h3>计算过滤</h3>
+        <li v-for="n in evenNumbers">{{ n }}</li>
+    </ul>
+    <div>
+        <span v-for="n in 10">{{ n }} </span>
+    </div>
+    <hr>
+
+
+
+</div>
+
+<div id="app2">
+ <span v-bind:title="message">
+    鼠标悬停几秒钟查看此处动态绑定的提示信息！
+  </span>
+</div>
+<h3>循环,不推荐在同一元素上使用 v-if 和 v-for,推荐讲v-if嵌套在外层</h3>
+<!--
+当它们处于同一节点，v-for 的优先级比 v-if 更高，这意味着 v-if 将分别重复运行于每个 v-for 循环中。当你只想为部分项渲染节点时，这种优先级的机制会十分有用，如下：
+
+<li v-for="todo in todos" v-if="!todo.isComplete">
+{{ todo }}
+</li>
+而如果你的目的是有条件地跳过循环的执行，那么可以将 v-if 置于外层元素 (或 <template>)上。如：
+
+<ul v-if="todos.length">
+  <li v-for="todo in todos">
+    {{ todo }}
+  </li>
+</ul>
+<p v-else>No todos left!</p>
+-->
+</body>
+
+<script type="text/javascript">
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            numbers: [ 1, 2, 3, 4, 5 ],
+            message:'hello,js!!',
+            flag:false,
+            todos:[
+                { text: '学习 JavaScript' },
+                { text: '学习 Vue' },
+                { text: '整个牛项目' }
+            ],
+            object:{
+                name:"dd",
+                age:11
+            }
+        },
+        methods: {
+            even: function (numbers) {
+                return numbers.filter(function (number) {
+                    return number % 2 === 0
+                })
+            }
+        },
+        computed: {
+            evenNumbers: function () {
+                return this.numbers.filter(function (number) {
+                    return number % 2 === 0
+                })
+            }
+        }
+    })
+    const vm2 = new Vue({
+        el:"#app2",
+        data:{
+            message:'页面加载于 ' + new Date().toLocaleString()
+        }
+
+    })
+</script>
+</html>
