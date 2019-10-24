@@ -16,14 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class POICase {
-
-    //test
-    public static void main(String[] args) throws Exception {
-        InputStream inputStream = new FileInputStream("h:/1XLSX工作表.XLSX");
-        POICase p =new POICase();
-        p.importExcel(inputStream,"1XLSX工作表.xlsx");
-    }
+public class POI {
 
 
     private final static String excel2003L =".xls";    //2003- 版本的excel
@@ -50,7 +43,6 @@ public class POICase {
         for (int i = 0; i < work.getNumberOfSheets(); i++) {
             sheet = work.getSheetAt(i);
             if(sheet==null){continue;}
-
             //遍历当前sheet中的所有行
             for (int j = sheet.getFirstRowNum(); j <=sheet.getLastRowNum(); j++) {
                 row = sheet.getRow(j);
