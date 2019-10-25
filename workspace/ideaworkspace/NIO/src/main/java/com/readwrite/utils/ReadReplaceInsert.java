@@ -1,10 +1,10 @@
-package com.utils;
+package com.readwrite.utils;
 
 import java.io.*;
 //读取 替换 写入
-public class RRW {
+public class ReadReplaceInsert {
 
-    /**
+    /**废弃
      * 替换目标文本内容
      * @param fullContent 目标文本
      * @param changeStr 被替换的字符
@@ -12,15 +12,19 @@ public class RRW {
      * @param raf RandomAccessFile
      * @throws IOException
      */
-    public static void replace(String fullContent, String changeStr, String replaceStr, RandomAccessFile raf) throws IOException {
+    /*
+    public static String replace(String fullContent, String changeStr, String replaceStr, RandomAccessFile raf) throws IOException {
 
         String newContent = fullContent.replace(changeStr,replaceStr);
-        System.out.println("修改后:");
+        System.out.print("替换后的文本模板:");
         System.out.println(newContent);
         //newContent+="\n掐洗你!";
         raf.seek(0);
         raf.write(newContent.getBytes());
+        return newContent;
     }
+    */
+
 
     /**
      * 插入内容
@@ -66,19 +70,31 @@ public class RRW {
      * @return
      * @throws IOException
      */
-    public static String RAFread(RandomAccessFile raf) throws IOException {
+    public static String RAFreadTxt(RandomAccessFile raf) throws IOException {
         String content = "";
-        String str1, str2 = "";
-        byte[] buffer = new byte[1024];
+
+        //大数组方式解决乱码问题//源文件编码必须是dos-utf-8
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] buffer = new byte[3];
+        int readLength = 0;
+        while ((readLength=raf.read(buffer))>0){
+            byteArrayOutputStream.write(buffer,0,readLength);
+            content = new String(byteArrayOutputStream.toByteArray());
+        }
+        /*
+        byte[] buffer = new byte[1024];//可能出现中文字节被截断
         int hasRead = raf.read(buffer);//实际读取字节数
         while (hasRead != -1) {
 
             str1 = new String(buffer);
+            //ISO-8859-1
             str2 = new String(str1.getBytes("utf-8"), "utf-8");
             content += str2;
 
             hasRead = raf.read(buffer);
         }
+
+         */
 
         return content;
 

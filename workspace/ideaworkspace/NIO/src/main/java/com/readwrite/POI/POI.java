@@ -1,4 +1,4 @@
-package com.POI;
+package com.readwrite.POI;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -8,8 +8,6 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -61,7 +59,7 @@ public class POI {
                 list.add(li);
             }
         }
-        System.out.println(list);
+        //System.out.println(list);
         return list;
 
     }

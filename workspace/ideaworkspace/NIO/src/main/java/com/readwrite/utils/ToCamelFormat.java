@@ -1,4 +1,4 @@
-package com.utils;
+package com.readwrite.utils;
 
 /**
  * "CLIENT_NO" 转为驼峰命名：clientNo

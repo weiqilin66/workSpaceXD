@@ -1,31 +1,37 @@
-package com.service;
+package com.readwrite.service;
 
-import com.POI.POI;
-import com.entity.TableQ;
+import com.readwrite.POI.POI;
+import com.readwrite.entity.TableQ;
 import lombok.Cleanup;
 
+import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ReadExcelForX {
+/**
+ * ReadReplaceInsert基础上封装业务逻辑
+ */
+public class ReadExcelServiceImpl {
 
     //String[] head = {"表中文名","表英文名","字段中文名","字段英文名","字段类型","启用标志"};
     //int headSize = head.length;
 
-    public static Map<Integer,Object> getInfo() throws Exception {
+    public static Map<Integer,Object> getInfo(String path,int headSize) throws Exception {
         int rowIndex =1;
-        int headSize= 6;
         Map<Integer,Object> map =new HashMap<Integer,Object>();
         @Cleanup  //自动调用close（）
-        InputStream inputStream = new FileInputStream("E:/testArea/物理模型.xls");
+        InputStream inputStream = new FileInputStream(path);
         POI p =new POI();
-        List<List<Object>> list = p.importExcel(inputStream,"物理模型.xls");
+        String fileName  = new File(path).getName();
+        List<List<Object>> list = p.importExcel(inputStream,fileName);
         for (List<Object> ol:list) {
+            //启用标志0跳过循环
+            if ("0".equals(ol.get(ol.size()-1).toString())){
+                continue;
+            }
             String[] tmpStr =new String[headSize];
             int index =0;
             for (Object obj:ol) {

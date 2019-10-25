@@ -1,4 +1,4 @@
-package learn;
+package com.readwrite.learn;
 
 import java.io.*;
 
@@ -26,7 +26,7 @@ public class RandomAccessFileTest {
             while (bytesRead != -1) {
                 for (int i = 0; i < bytesRead; i++) {
                     str1 = new String(buf);
-                    str2 = new String(str1.getBytes("utf-8"), "utf-8");
+                    str2 = new String(str1.getBytes("ISO-8859-1"), "utf-8");
                     //System.out.print((char) buf[i]);
                     System.out.println(str2);
 

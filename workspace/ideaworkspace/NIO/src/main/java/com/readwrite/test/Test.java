@@ -1,6 +1,6 @@
-package com.test;
+package com.readwrite.test;
 
-import com.utils.SearchPosition;
+import com.readwrite.utils.SearchPosition;
 
 import java.io.File;
 import java.io.IOException;

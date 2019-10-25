@@ -1,4 +1,4 @@
-package learn;
+package com.readwrite.learn;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
