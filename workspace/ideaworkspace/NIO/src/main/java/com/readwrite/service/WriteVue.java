@@ -16,7 +16,7 @@ public class WriteVue {
      * @param targetPath 目标文件路径
      *
      */
-    public static void mvvm(String blankpath,String excelPath ,String targetPath){
+    public static void mvvm(String blankpath,String excelPath ,String targetPath,String replaceStr){
         File file;
         RandomAccessFile raf;
         String txt = "";
@@ -34,7 +34,7 @@ public class WriteVue {
                 System.out.println("第"+entry.getKey()+"行数据结构:"+t);
                 //整合模本 excel数据
                 String columStr = ToCamelFormat.UnderlineToCamel(t.getColumUS()) ;
-                String tmpStr = blankStr.replace("3721",columStr);
+                String tmpStr = blankStr.replace(replaceStr,columStr);
                 txt+= tmpStr+"\n";
                 System.out.println("整合数据:"+txt);
             }

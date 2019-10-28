@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class APP {
     public static void main(String[] args) throws Exception {
-        //WriteVue.mvvm(e:/testArea/exmple.txt"e:/testArea/物理模型.xls","e:/testArea/exmple.txt");
+        //WriteVue.mvvm(e:/testArea/exmple.txt"e:/testArea/物理模型.xls","e:/testArea/exmple.txt","3721");
         WriteJSON.writeJ("e:/testArea/物理模型.xls","e:/testArea/json.txt","xxinfo");
     }
 

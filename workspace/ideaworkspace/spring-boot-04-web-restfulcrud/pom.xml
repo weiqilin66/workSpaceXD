@@ -19,6 +19,7 @@
     </properties>
 
     <dependencies>
+        <!--starter：spring-boot场景启动器；帮我们导入了模块正常运行所依赖的组件-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -54,6 +55,7 @@
     </dependencies>
 
     <build>
+        <!--快速部署打包成可运行jar包-->
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
