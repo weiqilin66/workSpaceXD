@@ -14,9 +14,9 @@ public class WriteVue {
      * @param blankpath  模板路径
      * @param excelPath  excel路径
      * @param targetPath 目标文件路径
-     * @param headSize  excel列数 默认6
+     *
      */
-    public static void mvvm(String blankpath,String excelPath ,String targetPath,int headSize){
+    public static void mvvm(String blankpath,String excelPath ,String targetPath){
         File file;
         RandomAccessFile raf;
         String txt = "";
@@ -28,7 +28,7 @@ public class WriteVue {
             String blankStr = ReadReplaceInsert.RAFreadTxt(raf);
             System.out.println("初始模本："+blankStr);
             //读取物理模型
-            Map<Integer,Object> map = ReadExcelServiceImpl.getInfo(excelPath,headSize);
+            Map<Integer,Object> map = ReadExcelServiceImpl.getInfo(excelPath);
             for(Map.Entry<Integer,Object> entry : map.entrySet()){
                 TableQ t =  (TableQ)entry.getValue();
                 System.out.println("第"+entry.getKey()+"行数据结构:"+t);

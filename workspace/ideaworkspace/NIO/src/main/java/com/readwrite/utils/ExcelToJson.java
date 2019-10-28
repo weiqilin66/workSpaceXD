@@ -8,9 +8,9 @@ import java.io.RandomAccessFile;
 import java.util.Map;
 
 public class ExcelToJson {
-    public static String toJ( String excelPath,int headSize,String headStr) throws Exception {
+    public static String toJ( String excelPath,String headStr) throws Exception {
 
-        Map<Integer,Object> map = ReadExcelServiceImpl.getInfo(excelPath,headSize);
+        Map<Integer,Object> map = ReadExcelServiceImpl.getInfo(excelPath);
         String Json ="";
         String str ="";
         for(Map.Entry<Integer,Object> entry : map.entrySet()){

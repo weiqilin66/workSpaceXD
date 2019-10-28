@@ -15,12 +15,11 @@ public class WriteJSON {
      *
      * @param excelPath
      * @param targetPath 目标文件写入
-     * @param headSize excel的字段数 默认6
      * @param headStr json的主key
      * @throws Exception
      */
-    public static void writeJ(String excelPath,String targetPath,int headSize,String headStr) throws Exception {
-        String JsonStr = ExcelToJson.toJ(excelPath,headSize,headStr);
+    public static void writeJ(String excelPath,String targetPath,String headStr) throws Exception {
+        String JsonStr = ExcelToJson.toJ(excelPath,headStr);
 
         File file = new File(targetPath);
         RandomAccessFile raf = new RandomAccessFile(file,"rw");
