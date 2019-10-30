@@ -7,13 +7,14 @@
 
     <groupId>com.lwq</groupId>
     <artifactId>readExcel-replaceTxt-Impl</artifactId>
-
+    <version>0.0.1-SNAPSHOT</version>
     <dependencies>
        
         <!--集成接口-->
         <dependency>
             <groupId>com.lwq</groupId>
             <artifactId>readExcel-replaceTxt-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

@@ -9,7 +9,7 @@
     <artifactId>first-microService</artifactId>
     <packaging>pom</packaging>
     <!--1.0是测试版自动找最新的用,0.1是正式版使用本地仓库不去远程仓库找最新-->
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -101,6 +101,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- MBG -->
+        <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core -->
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>1.3.5</version>
+        </dependency>
     </dependencies>
 
 

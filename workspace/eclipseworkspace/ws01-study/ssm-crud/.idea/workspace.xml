@@ -1,15 +1,184 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="864bd2c3-aa66-4c46-a04f-efa58dba3cad" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/ssm_crud_war.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/ssm_crud_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_1_18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_8_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_0_9_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_5_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jstl_jstl_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_4_1_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_0_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_generator_mybatis_generator_core_1_3_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_4_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_4_3_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_3_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_3_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ssm-crud.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ideaworkspace/firstMicroService/utils-colection1/src/main/java/com/lwq/mbg/MyBatisGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ideaworkspace/firstMicroService/utils-colection1/src/main/resources/generator/mbg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ideaworkspace/firstMicroService/utils-colection1/target/classes/com/lwq/mbg/MyBatisGenerator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ideaworkspace/firstMicroService/utils-colection1/target/classes/com/lwq/poi/POI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ideaworkspace/firstMicroService/utils-colection1/target/classes/generator/mbg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crud/bean/Department.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/crud/bean/Department.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crud/bean/DepartmentExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/crud/bean/DepartmentExample$Criteria.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crud/bean/DepartmentExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/crud/bean/DepartmentExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crud/bean/DepartmentExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/crud/bean/DepartmentExample$GeneratedCriteria.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crud/bean/DepartmentExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/crud/bean/DepartmentExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crud/bean/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/crud/bean/Employee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crud/bean/EmployeeExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/crud/bean/EmployeeExample$Criteria.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crud/bean/EmployeeExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/crud/bean/EmployeeExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crud/bean/EmployeeExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/crud/bean/EmployeeExample$GeneratedCriteria.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crud/bean/EmployeeExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/crud/bean/EmployeeExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crud/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/crud/controller/EmployeeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crud/dao/DepartmentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/crud/dao/DepartmentMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crud/dao/EmployeeMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/crud/dao/EmployeeMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crud/service/EmployeeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/crud/service/EmployeeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crud/test/MBG.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/crud/test/MBG.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crud/test/TestJunit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/crud/test/TestJunit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crud/test/TestMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/crud/test/TestMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crud/test/TestSpringRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/crud/test/TestSpringRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ideaworkspace/firstMicroService/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ideaworkspace/firstMicroService/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ideaworkspace/firstMicroService/ccb-API/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ideaworkspace/firstMicroService/ccb-API/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ideaworkspace/firstMicroService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ideaworkspace/firstMicroService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ideaworkspace/firstMicroService/readExcel-replaceTxt-Impl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ideaworkspace/firstMicroService/readExcel-replaceTxt-Impl/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ideaworkspace/firstMicroService/utils-colection1/src/main/resources/gennerator/generatorConfig.xml" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\workSpaceXD\workspace\eclipseworkspace\ws01-study\ssm-crud\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\repository" />
+        <option name="mavenHome" value="D:/apache-maven-3.6.1" />
+        <option name="userSettingsFile" value="D:\apache-maven-3.6.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1SupYK2lwjptQYcOpTOBQ0PXniv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="MBG" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.crud.test.MBG" />
+      <module name="ssm-crud" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.crud.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MBG" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="864bd2c3-aa66-4c46-a04f-efa58dba3cad" name="Default Changelist" comment="" />
+      <created>1572423380907</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1572423380907</updated>
+      <workItem from="1572423382206" duration="2568000" />
+      <workItem from="1572428539605" duration="235000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
