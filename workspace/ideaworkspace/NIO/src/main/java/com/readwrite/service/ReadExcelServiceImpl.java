@@ -30,7 +30,7 @@ public class ReadExcelServiceImpl {
         @Cleanup  //自动调用close（）
         InputStream inputStream = new FileInputStream(path);
         //headSize = new HSSFWorkbook(inputStream).getSheetAt(0).getRow(0).getLastCellNum();
-        //以上发现bug nio读写操作失败,inputstream被占用;
+        //以上发现bug nio读写操作失败, 流线程阻塞;
         POI p =new POI();
         String fileName  = new File(path).getName();
         List<List<Object>> list = p.importExcel(inputStream,fileName);
