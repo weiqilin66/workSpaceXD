@@ -23,6 +23,7 @@
         <module>ccb-API</module>
         <module>readExcel-replaceTxt-Impl</module>
         <module>utils-colection1</module>
+
     </modules>
 
     <!--maven产生的文档用-->
@@ -71,7 +72,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-            <version>2.0.3.RELEASE</version>
+
         </dependency>
 
 
