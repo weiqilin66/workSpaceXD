@@ -22,7 +22,7 @@
       <module name="ccbAPI" options="-parameters" />
       <module name="eureka-service" options="-parameters" />
       <module name="firstMicroService" options="-parameters" />
-      <module name="readExcelreplaceTxtImpl" options="" />
+      <module name="readExcelreplaceTxtImpl" options="-parameters" />
       <module name="readExcelreplaceTxtapi" options="-parameters" />
       <module name="utils-colection1" options="-parameters" />
     </option>
