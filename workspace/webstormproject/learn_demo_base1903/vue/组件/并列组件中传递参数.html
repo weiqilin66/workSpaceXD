@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!--与 子传父类似 ,区别要额外一个vue对象去触发事件,接受的组件$on去接受数据-->
+<body>
+<div id ="app">
+    {{msg}}
+    <brother></brother>
+</div>
+<template id="b1">
+    <div>{{b1}},{{b2}}</div>
+</template>
+</body>
+
+<script>
+    const event = new Vue({})
+    const vm  = new Vue({
+        el:"#app",
+        data:{
+            msg:"vue"
+        },
+        components:{
+            "brother":{
+                template:"#b1",
+                data(){
+                    return{
+                        b1:"1",
+                        b2:""
+                    }
+                },
+                mounted() {
+                    event.$on("push",b2=>{
+                        this.b2 = b2
+                    })
+                }
+            }
+        },
+        components:{
+            "brother2":{
+                template:"<li>2</li>",
+                data(){
+                    return{
+                        b2:"2"
+                    }
+                },
+                mounted() {
+                    event.$emit("push",this.b2)
+                }
+            }
+        }
+    })
+
+</script>
+</html>

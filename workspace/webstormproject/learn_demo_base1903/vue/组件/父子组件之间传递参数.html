@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件之间传参</title>
+</head>
+<!--
+子组件获取父组件:
+props
+父组件获取子组件data:
+子组件emit方法触发自定义事件,发送数据,事件与父组件中的事件进行关联
+在子组件的生命周期mounted挂载该事件
+-->
+<body>
+<div id="app">
+    {{msg}}
+    <father></father>
+</div>
+
+<template id="t1">
+    <div>
+        我是父组件,{{attr1}},得到子组件中的{{attr2}}
+        <!--父子组件之间传递参数,在template中的子组件指令中进行关联-->
+        <son :attr1 ="attr1" :attr3="attr3" @e-world="getData"></son>
+        <!--子组件中使用prop发送请求的参数(?接受属性),通过v-bind指令:绑定父组件中的属性-->
+        <!--子组件中定义触发事件并发送参数,通过v-on指令@绑定父组件中的方法-->
+    </div>
+</template>
+
+<template id="t2">
+    <div>
+        <p>我是子组件,{{attr2}} ,</p>
+        得到父组件参数{{attr1}},{{attr3}}
+    </div>
+</template>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const vm  = new Vue({
+        el:"#app",
+        data:{
+            msg:"Vue~\n"
+        },
+        components:{
+            "father":{
+                template:"#t1",
+                data(){
+                    return{
+                        attr1:"fatherData",
+                        attr3:"aaa",
+                        attr2:""
+                    }
+                },
+                methods:{
+                  getData(attr2){
+                      this.attr2 = attr2
+                  }
+                },
+                //组件内定义组为子组件,子组件只能在父组件里使用
+                components: {
+                    "son":{
+                        template: "#t2",
+                        data(){
+                            return {
+                                attr2:"sonData"
+                            }
+                        },
+                        props:["attr1","attr3"],
+                        //挂载完执行
+                        mounted(){
+                            this.$emit("e-world",this.attr2)
+                        }
+                    }
+                }
+            }
+        },
+
+    })
+</script>
+</html>

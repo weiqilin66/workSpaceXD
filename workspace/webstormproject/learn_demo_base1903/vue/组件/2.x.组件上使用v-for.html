@@ -7,7 +7,7 @@
 </head>
 <body>
 <div id="app">
-    <form v-on:submit.prevent="addNewTodo">
+    <form :submit.prevent="addNewTodo">
         <label for="new-todo">Add a todo</label>
         <input
                 v-model="newTodoText"
@@ -20,9 +20,9 @@
         <li
                 is="todo-item"
                 v-for="(todo, index) in todos"
-                v-bind:key="todo.id"
-                v-bind:title="todo.title"
-                v-on:remove="todos.splice(index, 1)"
+                :key="todo.id"
+                :title="todo.title"
+                :remove="todos.splice(index, 1)"
         ></li>
     </ul>
 
@@ -35,7 +35,7 @@
         template: '\
     <li>\
       {{ title }}\
-      <button v-on:click="$emit(\'remove\')">Remove</button>\
+      <button :click="$emit(\'remove\')">Remove</button>\
     </li>\
   ',
         props: ['title']

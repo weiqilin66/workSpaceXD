@@ -1,0 +1,6 @@
+tip1:实体和vo写一个工程包方便分离复用,实现类用dependency集成需要的实体vo
+
+tip2:jsp的ssm时期,使用ajax发送请求和后台交互
+前后端分离使用axio等实现前后台交互
+
+tip3:

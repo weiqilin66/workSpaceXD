@@ -2,7 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="864bd2c3-aa66-4c46-a04f-efa58dba3cad" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../ideaworkspace/firstMicroService/readExcel-replaceTxt-Impl/src/test/java/BaoFu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../webstormproject/learn_demo_base1903/vue/组件/并列组件中传递参数.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../webstormproject/learn_demo_base1903/vue/组件/父子组件之间传递参数.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../webstormproject/vue-stu/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ideaworkspace/eureka-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ideaworkspace/eureka-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ideaworkspace/eureka-service/src/test/java/com/lwq/eurekaservice/EurekaServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ideaworkspace/firstMicroService/readExcel-replaceTxt-Impl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ideaworkspace/firstMicroService/readExcel-replaceTxt-Impl/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ideaworkspace/firstMicroService/readExcel-replaceTxt-Impl/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ideaworkspace/firstMicroService/readExcel-replaceTxt-Impl/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../webstormproject/learn_demo_base1903/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../webstormproject/learn_demo_base1903/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../webstormproject/learn_demo_base1903/demo1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../webstormproject/learn_demo_base1903/vue/基础/10.is用来动态切换组件.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../webstormproject/learn_demo_base1903/vue/基础/10.is用来动态切换组件.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../webstormproject/learn_demo_base1903/vue/基础/8.表单绑定.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../webstormproject/learn_demo_base1903/vue/基础/8.表单绑定.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../webstormproject/learn_demo_base1903/vue/组件/2.x.组件上使用v-for.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../webstormproject/learn_demo_base1903/vue/组件/2.x.组件上使用v-for.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../webstormproject/learn_demo_base1903/vue/组件/3.组件.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../webstormproject/learn_demo_base1903/vue/组件/向组件传递参数.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../webstormproject/learn_demo_base1903/vue/组件/组件之间传参.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../webstormproject/vue-stu/component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../webstormproject/vue-stu/demo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../webstormproject/vue-stu/js/vue.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../webstormproject/vue-stu/js/vue.min.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,6 +113,7 @@
       <workItem from="1572423382206" duration="2568000" />
       <workItem from="1572428539605" duration="919000" />
       <workItem from="1572577912343" duration="607000" />
+      <workItem from="1576120995171" duration="1692000" />
     </task>
     <servers />
   </component>

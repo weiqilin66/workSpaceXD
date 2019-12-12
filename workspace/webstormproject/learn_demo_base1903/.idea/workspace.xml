@@ -2,28 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9946173-1daf-4a59-8313-1f6dddf4e0ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../ideaworkspace/firstMicroService/readExcel-replaceTxt-Impl/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ideaworkspace/firstMicroService/readExcel-replaceTxt-Impl/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue/组件/2.x.组件上使用v-for.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../vue-stu/component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../vue-stu/demo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../vue-stu/js/vue.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../vue-stu/js/vue.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ideaworkspace/firstMicroService/readExcel-replaceTxt-Impl/src/test/java/BaoFu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/组件/并列组件中传递参数.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/组件/父子组件之间传递参数.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vue-stu/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ideaworkspace/eureka-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ideaworkspace/eureka-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ideaworkspace/eureka-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ideaworkspace/eureka-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ideaworkspace/eureka-service/src/test/java/com/lwq/eurekaservice/EurekaServiceApplicationTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ideaworkspace/firstMicroService/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ideaworkspace/firstMicroService/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ideaworkspace/firstMicroService/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ideaworkspace/firstMicroService/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ideaworkspace/firstMicroService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ideaworkspace/firstMicroService/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ideaworkspace/firstMicroService/readExcel-replaceTxt-Impl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ideaworkspace/firstMicroService/readExcel-replaceTxt-Impl/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ideaworkspace/firstMicroService/readExcel-replaceTxt-Impl/src/main/java/com/lwq/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ideaworkspace/firstMicroService/readExcel-replaceTxt-Impl/src/main/java/com/lwq/app/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ideaworkspace/spring-boot-04-web-restfulcrud/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ideaworkspace/spring-boot-04-web-restfulcrud/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ideaworkspace/spring-boot-04-web-restfulcrud/target/classes/com/atguigu/springboot/SpringBoot04WebRestfulcrudApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../ideaworkspace/spring-boot-04-web-restfulcrud/target/classes/com/atguigu/springboot/SpringBoot04WebRestfulcrudApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ideaworkspace/spring-boot-04-web-restfulcrud/target/classes/com/atguigu/springboot/config/MyMvcConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../ideaworkspace/spring-boot-04-web-restfulcrud/target/classes/com/atguigu/springboot/config/MyMvcConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ideaworkspace/firstMicroService/readExcel-replaceTxt-Impl/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../ideaworkspace/firstMicroService/readExcel-replaceTxt-Impl/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/基础/2.x.组件上使用v-for.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue/基础/2.x.组件上使用v-for.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/基础/3.组件.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue/组件/3.组件.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/通过自定义事件让子组件传递数据给父组件.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue/组件/通过自定义事件让子组件传递数据给父组件.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/基础/10.is用来动态切换组件.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue/基础/10.is用来动态切换组件.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/基础/8.表单绑定.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue/基础/8.表单绑定.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/组件/2.x.组件上使用v-for.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue/组件/2.x.组件上使用v-for.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/组件/3.组件.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue/组件/向组件传递参数.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/组件/组件之间传参.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-stu/component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-stu/demo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-stu/js/vue.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-stu/js/vue.min.js" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,26 +36,36 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue/基础/11.特殊标签内部只能包含特定的标签此时使用is来注入组件.html">
+        <entry file="file://$PROJECT_DIR$/vue/组件/并列组件中传递参数.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-360" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue/基础/4.watch监听器.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+            <state relative-caret-position="297">
+              <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vue/基础/7.监听事件,事件修饰符.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/vue/组件/组件之间传参.html">
+        <entry file="file://$PROJECT_DIR$/vue/基础/4.watch监听器.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="243">
-              <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+              <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vue/组件/父子组件之间传递参数.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1566">
+              <caret line="61" column="27" selection-start-line="61" selection-start-column="27" selection-end-line="61" selection-end-column="27" />
+              <folding>
+                <element signature="n#head#0;n#html#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -93,6 +102,14 @@
         <option value="$PROJECT_DIR$/vue/基础/2.x.组件上使用v-for.html" />
         <option value="$PROJECT_DIR$/vue/通过自定义事件让子组件传递数据给父组件.html" />
         <option value="$PROJECT_DIR$/vue/基础/4.watch监听器.html" />
+        <option value="$PROJECT_DIR$/vue/基础/10.is用来动态切换组件.html" />
+        <option value="$PROJECT_DIR$/vue/组件/3.组件.html" />
+        <option value="$PROJECT_DIR$/vue/组件/向组件传递参数.html" />
+        <option value="$PROJECT_DIR$/vue/组件/组件之间传参.html" />
+        <option value="$PROJECT_DIR$/vue/组件/2.x.组件上使用v-for.html" />
+        <option value="$PROJECT_DIR$/vue/基础/8.表单绑定.html" />
+        <option value="$PROJECT_DIR$/demo1.html" />
+        <option value="$PROJECT_DIR$/vue/组件/并列组件中传递参数.html" />
       </list>
     </option>
   </component>
@@ -122,34 +139,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="lean_demo_base1903" type="b2602c69:ProjectViewProjectNode" />
-              <item name="learn_demo_base1903" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lean_demo_base1903" type="b2602c69:ProjectViewProjectNode" />
-              <item name="learn_demo_base1903" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lean_demo_base1903" type="b2602c69:ProjectViewProjectNode" />
-              <item name="learn_demo_base1903" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
-              <item name="基础" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lean_demo_base1903" type="b2602c69:ProjectViewProjectNode" />
-              <item name="learn_demo_base1903" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
-              <item name="组件" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -162,14 +152,17 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workSpaceXD\workspace\webstormproject\learn_demo_base1903\vue\组件" />
+      <recent name="D:\workSpaceXD\workspace\webstormproject\learn_demo_base1903\vue\基础" />
+      <recent name="D:\webstormproject\learn_demo_base1903\vue" />
+      <recent name="D:\webStormProject\myProject01" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\workSpaceXD\workspace\webstormproject\learn_demo_base1903\vue\组件" />
       <recent name="D:\webstormproject\learn_demo_base1903" />
       <recent name="D:\webStormProject\learn_demo_base1903\vue" />
       <recent name="D:\webStormProject\myProject01\statis\js" />
-      <recent name="D:\webStormProject\myProject01" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\webstormproject\learn_demo_base1903\vue" />
       <recent name="D:\webStormProject\myProject01" />
     </key>
   </component>
@@ -242,18 +235,26 @@
       <workItem from="1567406426521" duration="6884000" />
       <workItem from="1569377608596" duration="1272000" />
       <workItem from="1569402702627" duration="151000" />
-      <workItem from="1574316838639" duration="490000" />
+      <workItem from="1574316838639" duration="8466000" />
+      <workItem from="1576048113328" duration="536000" />
     </task>
+    <task id="LOCAL-00001" summary=".">
+      <created>1574317426057</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574317426057</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35924000" />
+    <option name="totallyTimeSpent" value="44436000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33482143" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22544643" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -264,7 +265,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.17156863" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -274,6 +275,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -395,20 +400,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue/组件/2.x.组件上使用v-for.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="48" lean-forward="true" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue/组件/通过自定义事件让子组件传递数据给父组件.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="72" selection-start-line="5" selection-start-column="72" selection-end-line="5" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vue/基础/2.x.组件上使用v-for.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -417,17 +408,70 @@
         <state relative-caret-position="-360" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue/基础/4.watch监听器.html">
+    <entry file="file://$PROJECT_DIR$/vue/基础/10.is用来动态切换组件.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+        <state relative-caret-position="135">
+          <caret line="5" column="72" selection-start-line="5" selection-start-column="72" selection-end-line="5" selection-end-column="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue/组件/组件之间传参.html">
+    <entry file="file://$PROJECT_DIR$/vue/组件/向组件传递参数.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="51" column="44" lean-forward="true" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
+          <folding>
+            <element signature="e#887#930#0" />
+            <element signature="e#1449#1753#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/组件/2.x.组件上使用v-for.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-816">
+          <caret line="33" column="32" lean-forward="true" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/组件/通过自定义事件让子组件传递数据给父组件.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-675">
+          <caret line="5" column="72" selection-start-line="5" selection-start-column="72" selection-end-line="5" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/基础/8.表单绑定.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-951">
+          <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1.html" />
+    <entry file="file://$PROJECT_DIR$/vue/组件/并列组件中传递参数.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/基础/7.监听事件,事件修饰符.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/组件/父子组件之间传递参数.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1566">
+          <caret line="61" column="27" selection-start-line="61" selection-start-column="27" selection-end-line="61" selection-end-column="27" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/基础/4.watch监听器.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
-          <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
         </state>
       </provider>
     </entry>
