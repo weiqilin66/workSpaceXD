@@ -8,12 +8,12 @@
 <body>
 <div id="app">
     <ol>
-        <!-- 创建一个 不带参基础组件 -->
+        <!-- 不带参基础组件 -->
         <todo-item></todo-item>
     </ol>
 
     <ol>
-        <!--v-bind 指令将待办项传到循环输出的每个组件-->
+        <!--v-bind 指令将值传到循环输出的每个组件-->
         <todo-item2
                 v-for="item in groceryList"
                 :todo="item"
@@ -42,7 +42,7 @@
 <script type="text/javascript">
     //全局
     Vue.component('todo-item', {
-        template: '<li>这是个待办项</li>'
+        template: '<li>这是个不带参组件</li>'
     })
 
     Vue.component('todo-item2', {

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/3.1.3/vue-router.js"></script>
+<body>
+<div id="app">
+    <router-link to="/home">goto主页</router-link>
+    <router-link to="/news">goto新闻</router-link>
+    <router-link to="/user">goto用户</router-link>
+    <!--配合,显示跳转的内容-->
+    <div>
+       <!-- <router-view></router-view>-->
+    </div>
+    <template id = "t1">
+        <div>
+            <h3>用户信息</h3><!--当拥有子路由时,父路由的内容会直接显示 -->
+            <!--路由url传值-->
+            <router-link to="/user/login?name=jones">登录</router-link>
+            <router-link to="/user/reg">注册</router-link>
+
+        </div>
+    </template>
+    <div>
+        <router-view></router-view>
+    </div>
+</div>
+</body>
+<script>
+    //定义全局组件
+    var home = {
+        template:"<h1>主页</h1>"
+    }
+    var news = {
+        template: "<h1>新闻</h1>"
+    }
+    var user =({
+        template:"#t1"
+    })
+    var login = ({
+        template: "<div><h1>登录</h1>{{$route.query.name}}</div>"
+    })
+    var  reg= ({
+        template: "<h1>注册</h1>"
+    })
+    //配置路由
+    var routes=[
+        {path:"/home",component:home},
+        {path:"/news",component:news},
+        //{path:"/",redirect:"/home"},
+    //子路由事例
+        {path:"/user",component:user,
+        children:[
+            {path:"/user/login",component:login},
+            {path:"/user/reg",component:reg},
+        ]
+        }
+    ]
+    //实例化一个vuerouter的实例
+    var router = new VueRouter({
+        routes
+    });
+    //路由对象挂在到一个vue对象上
+    const vm = new Vue({
+        el:"#app",
+        router  //参数名和变量名相等时省略,等价于router = router
+    })
+</script>
+
+</html>
