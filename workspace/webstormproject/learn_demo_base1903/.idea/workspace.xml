@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e9946173-1daf-4a59-8313-1f6dddf4e0ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/组件/向组件传递参数.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue/组件/向组件传递参数.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/组件/并列组件中传递参数.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue/组件/并列组件之间传递参数.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/组件/通过自定义事件让子组件传递数据给父组件.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue/组件/(补充)通过自定义事件让子组件传递数据给父组件.html" afterDir="false" />
-    </list>
+    <list default="true" id="e9946173-1daf-4a59-8313-1f6dddf4e0ee" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -97,35 +92,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="lean_demo_base1903" type="b2602c69:ProjectViewProjectNode" />
-              <item name="learn_demo_base1903" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lean_demo_base1903" type="b2602c69:ProjectViewProjectNode" />
-              <item name="learn_demo_base1903" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lean_demo_base1903" type="b2602c69:ProjectViewProjectNode" />
-              <item name="learn_demo_base1903" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
-              <item name="路由router" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../vue-cli-demo1912" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -217,7 +191,7 @@
       <workItem from="1569402702627" duration="151000" />
       <workItem from="1574316838639" duration="8466000" />
       <workItem from="1576048113328" duration="536000" />
-      <workItem from="1576200677293" duration="6345000" />
+      <workItem from="1576200677293" duration="7522000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1574317426057</created>
@@ -230,11 +204,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50781000" />
+    <option name="totallyTimeSpent" value="51958000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1320" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22932917" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
