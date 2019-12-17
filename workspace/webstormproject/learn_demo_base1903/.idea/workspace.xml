@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e9946173-1daf-4a59-8313-1f6dddf4e0ee" name="Default Changelist" comment="" />
+    <list default="true" id="e9946173-1daf-4a59-8313-1f6dddf4e0ee" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../vue-cli-demo1912/src/request/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vue-cli-demo1912/src/request/http.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vue-cli-demo1912/src/views/layout/Menu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ideaworkspace/ccbMicroService1910/test-demo/src/main/java/com/lwq/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ideaworkspace/ccbMicroService1910/test-demo/src/main/java/com/lwq/app/TeatConnectionApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ideaworkspace/ccbMicroService1910/test-demo/target/classes/com/lwq/app/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-cli-demo1912/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-cli-demo1912/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-cli-demo1912/node.md" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-cli-demo1912/node.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-cli-demo1912/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-cli-demo1912/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-cli-demo1912/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-cli-demo1912/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-cli-demo1912/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-cli-demo1912/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-cli-demo1912/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-cli-demo1912/src/components/HelloWorld.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-cli-demo1912/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-cli-demo1912/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-cli-demo1912/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-cli-demo1912/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-cli-demo1912/src/views/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-cli-demo1912/src/views/Login.vue" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -16,8 +32,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vue/路由router/跳转到某个组件,router传值.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="28" column="10" lean-forward="true" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+            <state relative-caret-position="-690">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -79,10 +95,9 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="10" />
-    <option name="y" value="20" />
-    <option name="width" value="1346" />
-    <option name="height" value="688" />
+    <option name="x" value="5" />
+    <option name="width" value="1294" />
+    <option name="height" value="768" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="添加" />
@@ -92,7 +107,34 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="lean_demo_base1903" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learn_demo_base1903" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lean_demo_base1903" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learn_demo_base1903" type="462c0819:PsiDirectoryNode" />
+              <item name="vue" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lean_demo_base1903" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learn_demo_base1903" type="462c0819:PsiDirectoryNode" />
+              <item name="vue" type="462c0819:PsiDirectoryNode" />
+              <item name="组件" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lean_demo_base1903" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learn_demo_base1903" type="462c0819:PsiDirectoryNode" />
+              <item name="vue" type="462c0819:PsiDirectoryNode" />
+              <item name="路由router" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
     </panes>
   </component>
@@ -192,6 +234,9 @@
       <workItem from="1574316838639" duration="8466000" />
       <workItem from="1576048113328" duration="536000" />
       <workItem from="1576200677293" duration="7522000" />
+      <workItem from="1576461318961" duration="642000" />
+      <workItem from="1576551371755" duration="887000" />
+      <workItem from="1576556876300" duration="16000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1574317426057</created>
@@ -204,10 +249,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51958000" />
+    <option name="totallyTimeSpent" value="53503000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1320" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22932917" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -430,8 +476,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vue/路由router/跳转到某个组件,router传值.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="28" column="10" lean-forward="true" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+        <state relative-caret-position="-690">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>

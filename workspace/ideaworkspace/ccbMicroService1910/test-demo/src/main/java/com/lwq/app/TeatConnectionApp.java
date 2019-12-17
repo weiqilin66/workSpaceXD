@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableEurekaClient
 @SpringBootApplication
 @RestController
-public class App {
+public class TeatConnectionApp {
     public static void main(String[] args) {
-        SpringApplication.run(App.class, args);
+        SpringApplication.run(TeatConnectionApp.class, args);
     }
     //@Value读取application.properties 或者yml里面的属性值复制给注解的属性
     @Value("${server.port}")
