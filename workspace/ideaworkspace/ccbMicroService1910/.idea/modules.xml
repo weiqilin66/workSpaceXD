@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ccbMicroService1910.iml" filepath="$PROJECT_DIR$/.idea/ccbMicroService1910.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lwq-API/lwq-API.iml" filepath="$PROJECT_DIR$/lwq-API/lwq-API.iml" />
     </modules>
   </component>
 </project>

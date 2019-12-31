@@ -6,18 +6,27 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="testdemo" />
-        <module name="eureka-fornow" />
-        <module name="lwq-common" />
         <module name="lwqAPI" />
+        <module name="lwq-common" />
+        <module name="test-demo" />
+        <module name="lwq-API" />
+        <module name="testdemo" />
+        <module name="eureka-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="eureka-fornow" target="1.8" />
+      <module name="lwq-API" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="eureka-fornow" options="-parameters" />
+      <module name="eureka-service" options="-parameters" />
+      <module name="lwq-API" options="-parameters" />
       <module name="lwq-common" options="-parameters" />
       <module name="lwqAPI" options="-parameters" />
+      <module name="test-demo" options="-parameters" />
       <module name="testdemo" options="-parameters" />
     </option>
   </component>
