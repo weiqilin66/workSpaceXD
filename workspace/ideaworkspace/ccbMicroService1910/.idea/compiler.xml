@@ -6,12 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="lwqAPI" />
+        <module name="lwq-API" />
         <module name="lwq-common" />
         <module name="test-demo" />
-        <module name="lwq-API" />
+        <module name="ribbon-service" />
         <module name="testdemo" />
         <module name="eureka-service" />
+        <module name="system-service" />
+        <module name="lwqAPI" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -26,6 +28,8 @@
       <module name="lwq-API" options="-parameters" />
       <module name="lwq-common" options="-parameters" />
       <module name="lwqAPI" options="-parameters" />
+      <module name="ribbon-service" options="-parameters" />
+      <module name="system-service" options="-parameters" />
       <module name="test-demo" options="-parameters" />
       <module name="testdemo" options="-parameters" />
     </option>

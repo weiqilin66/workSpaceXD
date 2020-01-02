@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api':{// 拦截了所有带有api的请求并把url中api及之前的替换成target的内容
-        target: "http://localhost:8763",
+        target: "http://localhost:90000",
         changeOrigin:true,
         pathRewrite:{
           '^/api':''

@@ -111,6 +111,8 @@
         <module>lwq-common</module>
         <module>lwq-API</module>
         <module>test-demo</module>
+        <module>system-service</module>
+        <module>ribbon-service</module>
     </modules>
 
 
