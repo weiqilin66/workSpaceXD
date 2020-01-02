@@ -42,7 +42,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+        <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
     </properties>
 
     <dependencyManagement><!--dependencyManagement统一管理cloud的所有依赖版本-->
@@ -111,8 +111,9 @@
         <module>lwq-common</module>
         <module>lwq-API</module>
         <module>test-demo</module>
-        <module>system-service</module>
-        <module>ribbon-service</module>
+        <module>service-system</module>
+        <module>service-ribbon</module>
+        <module>service-feign</module>
     </modules>
 
 
