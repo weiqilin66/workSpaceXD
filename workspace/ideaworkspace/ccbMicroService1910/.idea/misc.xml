@@ -21,6 +21,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/lwq-API/pom.xml" />
+        <option value="$PROJECT_DIR$/test-demo/pom.xml" />
       </set>
     </option>
   </component>

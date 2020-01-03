@@ -114,6 +114,8 @@
         <module>service-system</module>
         <module>service-ribbon</module>
         <module>service-feign</module>
+        <module>service-hi</module>
+        <module>service-miya</module>
     </modules>
 
 

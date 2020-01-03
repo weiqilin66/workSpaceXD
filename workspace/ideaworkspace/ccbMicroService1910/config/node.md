@@ -1,0 +1,1 @@
+1. 使用rabbitMq ,让配置更改生效,不用重启服务https://www.fangzhipeng.com/springcloud/2018/08/08/sc-f8-bus.html
