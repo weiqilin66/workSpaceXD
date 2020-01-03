@@ -6,6 +6,6 @@
             解决:
             启动类放上级目录或者注解@SpringBootApplication(scanBasePackages = "com") 就会扫描com下目录
              
-     2.            
+     2. zuul无响应,port 6开头无效,不知所以           
      
              

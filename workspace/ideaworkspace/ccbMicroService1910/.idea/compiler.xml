@@ -6,16 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="service-config" />
         <module name="zuul" />
         <module name="lwqAPI" />
         <module name="lwq-common" />
-        <module name="service-feign" />
+        <module name="client-config" />
         <module name="eureka" />
+        <module name="service-feign" />
         <module name="test-demo" />
-        <module name="lwq-API" />
         <module name="testdemo" />
         <module name="service-ribbon" />
+        <module name="lwq-API" />
         <module name="service-system" />
+        <module name="config" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -25,11 +28,14 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="client-config" options="-parameters" />
+      <module name="config" options="-parameters" />
       <module name="eureka" options="-parameters" />
       <module name="eureka-fornow" options="-parameters" />
       <module name="lwq-API" options="-parameters" />
       <module name="lwq-common" options="-parameters" />
       <module name="lwqAPI" options="-parameters" />
+      <module name="service-config" options="-parameters" />
       <module name="service-feign" options="-parameters" />
       <module name="service-ribbon" options="-parameters" />
       <module name="service-system" options="-parameters" />
