@@ -6,45 +6,57 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="service-learn-test" />
         <module name="config-client" />
         <module name="service-feign" />
-        <module name="service-system" />
-        <module name="service-miya" />
+        <module name="eureka" />
         <module name="service-hi" />
         <module name="lwqAPI" />
-        <module name="zuul" />
+        <module name="service-system" />
+        <module name="mybatis-plus-MBG" />
         <module name="service-ribbon" />
-        <module name="lwq-common" />
+        <module name="wayneMBG" />
+        <module name="zuul" />
         <module name="testdemo" />
-        <module name="eureka" />
+        <module name="common-API" />
         <module name="config" />
         <module name="config-service" />
-        <module name="lwq-API" />
+        <module name="service-message" />
+        <module name="service-A" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="eureka-fornow" target="1.8" />
       <module name="lwq-API" target="1.8" />
+      <module name="service-message-yuntongxun" target="1.8" />
+      <module name="service-miya" target="1.8" />
       <module name="test-demo" target="1.8" />
+      <module name="wayneMBG" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="common-API" options="-parameters" />
       <module name="config" options="-parameters" />
       <module name="config-client" options="-parameters" />
       <module name="config-service" options="-parameters" />
       <module name="eureka" options="-parameters" />
       <module name="eureka-fornow" options="-parameters" />
       <module name="lwq-API" options="-parameters" />
-      <module name="lwq-common" options="-parameters" />
       <module name="lwqAPI" options="-parameters" />
+      <module name="mybatis-plus-MBG" options="-parameters" />
+      <module name="service-A" options="-parameters" />
       <module name="service-feign" options="-parameters" />
       <module name="service-hi" options="-parameters" />
+      <module name="service-learn-test" options="-parameters" />
+      <module name="service-message" options="-parameters" />
+      <module name="service-message-yuntongxun" options="-parameters" />
       <module name="service-miya" options="-parameters" />
       <module name="service-ribbon" options="-parameters" />
       <module name="service-system" options="-parameters" />
       <module name="test-demo" options="-parameters" />
       <module name="testdemo" options="-parameters" />
+      <module name="wayneMBG" options="-parameters" />
       <module name="zuul" options="-parameters" />
     </option>
   </component>

@@ -19,7 +19,7 @@ public class HiService {
         // 根据服务实例在请求的时候会用具体的url替换掉服务名
         @HystrixCommand(fallbackMethod = "hiError") // 该注解对该方法创建了熔断器的功能
         public String hiService(String name) {
-            return restTemplate.getForObject("http://TEST-CONNECT/hi?name="+name,String.class);
+            return restTemplate.getForObject("http://SERVICE-HI/hi?name="+name,String.class);
         }
         public String hiError(String name){
 

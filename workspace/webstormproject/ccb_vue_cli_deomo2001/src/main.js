@@ -13,7 +13,7 @@ Vue.config.productionTip = false
 
 Vue.prototype.$axios = axios
 
-axios.defaults.baseURL = '/api' // 这样每次请求url带一个域名端口后的的/api前缀 + 配置config/index.js中proxyTable
+axios.defaults.baseURL = '/api' // 这样每次请求url域名端口后添加/api后缀 + 配置config/index.js中proxyTable
 axios.defaults.headers.post['Content-Type'] = 'application/json' // post方式的请求头
 
 Vue.use(ElementUI)

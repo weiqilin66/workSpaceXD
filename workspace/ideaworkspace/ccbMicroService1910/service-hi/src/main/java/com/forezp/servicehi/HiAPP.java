@@ -45,7 +45,7 @@ public class HiAPP {
     }
     @RequestMapping("/info")
     public String info(){
-        LOG.log(Level.INFO, "calling trace service-hi ");
+        LOG.log(Level.INFO, "calling trace service-hi2 ");
 
         return "i'm service-hi";
 

@@ -9,7 +9,7 @@
     <artifactId>ccbMicroService1910</artifactId>
     <packaging>pom</packaging><!--父模块打包类型必须为pom-->
     <version>0.0.1-SNAPSHOT</version><!--0.0.1是正式版使用本地仓库不去远程仓库找最新-->
-<!--引入springboot方式1-->
+    <!--引入springboot方式1-->
     <parent>
         <groupId>org.springframework.boot</groupId><!--此分组的dependency无需指定版本号由parent统一管理-->
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -17,22 +17,22 @@
         <!--指定父项目pom的相对位置,默认是../pom.xml-->
         <relativePath/>
     </parent>
-<!--引入springboot方式2-->
-<!--当需要继承其他父项目时
-使用dependencyManagement管理springboot的版本,本工程的子工程会使用该节点版本 无需显式列出版本号
-统一管理版本号 可以在版本修改时,只需要修改父顶级pom的版本无需修改子工程,如果某个子工程需要使用另一版本号,在该子工程指定版本
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.0.4.RELEASE</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
- -->
+    <!--引入springboot方式2-->
+    <!--当需要继承其他父项目时
+    使用dependencyManagement管理springboot的版本,本工程的子工程会使用该节点版本 无需显式列出版本号
+    统一管理版本号 可以在版本修改时,只需要修改父顶级pom的版本无需修改子工程,如果某个子工程需要使用另一版本号,在该子工程指定版本
+        <dependencyManagement>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-dependencies</artifactId>
+                    <version>2.0.4.RELEASE</version>
+                    <type>pom</type>
+                    <scope>import</scope>
+                </dependency>
+            </dependencies>
+        </dependencyManagement>
+     -->
     <!--maven产生的文档用-->
     <name>ccbMicroService1910</name>
     <description>Demo project for microService</description>
@@ -99,25 +99,43 @@
             <version>1.18.10</version>
             <scope>provided</scope>
         </dependency>
-        <!-- MBG -->
+        <!--服务追踪-->
         <dependency>
-            <groupId>org.mybatis.generator</groupId>
-            <artifactId>mybatis-generator-core</artifactId>
-            <version>1.3.5</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+        <!-- mybatisPlus 核心库 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+        <!-- 引入阿里数据库连接池 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.6</version>
+        </dependency>
+        <!--mysql驱动-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
     <modules>
-        <module>lwq-common</module>
-        <module>lwq-API</module>
-        <module>test-demo</module>
+        <module>common-API</module>
         <module>service-system</module>
         <module>service-ribbon</module>
         <module>service-feign</module>
         <module>service-hi</module>
         <module>service-miya</module>
+        <module>service-A</module>
+        <module>service-learn-test</module>
+        <module>service-A</module>
+        <module>mybatis-plus-MBG</module>
     </modules>
-
 
 
     <!--parent和dependency区别

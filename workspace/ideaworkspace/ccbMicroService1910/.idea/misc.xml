@@ -21,7 +21,10 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/lwq-API/pom.xml" />
+        <option value="$PROJECT_DIR$/service-A/service-message-yuntongxun/pom.xml" />
+        <option value="$PROJECT_DIR$/service-miya/pom.xml" />
         <option value="$PROJECT_DIR$/test-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/wayneMBG/pom.xml" />
       </set>
     </option>
   </component>
