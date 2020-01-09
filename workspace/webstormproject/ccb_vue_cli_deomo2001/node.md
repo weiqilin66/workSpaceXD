@@ -16,7 +16,7 @@ target:
   11. 国际化
   12. 封装axios
 
-Tips & BUG
+Tips & BU
   1. @无法解析为src文件夹
      * IDE 默认无法识别WebStorm ，把 webpack.base.conf.js 的路径填进去就行，可能需要重启 IDE。
      Settings > Languages & Frameworks > JavaScript > Webpack
@@ -35,7 +35,7 @@ Tips & BUG
           * script src=XXX
      * 跨域解决方案
         * 配置proxyTable 拦截url请求转向了zuul ,每次请求再拼接zuul.routers的路径 参考https://blog.csdn.net/yuanlaijike/article/details/80522621
-        * 使用Nginx 
+        * 使用Nginx
 
 
 

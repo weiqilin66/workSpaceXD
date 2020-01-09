@@ -16,11 +16,13 @@
         <option value="$PROJECT_DIR$/config/client-config/pom.xml" />
         <option value="$PROJECT_DIR$/config/config-client/pom.xml" />
         <option value="$PROJECT_DIR$/config/config-service/pom.xml" />
+        <option value="$PROJECT_DIR$/service-B/B-thief/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/lwq-API/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-plus-MBG/pom.xml" />
         <option value="$PROJECT_DIR$/service-A/service-message-yuntongxun/pom.xml" />
         <option value="$PROJECT_DIR$/service-miya/pom.xml" />
         <option value="$PROJECT_DIR$/test-demo/pom.xml" />

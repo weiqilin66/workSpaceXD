@@ -96,7 +96,6 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.10</version>
             <scope>provided</scope>
         </dependency>
         <!--服务追踪-->
@@ -122,19 +121,32 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>c3p0</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.1.2</version>
+        </dependency>
+
     </dependencies>
 
     <modules>
-        <module>common-API</module>
+        <module>wayne-api</module>
         <module>service-system</module>
         <module>service-ribbon</module>
         <module>service-feign</module>
         <module>service-hi</module>
-        <module>service-miya</module>
+        <module>service-learn</module>
         <module>service-A</module>
-        <module>service-learn-test</module>
-        <module>service-A</module>
-        <module>mybatis-plus-MBG</module>
+        <module>service-B</module>
+        <module>service-C</module>
     </modules>
 
 

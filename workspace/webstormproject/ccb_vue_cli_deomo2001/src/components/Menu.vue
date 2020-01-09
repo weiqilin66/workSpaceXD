@@ -119,19 +119,19 @@ export default {
         }
       ]
     }
-  }
-  /* methods: {
-  getList () {
-    const _this = this
-    _this.$axios.get('/hi')
-      .then(response => {
-        alert(response.data)
+  },
+  methods: {
+    getList () {
+      const _this = this
+      _this.$axios.get('/hi')
+        .then(response => {
+          alert(response.data)
         // _this.$router.push(" ") // router编程式导航 <router-link>声明式导航
-      }).catch(error => {
-        console.log(error)
-      })
+        }).catch(error => {
+          console.log(error)
+        })
+    }
   }
-} */
 }
 </script>
 <style>

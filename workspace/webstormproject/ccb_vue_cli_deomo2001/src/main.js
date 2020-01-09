@@ -27,7 +27,7 @@ if (sessionStorage.getItem('user')) {
   store.dispatch('add_Routes', routes)
 }
 // 登录状态判断
-router.beforeEach((to, from, next) => {
+/*router.beforeEach((to, from, next) => {
   if (!sessionStorage.getItem('user') && to.path !== '/login') {
     next({
       path: '/login',
@@ -36,7 +36,7 @@ router.beforeEach((to, from, next) => {
   } else {
     next()
   }
-})
+})*/
 
 new Vue({
   el: '#app',

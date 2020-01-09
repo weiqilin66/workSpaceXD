@@ -1,4 +1,4 @@
-package scanner;
+package lwq.scanner;
 
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
@@ -16,7 +16,7 @@ public class ScannerQ {
      * @param  [tip] 提示内容
      * @date   2020/1/7
      */
-    public static String scanner(String tip) {
+    public static String sc(String tip) {
         Scanner scanner = new Scanner(System.in);
         StringBuilder str = new StringBuilder();
         str.append("请输入" + tip + "：");

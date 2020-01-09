@@ -1,9 +1,7 @@
-package com;
+package lwq.generator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
@@ -11,34 +9,19 @@ import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
+import lwq.constant.DataSourceConfig;
+import lwq.scanner.ScannerQ;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * @Description: 自动化
  * @author: LinWeiQi
  */
-public class CodeGenerator {
-    /**
-     * 读取控制台内容
-     */
-    public static String scanner(String tip) {
-        Scanner scanner = new Scanner(System.in);
-        StringBuilder str = new StringBuilder();
-        str.append("请输入" + tip + "：");
-        System.out.println(str.toString());
-        if (scanner.hasNext()) {
-            String ipt = scanner.next();
-            if (StringUtils.isNotEmpty(ipt)) {
-                return ipt;
-            }
-        }
-        throw new MybatisPlusException("请输入正确的" + tip + "！");
-    }
+public class mapperGenerator {
 
-    public static void main(String[] args) {
+    public void run(){
         /**
          * 代码生成器
          */
@@ -50,7 +33,7 @@ public class CodeGenerator {
         GlobalConfig globalConfig = new GlobalConfig();
         //生成文件的输出目录
         String projectPath = System.getProperty("user.dir");
-        String projectPath2 =projectPath+"//"+ scanner("子工程路径");
+        String projectPath2 =projectPath+"//"+ ScannerQ.sc("子工程路径");
         System.out.println("工程根路径 :"+projectPath2+"\n");
         globalConfig.setOutputDir(projectPath2 + "/src/main/java");
         //Author设置作者
@@ -64,22 +47,22 @@ public class CodeGenerator {
         /**
          * 数据源配置
          */
-        DataSourceConfig dataSourceConfig = new DataSourceConfig();
+        com.baomidou.mybatisplus.generator.config.DataSourceConfig dataSourceConfig = new com.baomidou.mybatisplus.generator.config.DataSourceConfig();
         // 数据库类型,默认MYSQL
         dataSourceConfig.setDbType(DbType.MYSQL);
         //自定义数据类型转换
         dataSourceConfig.setTypeConvert(new MySqlTypeConvert());
-        dataSourceConfig.setUrl("jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false");
-        dataSourceConfig.setDriverName("com.mysql.cj.jdbc.Driver");
-        dataSourceConfig.setUsername("root");
-        dataSourceConfig.setPassword("root");
+        dataSourceConfig.setUrl(DataSourceConfig.URL);
+        dataSourceConfig.setDriverName(DataSourceConfig.DRIVER);
+        dataSourceConfig.setUsername(DataSourceConfig.USERNAME);
+        dataSourceConfig.setPassword(DataSourceConfig.PASSWORD);
         mpg.setDataSource(dataSourceConfig);
 
         /**
          * 包配置
          */
         PackageConfig pc = new PackageConfig();
-        pc.setParent(scanner("主包名 (例如:com.sys 则会再com.sys下的entity/mapper/service/controller文件夹生成文件)"));
+        pc.setParent(ScannerQ.sc("主包名 (例如:com.sys 则会再com.sys下的entity/mapper/service/controller文件夹生成文件)"));
         mpg.setPackageInfo(pc);
 
         /**
@@ -138,15 +121,15 @@ public class CodeGenerator {
         //设置命名格式
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setInclude(scanner("表名,多个英文逗号分割").split(","));
+        strategy.setInclude(ScannerQ.sc("表名,多个英文逗号分割").split(","));
         //实体是否为lombok模型（默认 false）
         strategy.setEntityLombokModel(true);
         //生成 @RestController 控制器
         strategy.setRestControllerStyle(true);
         //设置自定义继承的Entity类全称，带包名
-        //strategy.setSuperEntityClass("com.jiangfeixiang.mpdemo.BaseEntity");
+        strategy.setSuperEntityClass("lwq.base.BaseEntity");
         //设置自定义继承的Controller类全称，带包名
-        //strategy.setSuperControllerClass("com.jiangfeixiang.mpdemo.BaseController");
+        strategy.setSuperControllerClass("lwq.base.BaseController");
         //设置自定义基础的Entity类，公共字段
         strategy.setSuperEntityColumns("id");
         //驼峰转连字符
@@ -156,6 +139,9 @@ public class CodeGenerator {
         mpg.setStrategy(strategy);
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();
+    }
+    public static void main(String[] args) {
+       new mapperGenerator().run();
     }
 
 }

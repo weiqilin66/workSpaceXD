@@ -1,4 +1,4 @@
-package com.sys.entity;
+package sys.entity;
 
 import lwq.base.BaseEntity;
 import lombok.Data;
@@ -11,29 +11,24 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author LinWeiQi
- * @since 2020-01-07
+ * @since 2020-01-08
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-public class User extends BaseEntity {
+public class Product extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 姓名
-     */
-    private String name;
+    private String pid;
 
-    /**
-     * 年龄
-     */
-    private Integer age;
+    private String title;
 
-    /**
-     * 邮箱
-     */
-    private String email;
+    private String brand;
+
+    private String pname;
+
+    private String price;
 
 
 }

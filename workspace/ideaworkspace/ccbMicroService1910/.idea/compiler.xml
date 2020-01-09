@@ -6,28 +6,31 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="service-learn-test" />
         <module name="config-client" />
         <module name="service-feign" />
-        <module name="eureka" />
+        <module name="wayne-api" />
         <module name="service-hi" />
         <module name="lwqAPI" />
-        <module name="service-system" />
-        <module name="mybatis-plus-MBG" />
         <module name="service-ribbon" />
+        <module name="service-system" />
+        <module name="service-C" />
+        <module name="service-learn" />
         <module name="wayneMBG" />
         <module name="zuul" />
         <module name="testdemo" />
-        <module name="common-API" />
+        <module name="eureka" />
         <module name="config" />
+        <module name="B-thief" />
         <module name="config-service" />
         <module name="service-message" />
+        <module name="service-B" />
         <module name="service-A" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="eureka-fornow" target="1.8" />
       <module name="lwq-API" target="1.8" />
+      <module name="mybatis-plus-MBG" target="1.8" />
       <module name="service-message-yuntongxun" target="1.8" />
       <module name="service-miya" target="1.8" />
       <module name="test-demo" target="1.8" />
@@ -36,7 +39,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="common-API" options="-parameters" />
+      <module name="B-thief" options="-parameters" />
       <module name="config" options="-parameters" />
       <module name="config-client" options="-parameters" />
       <module name="config-service" options="-parameters" />
@@ -46,9 +49,11 @@
       <module name="lwqAPI" options="-parameters" />
       <module name="mybatis-plus-MBG" options="-parameters" />
       <module name="service-A" options="-parameters" />
+      <module name="service-B" options="-parameters" />
+      <module name="service-C" options="-parameters" />
       <module name="service-feign" options="-parameters" />
       <module name="service-hi" options="-parameters" />
-      <module name="service-learn-test" options="-parameters" />
+      <module name="service-learn" options="-parameters" />
       <module name="service-message" options="-parameters" />
       <module name="service-message-yuntongxun" options="-parameters" />
       <module name="service-miya" options="-parameters" />
@@ -56,6 +61,7 @@
       <module name="service-system" options="-parameters" />
       <module name="test-demo" options="-parameters" />
       <module name="testdemo" options="-parameters" />
+      <module name="wayne-api" options="-parameters" />
       <module name="wayneMBG" options="-parameters" />
       <module name="zuul" options="-parameters" />
     </option>

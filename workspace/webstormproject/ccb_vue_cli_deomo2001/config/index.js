@@ -11,13 +11,14 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/api':{// 拦截了所有带有api的请求并把url中api及之前的替换成target的内容
+      /*'/api':{// 拦截了所有带有api的请求并把url中api及之前的替换成target的内容
         target: "http://localhost:90000",
         changeOrigin:true,
         pathRewrite:{
           '^/api':''
         }
-      }},
+      }*/
+      },
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined

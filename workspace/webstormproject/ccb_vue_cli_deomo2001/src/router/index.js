@@ -22,12 +22,12 @@ export default new Router({
       path: '*',
       name: '404',
       component: () => import('@/components/404')
-    }
-    /* {
+    },
+    {
       path: '/homePage',
       name: 'Dashboard',
-      component: () => import('@/views/dashboard/Dashboard')
+      component: () => import('@/components/Menu')
       // redirect:'子组件名' redirect到某个children组件可以默认显示哪个子组件
-    } */
+    }
   ]
 })

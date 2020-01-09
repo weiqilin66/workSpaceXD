@@ -2,19 +2,21 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/common-API" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/common-API/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/common-API/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/config/config-client/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/config/config-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/mybatis-plus-MBG/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service-A/service-message/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-B/B-thief/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-B/B-thief/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-C/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service-feign/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service-hi/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/service-learn-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-learn/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service-ribbon/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service-system/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wayne-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wayne-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wayne-api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zuul/src/main/java" charset="UTF-8" />
   </component>
 </project>

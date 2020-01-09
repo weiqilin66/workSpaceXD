@@ -1,4 +1,4 @@
-package com.sys.controller;
+package sys.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,10 +12,10 @@ import lwq.base.BaseController;
  * </p>
  *
  * @author LinWeiQi
- * @since 2020-01-07
+ * @since 2020-01-08
  */
 @RestController
-@RequestMapping("/user")
-public class UserController extends BaseController {
+@RequestMapping("/product")
+public class ProductController extends BaseController {
 
 }

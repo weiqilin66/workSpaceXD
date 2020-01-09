@@ -13,5 +13,11 @@
     <modules>
         <module>service-message</module>
     </modules>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.lwq</groupId>
+            <artifactId>wayne-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

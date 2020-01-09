@@ -12,10 +12,10 @@ import lwq.base.BaseController;
  * </p>
  *
  * @author LinWeiQi
- * @since 2020-01-07
+ * @since 2020-01-08
  */
 @RestController
-@RequestMapping("/user")
-public class UserController extends BaseController {
+@RequestMapping("/product")
+public class ProductController extends BaseController {
 
 }

@@ -1,6 +1,6 @@
 package com.sys.mapper;
 
-import com.sys.entity.User;
+import com.sys.entity.Product;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author LinWeiQi
- * @since 2020-01-07
+ * @since 2020-01-08
  */
-public interface UserMapper extends BaseMapper<User> {
+public interface ProductMapper extends BaseMapper<Product> {
 
 }
