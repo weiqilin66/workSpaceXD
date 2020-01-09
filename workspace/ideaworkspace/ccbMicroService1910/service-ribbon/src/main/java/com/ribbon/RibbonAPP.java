@@ -2,12 +2,9 @@ package com.ribbon;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
-import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
-import org.springframework.cloud.netflix.turbine.EnableTurbine;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,8 +16,8 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableEurekaClient  // 如果是其他注册中心使用@EnableDiscoveryClient
 @EnableHystrix // 开启熔断功能 包含//@EnableCircuitBreaker
-@EnableHystrixDashboard // 开启HystrixDashboard可视化 localhost:8000/hystrix
-@EnableTurbine // 开启turbine(hystrixDashboard集)，@EnableTurbine注解包含了@EnableDiscoveryClient
+//@EnableHystrixDashboard // 开启HystrixDashboard可视化 localhost:8000/hystrix
+//@EnableTurbine // 开启turbine(hystrixDashboard集)，@EnableTurbine注解包含了@EnableDiscoveryClient
 public class RibbonAPP {
     public static void main(String[] args) {
         SpringApplication.run(RibbonAPP.class,args);

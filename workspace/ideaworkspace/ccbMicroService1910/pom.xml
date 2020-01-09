@@ -98,11 +98,11 @@
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
-        <!--服务追踪-->
-        <dependency>
+        <!--服务追踪 starter会autoConfiguration启动每个项目都会尝试连接9411-->
+        <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>
-        </dependency>
+        </dependency>-->
         <!-- mybatisPlus 核心库 -->
         <dependency>
             <groupId>com.baomidou</groupId>

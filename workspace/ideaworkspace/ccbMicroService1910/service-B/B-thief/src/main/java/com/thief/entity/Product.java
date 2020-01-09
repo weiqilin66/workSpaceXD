@@ -11,6 +11,8 @@ public class Product {
     private String pid;
     private String title;
     private String brand;
-    private String pname;
     private String price;
+    private String pname;
+
+
 }

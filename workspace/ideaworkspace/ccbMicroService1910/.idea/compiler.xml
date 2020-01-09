@@ -9,21 +9,21 @@
         <module name="config-client" />
         <module name="service-feign" />
         <module name="wayne-api" />
+        <module name="service-system" />
         <module name="service-hi" />
         <module name="lwqAPI" />
         <module name="service-ribbon" />
-        <module name="service-system" />
-        <module name="service-C" />
+        <module name="zuul" />
+        <module name="service-B" />
         <module name="service-learn" />
         <module name="wayneMBG" />
-        <module name="zuul" />
         <module name="testdemo" />
         <module name="eureka" />
         <module name="config" />
         <module name="B-thief" />
         <module name="config-service" />
+        <module name="service-C" />
         <module name="service-message" />
-        <module name="service-B" />
         <module name="service-A" />
       </profile>
     </annotationProcessing>

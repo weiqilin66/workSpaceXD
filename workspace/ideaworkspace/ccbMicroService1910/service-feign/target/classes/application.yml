@@ -7,3 +7,11 @@ server:
 spring:
   application:
     name: service-feign
+
+#hytrixDashboard配置
+#Boot 2.0.x以后的actuator只暴露了info和health2个端点，这里我们把所有端点开放，include: '*'代表开放所有端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

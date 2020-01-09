@@ -1,7 +1,10 @@
 package com.sys.mapper;
 
-import com.sys.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.sys.entity.User;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface UserMapper extends BaseMapper<User> {
 
+    @Select("select * from user")
+    List<User> getAll();
 }
