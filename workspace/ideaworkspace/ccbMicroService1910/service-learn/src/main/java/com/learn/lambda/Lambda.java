@@ -1,5 +1,7 @@
 package com.learn.lambda;
 
+import java.util.ArrayList;
+
 /**
  * @Description: 在Lambda表达式使用中，Lambda表达式外面的局部变量会被JVM隐式的编译成final类型，Lambda表达式内部只能访问，不能修改 
  * Lambda表达式内部对静态变量和成员变量是可读可写的 
@@ -10,8 +12,10 @@ public class Lambda {
 
     public static void main(String[] args) {
         int x = 1; // 局部变量对于Lambda表达式来说是静态的 无法修改只能访问
-        LambdaInterface lambdaInterface = (a) -> a * 2;
+        LambdaInterface lambdaInterface = (a) -> a * 2;// 主要应用1: 函数式接口的实现
         LambdaInterface2 lambdaInterface2 = (name) -> System.out.println(name);
+        //主要应用2 :回调函数(让函数可以作为一个参数传入另一个函数中)
+        new ArrayList<String>().stream().filter((s -> s.startsWith("a"))).forEach(System.out::println);
         //Lambda表达式方法引用
         int res = lambdaInterface.add(11);
         lambdaInterface2.method1("wayne");

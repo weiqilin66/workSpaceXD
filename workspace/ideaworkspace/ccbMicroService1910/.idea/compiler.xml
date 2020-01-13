@@ -14,7 +14,6 @@
         <module name="lwqAPI" />
         <module name="service-ribbon" />
         <module name="zuul" />
-        <module name="service-B" />
         <module name="service-learn" />
         <module name="wayneMBG" />
         <module name="testdemo" />
@@ -23,8 +22,9 @@
         <module name="B-thief" />
         <module name="config-service" />
         <module name="service-C" />
-        <module name="service-message" />
+        <module name="service-B" />
         <module name="service-A" />
+        <module name="service-message" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
