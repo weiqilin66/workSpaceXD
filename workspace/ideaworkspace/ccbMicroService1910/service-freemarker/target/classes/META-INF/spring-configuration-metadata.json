@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "wayne.jdbc",
+      "type": "com.fre.controller.TestController",
+      "sourceType": "com.fre.controller.TestController"
+    }
+  ],
+  "properties": [
+    {
+      "name": "wayne.jdbc.driver",
+      "type": "java.lang.String",
+      "sourceType": "com.fre.controller.TestController"
+    }
+  ],
+  "hints": []
+}
