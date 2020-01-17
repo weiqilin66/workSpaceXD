@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
-import lwq.constant.DataSourceConfig;
+import lwq.constant.DataSourceProperties;
 import lwq.scanner.ScannerQ;
 
 import java.util.ArrayList;
@@ -52,10 +52,10 @@ public class mapperGenerator {
         dataSourceConfig.setDbType(DbType.MYSQL);
         //自定义数据类型转换
         dataSourceConfig.setTypeConvert(new MySqlTypeConvert());
-        dataSourceConfig.setUrl(DataSourceConfig.URL);
-        dataSourceConfig.setDriverName(DataSourceConfig.DRIVER);
-        dataSourceConfig.setUsername(DataSourceConfig.USERNAME);
-        dataSourceConfig.setPassword(DataSourceConfig.PASSWORD);
+        dataSourceConfig.setUrl(DataSourceProperties.URL);
+        dataSourceConfig.setDriverName(DataSourceProperties.DRIVER);
+        dataSourceConfig.setUsername(DataSourceProperties.USERNAME);
+        dataSourceConfig.setPassword(DataSourceProperties.PASSWORD);
         mpg.setDataSource(dataSourceConfig);
 
         /**

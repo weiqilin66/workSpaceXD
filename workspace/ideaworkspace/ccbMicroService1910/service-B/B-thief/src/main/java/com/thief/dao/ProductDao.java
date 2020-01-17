@@ -2,7 +2,7 @@ package com.thief.dao;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import com.thief.entity.Product;
-import lwq.constant.DataSourceConfig;
+import lwq.constant.DataSourceProperties;
 import org.springframework.jdbc.core.JdbcTemplate;
 import java.beans.PropertyVetoException;
 
@@ -16,10 +16,10 @@ public class ProductDao extends JdbcTemplate {
         //定义c3p0连接池
         ComboPooledDataSource ds = new ComboPooledDataSource();
         try {
-            ds.setDriverClass(DataSourceConfig.DRIVER);
-            ds.setUser(DataSourceConfig.USERNAME);
-            ds.setPassword(DataSourceConfig.PASSWORD);
-            ds.setJdbcUrl(DataSourceConfig.URL);
+            ds.setDriverClass(DataSourceProperties.DRIVER);
+            ds.setUser(DataSourceProperties.USERNAME);
+            ds.setPassword(DataSourceProperties.PASSWORD);
+            ds.setJdbcUrl(DataSourceProperties.URL);
         } catch (PropertyVetoException e) {
             e.printStackTrace();
         }

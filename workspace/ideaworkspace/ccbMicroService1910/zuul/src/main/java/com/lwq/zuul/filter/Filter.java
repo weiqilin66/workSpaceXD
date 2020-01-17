@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @Description: 描述
+ * @Description: 过滤器,拦截不合法请求
  * @author: LinWeiQi
  */
 @Component

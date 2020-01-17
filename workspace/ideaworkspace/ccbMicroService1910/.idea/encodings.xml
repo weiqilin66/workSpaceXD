@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/config/config-client/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/config/config-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-A/service-Upload-Download/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service-A/service-message/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service-B/B-thief/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service-B/B-thief/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/service-feign/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/service-hi/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/service-learn/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/service-ribbon/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/service-system/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-freemarker/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-learn/feign/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-learn/lambda-stream/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-learn/mybatis_plus-druid/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-learn/ribbon/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wayne-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wayne-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wayne-api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zuul/src/main/java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
