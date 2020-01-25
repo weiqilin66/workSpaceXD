@@ -14,6 +14,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @MapperScan("com.druid.mapper")
 public class MybatisDruidApp {
     public static void main(String[] args) {
-        SpringApplication.run(MybatisDruidApp.class,args);
+        SpringApplication.run(MybatisDruidApp.class, args);
     }
 }

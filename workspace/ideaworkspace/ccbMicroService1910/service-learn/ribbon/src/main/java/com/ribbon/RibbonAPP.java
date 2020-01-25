@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * @Description: 某个服务的多实例间实现负载均衡,属于服务内部的负载均衡
- * @Impl: 通过调用restTemplate.getForObject(“http://SERVICE-HI/hi?name=”+name,String.class)
+ * @Description: 某个服务的多实例间实现负载均衡, 属于服务内部的负载均衡
+ * @Impl: 通过调用restTemplate.getForObject(“ http : / / SERVICE - HI / hi ? name = ” + name, String.class)
  * @author: LinWeiQi
  */
 @SpringBootApplication
@@ -20,7 +20,7 @@ import org.springframework.web.client.RestTemplate;
 //@EnableTurbine // 开启turbine(hystrixDashboard集)，@EnableTurbine注解包含了@EnableDiscoveryClient
 public class RibbonAPP {
     public static void main(String[] args) {
-        SpringApplication.run(RibbonAPP.class,args);
+        SpringApplication.run(RibbonAPP.class, args);
     }
 
     // @Bean向程序的ioc注入一个bean: restTemplate;并通过@LoadBalanced注解表明这个restRemplate开启负载均衡的功能

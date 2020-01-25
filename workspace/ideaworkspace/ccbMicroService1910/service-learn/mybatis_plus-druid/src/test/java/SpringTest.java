@@ -20,6 +20,7 @@ public class SpringTest {
 
     @Autowired
     UserMapper userMapper;
+
     @Test
     public void testSelect() {
         List<User> list = userMapper.getUser();

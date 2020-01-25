@@ -20,7 +20,7 @@ public class FeignController {
     FeignService feignService;
 
     @GetMapping("/hi")
-    public String saHi(String name){
+    public String saHi(String name) {
 
         return feignService.sayHiFromClientOne(name);
     }

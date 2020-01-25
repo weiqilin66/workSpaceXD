@@ -11,7 +11,7 @@ import lwq.base.BaseController;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author LinWeiQi
@@ -25,7 +25,7 @@ public class UserController extends BaseController {
     UserMapper userMapper;
 
     @GetMapping("/getdata")
-    public String getdata(){
+    public String getdata() {
         String resStr = "";
         return resStr;
     }

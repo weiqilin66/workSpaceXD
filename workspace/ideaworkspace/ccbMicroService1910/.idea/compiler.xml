@@ -6,26 +6,31 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="service-Upload-Download" />
-        <module name="config-client" />
+        <module name="mybatis_plus-druid" />
+        <module name="wayneMBG" />
+        <module name="redis" />
+        <module name="eureka" />
         <module name="wayne-api" />
         <module name="lambda-stream" />
         <module name="service-demo" />
         <module name="lwqAPI" />
-        <module name="zuul" />
-        <module name="service-C" />
-        <module name="service-learn" />
-        <module name="wayneMBG" />
+        <module name="spring-security" />
         <module name="feign" />
-        <module name="mybatis_plus-druid" />
-        <module name="testdemo" />
-        <module name="eureka" />
-        <module name="config" />
+        <module name="service-B" />
+        <module name="service-C" />
+        <module name="rest-jpa" />
+        <module name="service-learn" />
         <module name="B-thief" />
+        <module name="zuul" />
+        <module name="config-client" />
+        <module name="testdemo" />
+        <module name="service-Upload-Download" />
+        <module name="config" />
+        <module name="aaa-customize-config" />
         <module name="a-demo" />
         <module name="config-service" />
         <module name="service-freemarker" />
-        <module name="service-B" />
+        <module name="spring-security-mybatis" />
         <module name="service-A" />
         <module name="service-message" />
       </profile>
@@ -39,7 +44,7 @@
     <bytecodeTargetLevel>
       <module name="a-demo" target="1.8" />
       <module name="eureka-fornow" target="1.8" />
-      <module name="lambda-stream" target="1.8" />
+      <module name="jpa" target="1.8" />
       <module name="lwq-API" target="1.8" />
       <module name="mybatis-plus-MBG" target="1.8" />
       <module name="ribbon" target="1.8" />
@@ -57,17 +62,21 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="B-thief" options="-parameters" />
       <module name="a-demo" options="-parameters" />
+      <module name="aaa-customize-config" options="-parameters" />
       <module name="config" options="-parameters" />
       <module name="config-client" options="-parameters" />
       <module name="config-service" options="-parameters" />
       <module name="eureka" options="-parameters" />
       <module name="eureka-fornow" options="-parameters" />
       <module name="feign" options="-parameters" />
+      <module name="jpa" options="-parameters" />
       <module name="lambda-stream" options="-parameters" />
       <module name="lwq-API" options="-parameters" />
       <module name="lwqAPI" options="-parameters" />
       <module name="mybatis-plus-MBG" options="-parameters" />
       <module name="mybatis_plus-druid" options="-parameters" />
+      <module name="redis" options="-parameters" />
+      <module name="rest-jpa" options="-parameters" />
       <module name="ribbon" options="-parameters" />
       <module name="service-A" options="-parameters" />
       <module name="service-B" options="-parameters" />
@@ -82,6 +91,8 @@
       <module name="service-message-yuntongxun" options="-parameters" />
       <module name="service-miya" options="-parameters" />
       <module name="service-ribbon" options="-parameters" />
+      <module name="spring-security" options="-parameters" />
+      <module name="spring-security-mybatis" options="-parameters" />
       <module name="test-demo" options="-parameters" />
       <module name="testdemo" options="-parameters" />
       <module name="wayne-api" options="-parameters" />

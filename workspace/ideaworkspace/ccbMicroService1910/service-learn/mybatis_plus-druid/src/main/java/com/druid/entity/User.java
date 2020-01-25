@@ -7,7 +7,7 @@ import lwq.base.BaseEntity;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author LinWeiQi

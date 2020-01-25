@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 废弃 使用spring-data-jpa 可生成并且实时更新表结构
  * @Description: 根据实体生成SQL
  * @author: LinWeiQi
  */

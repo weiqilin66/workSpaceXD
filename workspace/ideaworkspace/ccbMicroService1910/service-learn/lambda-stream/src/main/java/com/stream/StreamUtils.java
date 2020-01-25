@@ -41,7 +41,7 @@ public class StreamUtils {
     }
 
     /**
-     *自定义映射规则
+     * 自定义映射规则
      */
     private static void streamMapTest(List<String> list) {
         list.stream().map(String::toUpperCase).sorted((s, t1) -> t1.compareTo(s)).forEach(System.out::println);
@@ -68,35 +68,39 @@ public class StreamUtils {
         boolean noneStartWithA = list.stream().noneMatch(s -> s.startsWith("c"));
         System.out.println("集合中没有以'c'开头：" + noneStartWithA);
     }
-/**
- * 操作后生成新的集合
- * @return void
- * @param [list]
- * @date 2020/1/6
- */
+
+    /**
+     * 操作后生成新的集合
+     *
+     * @param [list]
+     * @return void
+     * @date 2020/1/6
+     */
     private static List newCollection(List<String> list) {
         List<String> listNew = list.stream().filter(s -> s.startsWith("b")).sorted().collect(Collectors.toList());
         System.out.println(listNew);
         return listNew;
     }
-/**
- * @TODO   允许我们用自己的方式计算元素或者将一个stream中元素以某种规律关联
- * @return void
- * @param  [list]
- * @date   2020/1/6
- */
-    private static void Reduce(List<String> list){
+
+    /**
+     * @param [list]
+     * @return void
+     * @TODO 允许我们用自己的方式计算元素或者将一个stream中元素以某种规律关联
+     * @date 2020/1/6
+     */
+    private static void Reduce(List<String> list) {
         Optional<String> optional = list.stream().sorted().reduce((s, s2) -> {
-            System.out.println(s+"-"+s2);
-            return s+"-"+s2;
+            System.out.println(s + "-" + s2);
+            return s + "-" + s2;
         });
     }
-/**
- * @TODO   计数
- * @return void
- * @param  [list]
- * @date   2020/1/6
- */
+
+    /**
+     * @param [list]
+     * @return void
+     * @TODO 计数
+     * @date 2020/1/6
+     */
     private static void streamCountTest(List<String> list) {
         long count = list.stream().filter(s -> s.startsWith("b")).count();
         System.out.println("以'b'开头的数量：" + count);
@@ -104,32 +108,34 @@ public class StreamUtils {
     }
 
 
-/**
- * @TODO   并行stream 多核cpu效率高
- * @return void
- * @param  [list]
- * @date   2020/1/6
- */
-    private static void parallelStreamSortedTest(List<String> list){
+    /**
+     * @param [list]
+     * @return void
+     * @TODO 并行stream 多核cpu效率高
+     * @date 2020/1/6
+     */
+    private static void parallelStreamSortedTest(List<String> list) {
         long startTime = System.nanoTime();//返回最准确的可用系统计时器的当前值，以毫微秒为单位。
         long count = list.parallelStream().sorted().count();
         long endTime = System.nanoTime();
         long millis = TimeUnit.NANOSECONDS.toMillis(endTime - startTime);
-        System.out.printf("并行排序花费时间：%d ms",millis);
+        System.out.printf("并行排序花费时间：%d ms", millis);
     }
-   /**
-    * @TODO   串行stream 单核效率高
-    * @return void
-    * @param  [list]
-    * @date   2020/1/6
-    */
-    private static void streamSorted(List<String> list){
+
+    /**
+     * @param [list]
+     * @return void
+     * @TODO 串行stream 单核效率高
+     * @date 2020/1/6
+     */
+    private static void streamSorted(List<String> list) {
         long startTime = System.nanoTime();//返回最准确的可用系统计时器的当前值，以毫微秒为单位。
         long count = list.stream().sorted().count();
         long endTime = System.nanoTime();
         long millis = TimeUnit.NANOSECONDS.toMillis(endTime - startTime);
-        System.out.printf("串行排序花费时间：%d ms",millis);
+        System.out.printf("串行排序花费时间：%d ms", millis);
     }
+
     public static void main(String[] args) {
         List<String> list = Arrays.asList(
                 "aa",
@@ -140,7 +146,7 @@ public class StreamUtils {
         streamFilterTest(list);
         //创建一个大集合
         List<String> list2 = new ArrayList<>();
-        for(int i = 0; i <1000; i++) {
+        for (int i = 0; i < 1000; i++) {
             UUID uuid = UUID.randomUUID();
             list2.add(uuid.toString());
         }

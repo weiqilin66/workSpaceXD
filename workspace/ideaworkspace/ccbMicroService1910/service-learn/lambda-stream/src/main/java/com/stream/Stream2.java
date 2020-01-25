@@ -25,14 +25,14 @@ public class Stream2 {
     //创建无限流
     //迭代
     //limit取前十个
-    public void limit(int limit){
+    public void limit(int limit) {
         Stream<Integer> stream4 = Stream.iterate(0, (x) -> x + 2).limit(10);
         stream4.forEach(System.out::println);
     }
 
 
     //生成随机数（两个）
-    public void random(int random){
+    public void random(int random) {
         Stream<Double> Stream5 = Stream.generate(Math::random).limit(2);
         Stream5.forEach(System.out::println);
     }

@@ -16,7 +16,7 @@ public class RibbonController {
     HiService hiService;
 
     @GetMapping("/hi")
-    public String sayHi(String name){
+    public String sayHi(String name) {
 
         return hiService.hiService(name);
     }

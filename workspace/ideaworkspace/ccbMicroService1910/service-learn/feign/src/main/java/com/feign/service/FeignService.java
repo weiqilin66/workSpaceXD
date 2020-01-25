@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Description: 描述
  * @author: LinWeiQi
  */
-@FeignClient(value="SERVICE-HI" ,fallback = SchedualServiceHiHystric.class) // 通过@ FeignClient（“服务名”），来指定调用哪个服务
+@FeignClient(value = "SERVICE-HI", fallback = SchedualServiceHiHystric.class) // 通过@ FeignClient（“服务名”），来指定调用哪个服务
 public interface FeignService {
     @GetMapping("/hi")
     String sayHiFromClientOne(@RequestParam(value = "name") String name);
