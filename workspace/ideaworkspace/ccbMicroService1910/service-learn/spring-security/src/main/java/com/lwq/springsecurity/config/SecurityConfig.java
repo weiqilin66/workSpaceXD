@@ -32,6 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // 不加密
     @Bean
     PasswordEncoder passwordEncoder(){
+
         return NoOpPasswordEncoder.getInstance();
     }
     // 全局配置用户信息

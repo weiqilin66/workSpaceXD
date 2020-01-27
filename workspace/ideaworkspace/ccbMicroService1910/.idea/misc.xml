@@ -25,6 +25,8 @@
         <option value="$PROJECT_DIR$/service-learn/aaa-customize-config/pom.xml" />
         <option value="$PROJECT_DIR$/service-learn/spring-security/pom.xml" />
         <option value="$PROJECT_DIR$/service-learn/spring-security-mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/service-learn/ribbon/pom.xml" />
+        <option value="$PROJECT_DIR$/service-learn/spring-security-oauth2/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

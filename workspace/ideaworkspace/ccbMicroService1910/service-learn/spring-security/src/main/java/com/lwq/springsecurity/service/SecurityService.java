@@ -18,7 +18,7 @@ public class SecurityService {
         return resStr;
     }
 
-   @Secured("ROLE_user")  // 和admin()方法注解类似
+   @Secured("ROLE_user")  // 和@PreAuthorize()注解类似
    public String user(){
 
        return "hello user";
