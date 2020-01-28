@@ -143,6 +143,7 @@
         <module>service-A</module>
         <module>service-B</module>
         <module>service-C</module>
+        <module>service-main</module>
     </modules>
 
 

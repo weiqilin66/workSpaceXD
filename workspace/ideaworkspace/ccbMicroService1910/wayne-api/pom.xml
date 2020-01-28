@@ -4,11 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.lwq</groupId>
-        <artifactId>ccbMicroService1910</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <groupId>org.springframework.boot</groupId><!--此分组的dependency无需指定版本号由parent统一管理-->
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.1.RELEASE</version>
+        <!--指定父项目pom的相对位置,默认是../pom.xml-->
+        <relativePath/>
     </parent>
-
     <groupId>com.lwq</groupId>
     <artifactId>wayne-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -24,6 +25,11 @@
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
             <version>2.3.29</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

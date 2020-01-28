@@ -10,7 +10,7 @@ import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import lwq.constant.DataSourceProperties;
-import lwq.scanner.ScannerQ;
+import lwq.entity.ScannerQ;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -112,6 +112,12 @@ public class mapperGenerator {
         // templateConfig.setController();
 
         templateConfig.setXml(null);
+        // 配置不生成controller
+        templateConfig.setController("");
+        //不生成service
+        templateConfig.setService("");
+        //不生成serviceImpl
+        templateConfig.setServiceImpl("");
         mpg.setTemplate(templateConfig);
 
         /**
@@ -127,11 +133,12 @@ public class mapperGenerator {
         //生成 @RestController 控制器
         strategy.setRestControllerStyle(true);
         //设置自定义继承的Entity类全称，带包名
-        strategy.setSuperEntityClass("lwq.base.BaseEntity");
+        //strategy.setSuperEntityClass("lwq.base.BaseEntity");
         //设置自定义继承的Controller类全称，带包名
-        strategy.setSuperControllerClass("lwq.base.BaseController");
+        //strategy.setSuperControllerClass("lwq.base.BaseController");
         //设置自定义基础的Entity类，公共字段
-        strategy.setSuperEntityColumns("id");
+        //strategy.setSuperEntityColumns("id");
+        strategy.setEntitySerialVersionUID(false);
         //驼峰转连字符
         strategy.setControllerMappingHyphenStyle(true);
         //表名前缀
@@ -141,7 +148,8 @@ public class mapperGenerator {
         mpg.execute();
     }
     public static void main(String[] args) {
-       new mapperGenerator().run();
+
+        new mapperGenerator().run();
     }
 
 }
