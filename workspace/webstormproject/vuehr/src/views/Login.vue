@@ -10,34 +10,42 @@
             </el-form-item>
             <font size="2px">Remember</font>
             <el-checkbox class="loginRemember" v-model="checked"/>
-            <el-button type="primary"  style="width:100%" @click="submitForm">登录</el-button>
+            <el-button type="primary" style="width:100%" @click="submitForm">登录</el-button>
         </el-form>
     </div>
 </template>
 
 <script>
+    import {postKeyValueRequest} from "../utils/api";
+
     export default {
         name: "Login",
-        methods:{
+        methods: {
             submitForm() {
                 this.$refs.loginForm.validate((valid) => {
                     if (valid) {
-                        alert('submit!');
+                        postKeyValueRequest('/doLogin', this.loginForm).then(data => {
+                            // Axios封装已经判断了状态,此时的response就是data
+                            if (data) {
+                                alert(JSON.stringify(data))
+                                //new ObjectMapper().writeValueToString()
+                            }
+                        })
                     } else {
-                       this.$message.error('请确认输入用户名及密码')
+                        this.$message.error('请确认输入用户名及密码')
                         return false;
                     }
                 });
             },
         },
-        data(){
-            return{
-                loginForm:{
+        data() {
+            return {
+                loginForm: {
                     username: 'admin',
                     password: '123'
                 },
                 checked: true,
-                rules:{
+                rules: {
                     username: [{required: true, message: '请输入用户名', trigger: 'blur'}],
                     password: [{required: true, message: '请输入密码', trigger: 'blur'}]
                 }
