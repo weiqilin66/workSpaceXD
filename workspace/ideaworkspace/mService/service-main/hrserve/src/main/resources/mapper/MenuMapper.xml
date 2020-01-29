@@ -2,4 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lwq.hr.mapper.MenuMapper">
 
+<resultMap id="baseResultMap" type="com.lwq.hr.entity.Menu">
+    <id column="id" property="id" jdbcType="Integer"/>
+    <result column="url" property="url" jdbcType="VARCHAR"/>
+</resultMap>
+
+
 </mapper>

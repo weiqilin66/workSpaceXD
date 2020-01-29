@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="hrserve" />
         <module name="service-C" />
         <module name="service-B" />
         <module name="service-A" />
@@ -13,10 +14,9 @@
         <module name="lwqAPI" />
         <module name="wayneMBG" />
         <module name="zuul" />
-        <module name="aaa-customize-config" />
+        <module name="config" />
         <module name="spring-security-oauth2" />
         <module name="service-demo" />
-        <module name="config" />
         <module name="testdemo" />
         <module name="a-demo" />
         <module name="config-client" />
@@ -30,12 +30,12 @@
         <module name="service-freemarker" />
         <module name="eureka" />
         <module name="config-service" />
-        <module name="hrserve" />
+        <module name="redis" />
         <module name="service-learn" />
         <module name="wayne-api" />
         <module name="service-message" />
+        <module name="aaa-customize-config" />
         <module name="mybatis_plus-druid" />
-        <module name="redis" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

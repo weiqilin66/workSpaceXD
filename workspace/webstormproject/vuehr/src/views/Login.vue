@@ -16,28 +16,8 @@
 </template>
 
 <script>
-    import {postKeyValueRequest} from "../utils/api";
-
     export default {
         name: "Login",
-        methods: {
-            submitForm() {
-                this.$refs.loginForm.validate((valid) => {
-                    if (valid) {
-                        postKeyValueRequest('/doLogin', this.loginForm).then(data => {
-                            // Axios封装已经判断了状态,此时的response就是data
-                            if (data) {
-                                alert(JSON.stringify(data))
-                                //new ObjectMapper().writeValueToString()
-                            }
-                        })
-                    } else {
-                        this.$message.error('请确认输入用户名及密码')
-                        return false;
-                    }
-                });
-            },
-        },
         data() {
             return {
                 loginForm: {
@@ -50,6 +30,27 @@
                     password: [{required: true, message: '请输入密码', trigger: 'blur'}]
                 }
             }
+        },
+        methods: {
+            submitForm() {
+                this.$refs.loginForm.validate((valid) => {
+                    if (valid) {
+                        this.postKeyValueRequest('/doLogin', this.loginForm).then(resp => {
+                            // Axios封装已经判断http状态,此时的response就是后端的respBean
+                            if (resp) {
+                                // 用户数据保存到sessionStorage,浏览器关闭就消失
+                                window.sessionStorage.setItem('user', JSON.stringify(resp.data))
+                                // router 再main.js中new Vue时候导入的
+                                // router push() 可后退 replace() 替换不可后退
+                                this.$router.replace('/home')
+                            }
+                        })
+                    } else {
+                        this.$message.error('请确认输入用户名及密码')
+                        return false;
+                    }
+                });
+            },
         }
     }
 </script>
