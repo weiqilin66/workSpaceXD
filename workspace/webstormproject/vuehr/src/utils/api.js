@@ -52,7 +52,7 @@ export const postKeyValueRequest = (url, params) => {
             for (let i in data) {
                 res += encodeURIComponent(i) + '=' + encodeURIComponent(data[i]) + '&'
             }
-            console.log("keyValueRequest转换结果:" + res)
+            //console.log("keyValueRequest转换结果:" + res)
             return res
         }]
     })

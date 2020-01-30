@@ -1,9 +1,7 @@
 package com.druid.entity;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-import lwq.base.BaseEntity;
 
 /**
  * <p>
@@ -14,9 +12,8 @@ import lwq.base.BaseEntity;
  * @since 2020-01-17
  */
 @Data
-@EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-public class User extends BaseEntity {
+public class User{
 
     private static final long serialVersionUID = 1L;
 

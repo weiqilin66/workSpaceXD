@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
-        name: 'Login',
+        name: '登录',
         component: Login,
         hidden: true
         // component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')

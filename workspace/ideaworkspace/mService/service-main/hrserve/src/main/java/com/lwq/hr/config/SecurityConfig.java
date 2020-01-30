@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * @Description:
+ * @Description: SpringSecurity配置
  * @author: LinWeiQi
  */
 @Configuration

@@ -3,6 +3,8 @@ package com.lwq.hr.mapper;
 import com.lwq.hr.entity.Menu;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
+import java.util.List;
+
 /**
  * <p>
  *  Mapper 接口
@@ -13,4 +15,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface MenuMapper extends BaseMapper<Menu> {
 
+    List<Menu> getMenuById(int id);
+
+    Menu t1(int id);
 }

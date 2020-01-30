@@ -19,10 +19,10 @@
                 <!--侧边栏-->
                 <el-aside width="200px">
                     <el-menu router>
-                        <el-submenu index="1" v-for="(item,index) in this.$router.options.routes"
-                                    v-if="!item.hidden" :key="index">
+                        <!-- index 区分是否是同一个菜单 循环遍历也要修改-->
+                        <el-submenu :index="index+''" v-for="(item,index) in routes" v-if="!item.hidden" :key="index">
                             <template slot="title">
-                                <i class="el-icon-location"></i>
+                                <i :class="item.iconCls" style="color:#409eff ; margin-right:6px"/>
                                 <span>{{item.name}}</span>
                             </template>
                                 <el-menu-item :index="child.path" v-for="(child,index2) in item.children" :key="index2">
@@ -48,9 +48,15 @@
 
             }
         },
+        computed:{
+          // vuex 中取值一般使用computed
+          routes(){
+              return this.$store.state.routes
+          }
+        },
         methods: {
             dropdownHandler(cmd) {
-                if (cmd == 'logout') {
+                if (cmd === 'logout') {
                     this.$confirm('是否确认注销?', '提示', {
                         confirmButtonText: '确定',
                         cancelButtonText: '取消',
@@ -58,6 +64,7 @@
                     }).then(() => {
                         this.getRequest('/logout')
                         window.sessionStorage.removeItem('user')
+                        this.$store.state.routes = []
                         this.$router.replace('/')
                         // 消息弹窗由axios封装统一处理后台message
 
