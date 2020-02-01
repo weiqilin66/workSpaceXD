@@ -6,7 +6,9 @@
                 <el-input type="text" auto-complete="off" placeholder="请输入用户名" v-model="loginForm.username"/>
             </el-form-item>
             <el-form-item prop="password">
-                <el-input type="password" auto-complete="off" placeholder="请输入密码" v-model="loginForm.password"/>
+                <el-input type="password" auto-complete="off" placeholder="请输入密码" v-model="loginForm.password"
+                @keydown.enter.native="submitForm"/>
+                <!--enter键登录-->
             </el-form-item>
             <font size="2px">Remember</font>
             <el-checkbox class="loginRemember" v-model="checked"/>
@@ -40,9 +42,10 @@
                             if (resp) {
                                 // 用户数据保存到sessionStorage,浏览器关闭就消失
                                 window.sessionStorage.setItem('user', JSON.stringify(resp.data))
-                                // router 再main.js中new Vue时候导入的
+                                //获取当前的url路径的redirect的value
+                                let path = this.$route.query.redirect;
                                 // router push() 可后退 replace() 替换不可后退
-                                this.$router.replace('/home')
+                                this.$router.replace((path==='/'||path===undefined)?'/home':path)
                             }
                         })
                     } else {

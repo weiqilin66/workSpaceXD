@@ -16,11 +16,9 @@ public class RedisController {
     StringRedisTemplate stringRedisTemplate;
 
     @GetMapping("/get")
-    public String getStr(){
+    public void getStr(){
         ValueOperations<String, String> ops = stringRedisTemplate.opsForValue();
         ops.set("name","wayne");
-        String resStr = "";
-        return resStr;
 
     }
     @GetMapping("/get2")

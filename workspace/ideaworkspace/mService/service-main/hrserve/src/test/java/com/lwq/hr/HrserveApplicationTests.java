@@ -1,7 +1,6 @@
 package com.lwq.hr;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lwq.hr.entity.Menu;
 import com.lwq.hr.mapper.MenuMapper;
 import org.junit.jupiter.api.Test;
@@ -18,9 +17,8 @@ class HrserveApplicationTests {
     @Test
     void contextLoads() throws JsonProcessingException {
 
-        List<Menu> menu = menuMapper.getMenuById(5);
-        System.out.println(new ObjectMapper().writeValueAsString(menu));
-        System.out.println(menu.size());
+       List<Menu> menu = menuMapper.getMenuWithRoles();
+        menu.stream().forEach(System.out::println);
     };
 
 }

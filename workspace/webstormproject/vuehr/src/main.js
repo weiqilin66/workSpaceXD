@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-
+/*main.js中配置 不能使用this.$xxx 因为this就是Vue实例本身,所有this.$xx都是在main.js配置后再.vue文件中使用的*/
 // 引入 ElementUI
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-
 Vue.use(ElementUI);
+
 Vue.config.productionTip = false
 
 // 引入封装完的axios 所有.vue文件通过this.xx引用 其他文件例如.js不行,需要额外import
@@ -18,6 +18,7 @@ Vue.prototype.getRequest = getRequest
 Vue.prototype.putRequest = putRequest
 Vue.prototype.deleteRequest = deleteRequest
 
+import {Message} from "element-ui";
 // 引入 vuex
 import store from './store'
 
@@ -29,8 +30,14 @@ router.beforeEach((to, from, next)=>{
     if(to.name==='登录'){
         next() // 放行
     }else {
-        initMenu(store,router)
-        next()
+        if (window.sessionStorage.getItem('user')) {
+            initMenu(store,router)
+            next()
+        }else {
+            // 未登录访问其他url处理,/先跳转到/login,?redirect携带登录成功后跳转的页面,在Login页判断要跳转的页面
+            next('/?redirect='+to.path)
+        }
+
     }
 })
 

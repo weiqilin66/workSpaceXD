@@ -32,6 +32,14 @@
                 </el-aside>
                 <!--中间栏-->
                 <el-main>
+                    <!--面包屑--><!--home页不显示面包屑-->
+                    <el-breadcrumb separator-class="el-icon-arrow-right" v-if="this.$router.currentRoute.path!='/home'">
+                        <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
+                        <el-breadcrumb-item>{{this.$router.currentRoute.name}}</el-breadcrumb-item>
+                    </el-breadcrumb>
+                    <div v-if="this.$router.currentRoute.name=='Home'">
+                       我是主页..
+                    </div>
                     <router-view/>
                 </el-main>
             </el-container>
@@ -75,7 +83,7 @@
                           });*/
                     }).catch(() => {
                     });
-                } else if (cmd == 'center') {
+                } else if (cmd === 'center') {
 
                 } else {
 

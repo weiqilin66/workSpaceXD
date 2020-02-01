@@ -13,7 +13,7 @@ export const initMenu = (store, router) => {
             // 提交mutations 保存菜单到vuex
             store.commit('initRoutes', fmRoutes);
 
-            store.dispatch('connect');
+            //store.dispatch('connect');
         }
     })
 }

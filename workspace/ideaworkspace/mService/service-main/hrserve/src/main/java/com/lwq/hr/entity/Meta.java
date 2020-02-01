@@ -2,11 +2,13 @@ package com.lwq.hr.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 
+import java.io.Serializable;
+
 /**
  * @Description: menu表的额外属性
  * @author: LinWeiQi
  */
-public class Meta {
+public class Meta implements Serializable {
     @TableField("keepAlive")
     private Boolean keepAlive;
 

@@ -40,6 +40,17 @@ public class Menu implements Serializable {
     @TableField(exist = false)
     private List<Menu> children;
 
+    @TableField(exist = false)
+    private List<Role> roles;
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
     @TableField("iconCls")
     private String iconCls;
 

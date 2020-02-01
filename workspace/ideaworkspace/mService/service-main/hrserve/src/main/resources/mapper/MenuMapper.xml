@@ -29,50 +29,75 @@
             <result column="iconCls2" jdbcType="VARCHAR" property="iconCls"/>
             <result column="parentId2" jdbcType="INTEGER" property="parentId"/>
             <result column="enabled2" jdbcType="BIT" property="enabled"/>
-            <association property="meta" javaType="com.lwq.hr.entity.Meta" >
+            <association property="meta" javaType="com.lwq.hr.entity.Meta">
                 <result column="keepAlive2" jdbcType="INTEGER" property="keepAlive"/>
                 <result column="requireAuth2" jdbcType="BIT" property="requireAuth"/>
             </association>
         </collection>
-
+    </resultMap>
+    <resultMap id="MenuWithRoles" type="com.lwq.hr.entity.Menu" extends="BaseResultMap">
+        <collection property="roles" ofType="com.lwq.hr.entity.Role">
+            <id column="roleId" jdbcType="INTEGER" property="id" />
+            <result column="roleName" jdbcType="VARCHAR" property="name"/>
+            <result column="nameZh" jdbcType="VARCHAR" property="nameZh"/>
+        </collection>
     </resultMap>
 
-
     <select id="getMenuById" resultMap="MenuMap">
-        select
-        *
-        from
-        (
-            select * from menu
-            where parentId =1
-            and enabled=1
-        )m1 /*查询所有一级菜单*/
-        INNER JOIN  /*过滤:如果不存在该一级菜单下的二级菜单项,则不显示该一级菜单*/
-        (
-            select
-            id as id2
-            ,url as url2
-            ,path as path2
-            ,component as component2
-            ,name as name2
-            ,iconCls as iconCls2
-            ,keepAlive as keepAlive2
-            ,requireAuth as requireAuth2
-            ,parentId as parentId2
-            ,enabled as enabled2
-            from menu
-            where
-            id in(
-            select mid from menu_role
-            where rid in(
-            select rid from hr_role
-            where hrid = #{id}   /*筛选角色有权的二级菜单*/
-            ))and enabled=1
-        )m2   /*查询二级菜单*/
-        on m1.id = m2.parentId2
+        select *
+        from (
+                 select *
+                 from menu
+                 where parentId = 1
+                   and enabled = 1
+             ) m1 /*查询所有一级菜单*/
+                 INNER JOIN /*过滤:如果不存在该一级菜单下的二级菜单项,则不显示该一级菜单*/
+            (
+                select id          as id2
+                     , url         as url2
+                     , path        as path2
+                     , component   as component2
+                     , name        as name2
+                     , iconCls     as iconCls2
+                     , keepAlive   as keepAlive2
+                     , requireAuth as requireAuth2
+                     , parentId    as parentId2
+                     , enabled     as enabled2
+                from menu
+                where id in (
+                    select mid
+                    from menu_role
+                    where rid in (
+                        select rid
+                        from hr_role
+                        where hrid = #{id} /*筛选角色有权的二级菜单*/
+                    ))
+                  and enabled = 1
+            ) m2 /*查询二级菜单*/
+                            on m1.id = m2.parentId2
     </select>
     <select id="t1" resultMap="BaseResultMap">
-        select * from menu where id =#{id}
+        select *
+        from menu
+        where id = #{id}
+    </select>
+    <select id="getAllMenuRoles" resultType="com.lwq.hr.entity.Role">
+        select r.*
+        from menu m
+                 inner join menu_role mr
+                            on m.id = mid
+                 INNER JOIN role r
+                            on mr.rid = r.id
+        where url = #{url}
+
+    </select>
+    <select id="getMenuWithRoles" resultMap="MenuWithRoles">
+        select m.*,r.id as roleId,r.name as roleName,r.nameZh
+        from menu m
+                 inner join menu_role mr
+                            on m.id = mid
+                 INNER JOIN role r
+                            on mr.rid = r.id
     </select>
 
 </mapper>

@@ -4,9 +4,11 @@ import lombok.EqualsAndHashCode;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -62,9 +64,14 @@ public class Hr implements Serializable, UserDetails {
 
     private List<Role> roles;
 
+    // 返回用户的所有roles
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        List<SimpleGrantedAuthority> authrities = new ArrayList<>();
+        for (Role role : roles) {
+            authrities.add(new SimpleGrantedAuthority(role.getName()));
+        }
+        return authrities;
     }
 
     @Override
@@ -127,5 +134,9 @@ public class Hr implements Serializable, UserDetails {
 
     public String getRemark() {
         return remark;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
     }
 }

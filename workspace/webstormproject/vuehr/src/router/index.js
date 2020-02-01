@@ -18,7 +18,14 @@ const routes = [
         component: () => import( '../views/Home'),
         hidden: true
     },
-    {
+    {  //匹配不上其他路径,既无效路径会进入此路由 跳转到home页
+        path: '*',
+        name: 'error',
+        component:() => import('../views/Error')
+    }
+    // -----------------------------------------------------------------
+    // 测试路由 t1/t2 .vue已删除 router跳转优先匹配跳转children下的router
+    /*,{
         path: '/home',
         name: '导航一',
         component: () => import( '../views/Home'),
@@ -26,15 +33,15 @@ const routes = [
             {
                 path: '/test1',
                 name: '选项1',
-                component: () => import( '../views/Test1')
+                component: () => import( '../views/T1')
             },
             {
                 path: '/test2',
                 name: '选项2',
-                component: () => import( '../views/Test2')
+                component: () => import( '../views/T2')
             }
         ]
-    }
+    }*/
 
 ]
 
