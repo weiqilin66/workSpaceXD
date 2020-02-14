@@ -1,5 +1,7 @@
 package com.lwq.hr.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -26,46 +28,29 @@ import java.util.List;
 public class Hr implements Serializable, UserDetails {
     private int id;
 
-    /**
-     * 姓名
-     */
     private String name;
 
-    /**
-     * 手机号码
-     */
     private String phone;
 
-    /**
-     * 住宅电话
-     */
     private String telephone;
 
-    /**
-     * 联系地址
-     */
     private String address;
 
     private Boolean enabled;
 
-    /**
-     * 用户名
-     */
     private String username;
 
-    /**
-     * 密码
-     */
     private String password;
 
     private String userface;
 
     private String remark;
-
+    @TableField(exist = false)
     private List<Role> roles;
 
     // 返回用户的所有roles
     @Override
+    @JsonIgnore // json2obj封装时候忽略这个属性
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authrities = new ArrayList<>();
         for (Role role : roles) {
@@ -85,16 +70,19 @@ public class Hr implements Serializable, UserDetails {
     }
 
     @Override
+    @JsonIgnore
     public boolean isAccountNonExpired() {
         return true;
     }
 
     @Override
+    @JsonIgnore
     public boolean isAccountNonLocked() {
         return true;
     }
 
     @Override
+    @JsonIgnore
     public boolean isCredentialsNonExpired() {
         return true;
     }
@@ -120,9 +108,9 @@ public class Hr implements Serializable, UserDetails {
         return address;
     }
 
-    public Boolean getEnabled() {
-        return enabled;
-    }
+//    public Boolean getEnabled() {
+//        return enabled;
+//    }
 
     public String getUserface() {
         return userface;
