@@ -11,8 +11,9 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * @Description: 1. SecurityContextHolder中取出登录的用户ID
+ * 1. SecurityContextHolder中取出登录的用户ID
  * 2. 缓存问题
+ *
  * @author: LinWeiQi
  */
 @Service
@@ -33,17 +34,19 @@ public class MenuService {
     }
 
     /**
-     * @TODO   缓存的删除和更新
+     * @TODO 缓存的删除和更新
      * @return void
      * @param  [id]
-     * @date   2020/1/31
+     * @date 2020/1/31
      */
-   /* @CacheEvict(cacheNames = "c1")  // 删除的时候也删除相关的缓存,确保加了缓存的查询,不会查询出已被删除的数据
+   /*
+    @CacheEvict(cacheNames = "c1")  // 删除的时候也删除查询里面相关的缓存,确保加了缓存的查询,不会查询出已被删除的数据 cacheNames来分组不同的增删改查
     public void deleteMenu(int id) {
 
     }
-    @CachePut(cacheNames = "c1", key="#menu.id") // 更新的时候也更新缓存中的数据 key参数可以指定cache的key,更新和删除的也是以key为准
+    @CachePut(cacheNames = "c1", key="#menu.id") // 更新的时候也更新缓存中的数据 key参数可以指定cache的key,查询和删除的也是以key为准
     public void updateMenu(Menu menu) {
 
-    }*/
+    }
+    */
 }

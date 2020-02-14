@@ -2,8 +2,17 @@
     <div>
         <el-container>
             <!--header-->
-            <el-header class="homeHeader">
-                <div class="title">灼猪</div>
+            <el-header class="homeHeader" :style="customColor">
+                <div>
+                    <el-dropdown @command="changeTheme">
+                        <span class="el-dropdown-link"
+                              style="font-size: 30px;font-family: 华文行楷;color: #ffffff;cursor: pointer;">灼猪</span>
+                        <el-dropdown-menu slot="dropdown">
+                            <el-dropdown-item command="black">黑色</el-dropdown-item>
+                            <el-dropdown-item divided command="blue">蓝色</el-dropdown-item>
+                        </el-dropdown-menu>
+                    </el-dropdown>
+                </div>
                 <el-dropdown class="userInfo" @command="dropdownHandler">
                     <span class="el-dropdown-link">
                 {{user.name}}<i><img :src="user.userface"></i>
@@ -15,6 +24,7 @@
                     </el-dropdown-menu>
                 </el-dropdown>
             </el-header>
+
             <el-container>
                 <!--侧边栏-->
                 <el-aside width="200px">
@@ -22,11 +32,12 @@
                         <!-- index 区分是否是同一个菜单 循环遍历也要修改-->
                         <el-submenu :index="index+''" v-for="(item,index) in routes" v-if="!item.hidden" :key="index">
                             <template slot="title">
-                                <i :class="item.iconCls" style="color:#409eff ; margin-right:6px"/>
+                                <i :class="item.iconCls" :style="customColorLeft"/>
                                 <span>{{item.name}}</span>
                             </template>
-                                <el-menu-item :index="child.path" v-for="(child,index2) in item.children" :key="index2">
-                                    {{child.name}}</el-menu-item>
+                            <el-menu-item :index="child.path" v-for="(child,index2) in item.children" :key="index2">
+                                {{child.name}}
+                            </el-menu-item>
                         </el-submenu>
                     </el-menu>
                 </el-aside>
@@ -38,9 +49,9 @@
                         <el-breadcrumb-item>{{this.$router.currentRoute.name}}</el-breadcrumb-item>
                     </el-breadcrumb>
                     <div v-if="this.$router.currentRoute.name=='Home'">
-                       我是主页..
+                        我是主页..
                     </div>
-                    <router-view/>
+                    <router-view class="homeRouterView"/>
                 </el-main>
             </el-container>
         </el-container>
@@ -52,17 +63,20 @@
         name: "Home",
         data() {
             return {
-                user: JSON.parse(window.sessionStorage.getItem('user'))
+                user: JSON.parse(window.sessionStorage.getItem('user')),
+                customColor: 'background-color: #409eff;',
+                customColorLeft: 'margin-right:6px; color: #409eff'
 
             }
         },
-        computed:{
-          // vuex 中取值一般使用computed
-          routes(){
-              return this.$store.state.routes
-          }
+        computed: {
+            // vuex 中取值一般使用computed
+            routes() {
+                return this.$store.state.routes
+            }
         },
         methods: {
+            // 个人中心下拉框配置
             dropdownHandler(cmd) {
                 if (cmd === 'logout') {
                     this.$confirm('是否确认注销?', '提示', {
@@ -88,6 +102,17 @@
                 } else {
 
                 }
+            },
+            // 修改主题
+            changeTheme(cmd) {
+                if (cmd === 'black') {
+                    this.customColor = 'background-color: #404040;'
+                    this.customColorLeft = 'margin-right:6px; color: #404040'
+
+                } else if (cmd === 'blue') {
+                    this.customColor = 'background-color: #409eff;'
+                    this.customColorLeft = 'margin-right:6px; color: #409eff'
+                }
             }
         }
     }
@@ -108,18 +133,11 @@
     }
 
     .homeHeader {
-        background-color: #409eff;
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 0px 15px;
         box-sizing: border-box;
-    }
-
-    .homeHeader .title {
-        font-size: 30px;
-        font-family: 华文行楷;
-        color: #ffffff
     }
 
     .homeHeader .userInfo {

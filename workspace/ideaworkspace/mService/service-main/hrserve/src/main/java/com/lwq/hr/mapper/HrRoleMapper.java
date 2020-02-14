@@ -13,4 +13,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface HrRoleMapper extends BaseMapper<HrRole> {
 
+    int addRoles(int hrid, int[] rids);
 }

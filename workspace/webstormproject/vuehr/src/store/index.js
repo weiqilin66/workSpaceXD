@@ -7,7 +7,7 @@ export default new Vuex.Store({
     state: {
         routes: []
     },
-    mutations: {
+    mutations: {// 操作state数据
         initRoutes(state, data) {
             state.routes = data;
         }

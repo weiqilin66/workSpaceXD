@@ -1,7 +1,7 @@
 import Axios from "axios";
 import {Message} from "element-ui";
 import router from "../router";
-import ro from "element-ui/src/locale/lang/ro";
+// Axios.interceptors.request.use() 配置axios请求处理
 // 拦截器封装返回的axios处理
 // axios的httpCode=200
 Axios.interceptors.response.use(success => {
@@ -13,9 +13,10 @@ Axios.interceptors.response.use(success => {
         if (success.data.message) {
             Message.success(success.data.message)
             // 后台未登录跨域CORS处理,修改到导航守卫中判断处理
-            /*if (success.data.status === 401) {
+            // 二次修理:当后台登录过期,浏览器一直开着sessionStorage未过期,此时只会进入initMenu方法并报错
+            if (success.data.status === 401) {
                 router.replace('/')
-            }*/
+            }
         }
         // 成功返回respBean对象
         return success.data
@@ -28,6 +29,7 @@ Axios.interceptors.response.use(success => {
             Message.error("权限不足,请联系管理员")
         } else if (error.response.status === 401) {
             Message.error("尚未登录或登录过期,请重新登录")
+            router.replace('/')
         } else {
             if (error.response.data.message) {
                 Message.error(error.response.data.message)
@@ -71,13 +73,6 @@ export const postRequest = (url, params) => {
         data: params
     })
 }
-export const getRequest = (url, params) => {
-    return Axios({
-        method: 'get',
-        url: `${base}${url}`,
-        data: params
-    })
-}
 export const putRequest = (url, params) => {
     return Axios({
         method: 'put',
@@ -85,11 +80,16 @@ export const putRequest = (url, params) => {
         data: params
     })
 }
-export const deleteRequest = (url, params) => {
+export const getRequest = (url) => {
+    return Axios({
+        method: 'get',
+        url: `${base}${url}`
+    })
+}
+export const deleteRequest = (url) => {
     return Axios({
         method: 'delete',
-        url: `${base}${url}`,
-        data: params
+        url: `${base}${url}`
     })
 }
 

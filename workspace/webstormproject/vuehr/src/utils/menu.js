@@ -2,7 +2,7 @@
 import {getRequest} from "./api";
 
 export const initMenu = (store, router) => {
-    // vuex中已存在,不需要通过请求后台获取菜单
+    // vuex中已存在,不需要通过请求后台获取菜单,f5刷新state的东西会清空
     if (store.state.routes.length > 0) {
         return
     }

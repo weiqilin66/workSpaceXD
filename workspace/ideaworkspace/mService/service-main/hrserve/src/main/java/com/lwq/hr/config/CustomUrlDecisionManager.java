@@ -46,6 +46,7 @@ public class CustomUrlDecisionManager implements AccessDecisionManager {
         }
         // 不是LOGIN role也匹配不上
         throw new AccessDeniedException("非法请求!");
+        // 如果未登录 抛完异常不会返回前台,而是 .loginPage("/login") 尝试访问/login 又会进入SecurityMetaDataResourceFilter
     }
 
     @Override

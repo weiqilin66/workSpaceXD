@@ -2,6 +2,7 @@ package com.lwq.hr.mapper;
 
 import com.lwq.hr.entity.MenuRole;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -13,4 +14,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface MenuRoleMapper extends BaseMapper<MenuRole> {
 
+    int insertBatchId(@Param("mids") int[] mids, int rid);
 }

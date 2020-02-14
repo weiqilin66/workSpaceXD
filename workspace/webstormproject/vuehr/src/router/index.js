@@ -17,12 +17,13 @@ const routes = [
         name: 'Home',
         component: () => import( '../views/Home'),
         hidden: true
-    },
+    }
+   /* ,
     {  //匹配不上其他路径,既无效路径会进入此路由 跳转到home页
         path: '*',
         name: 'error',
         component:() => import('../views/Error')
-    }
+    }*/
     // -----------------------------------------------------------------
     // 测试路由 t1/t2 .vue已删除 router跳转优先匹配跳转children下的router
     /*,{

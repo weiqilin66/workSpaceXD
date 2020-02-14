@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -14,9 +15,10 @@
         <module name="lwqAPI" />
         <module name="wayneMBG" />
         <module name="zuul" />
-        <module name="config" />
+        <module name="aaa-customize-config" />
         <module name="spring-security-oauth2" />
         <module name="service-demo" />
+        <module name="config" />
         <module name="testdemo" />
         <module name="a-demo" />
         <module name="config-client" />
@@ -34,7 +36,6 @@
         <module name="service-learn" />
         <module name="wayne-api" />
         <module name="service-message" />
-        <module name="aaa-customize-config" />
         <module name="mybatis_plus-druid" />
       </profile>
     </annotationProcessing>

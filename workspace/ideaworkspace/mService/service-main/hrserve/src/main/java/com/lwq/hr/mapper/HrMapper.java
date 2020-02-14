@@ -4,6 +4,8 @@ import com.lwq.hr.entity.Hr;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 /**
  * <p>
  *  Mapper 接口
@@ -16,4 +18,6 @@ public interface HrMapper extends BaseMapper<Hr> {
 
     @Select("select * from hr where username = #{username}")
     Hr getHr(String username);
+
+    List<Hr> getAllHrs(int id);
 }

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e9946173-1daf-4a59-8313-1f6dddf4e0ee" name="Default Changelist" comment="" />
+    <list default="true" id="e9946173-1daf-4a59-8313-1f6dddf4e0ee" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../IDE配置/webstorm/settings.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../../../IDE配置/webstorm/settings.zip" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,6 +143,8 @@
       <workItem from="1576551371755" duration="887000" />
       <workItem from="1576556876300" duration="16000" />
       <workItem from="1580093484328" duration="1638000" />
+      <workItem from="1580631328819" duration="29000" />
+      <workItem from="1580905892310" duration="976000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1574317426057</created>

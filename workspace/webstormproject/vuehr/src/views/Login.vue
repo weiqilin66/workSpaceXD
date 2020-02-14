@@ -1,18 +1,23 @@
 <template>
     <div>
-        <el-form :rules="rules" ref="loginForm" :model="loginForm" class="loginContainer">
+        <el-form
+                :rules="rules"
+                ref="loginForm"
+                :model="loginForm"
+                v-loading.fullscreen.lock="fullscreenLoading"
+                class="loginContainer">
             <h3 class="loginTitle">系统登录</h3>
             <el-form-item prop="username">
-                <el-input type="text" auto-complete="off" placeholder="请输入用户名" v-model="loginForm.username"/>
+                <el-input size="normal" type="text" auto-complete="off" placeholder="请输入用户名" v-model="loginForm.username"/>
             </el-form-item>
             <el-form-item prop="password">
-                <el-input type="password" auto-complete="off" placeholder="请输入密码" v-model="loginForm.password"
+                <el-input size="normal" type="password" auto-complete="off" placeholder="请输入密码" v-model="loginForm.password"
                 @keydown.enter.native="submitForm"/>
                 <!--enter键登录-->
             </el-form-item>
             <font size="2px">Remember</font>
-            <el-checkbox class="loginRemember" v-model="checked"/>
-            <el-button type="primary" style="width:100%" @click="submitForm">登录</el-button>
+            <el-checkbox size="normal" class="loginRemember" v-model="checked"/>
+            <el-button size="normal" type="primary" style="width:100%" @click="submitForm">登录</el-button>
         </el-form>
     </div>
 </template>
@@ -27,6 +32,7 @@
                     password: '123'
                 },
                 checked: true,
+                fullscreenLoading:false,
                 rules: {
                     username: [{required: true, message: '请输入用户名', trigger: 'blur'}],
                     password: [{required: true, message: '请输入密码', trigger: 'blur'}]
@@ -35,9 +41,11 @@
         },
         methods: {
             submitForm() {
+                this.fullscreenLoading = true
                 this.$refs.loginForm.validate((valid) => {
                     if (valid) {
                         this.postKeyValueRequest('/doLogin', this.loginForm).then(resp => {
+                            this.fullscreenLoading = false
                             // Axios封装已经判断http状态,此时的response就是后端的respBean
                             if (resp) {
                                 // 用户数据保存到sessionStorage,浏览器关闭就消失
