@@ -5,4 +5,7 @@
 ###技术点
 1. department调用存储过程增加(一次请求数据库执行了多条sql逻辑)和删除
 2. EmpBasicController 分页查询
-3. 
+3. @JsonFormat(pattern="yyyy-MM-dd",timezone="Asia/Shanghai")
+    * 后端返回给前端时注解的字段是 如此 格式
+    * 前端给后端传Json时 被注解字段也必须是这个格式
+##内容转移到

@@ -20,4 +20,6 @@ public interface DepartmentMapper extends BaseMapper<Department> {
     void addDepByProcess(Department dep);
 
     void delByProcess(Department dep);
+
+    List<Department> getAllDepWithoutChildren();
 }

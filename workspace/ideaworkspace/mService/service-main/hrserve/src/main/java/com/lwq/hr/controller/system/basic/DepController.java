@@ -2,7 +2,7 @@ package com.lwq.hr.controller.system.basic;
 
 import com.lwq.hr.entity.Department;
 import com.lwq.hr.mapper.DepartmentMapper;
-import lwq.result.RespBean;
+import lwq.returnbean.RespBean;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

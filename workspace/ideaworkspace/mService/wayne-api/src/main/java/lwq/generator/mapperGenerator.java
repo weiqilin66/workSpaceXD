@@ -10,7 +10,7 @@ import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import lwq.constant.DataSourceProperties;
-import lwq.entity.ScannerQ;
+import lwq.utils.scannerUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,7 @@ public class mapperGenerator {
         GlobalConfig globalConfig = new GlobalConfig();
         //生成文件的输出目录
         String projectPath = System.getProperty("user.dir");
-        String projectPath2 =projectPath+"//"+ ScannerQ.sc("子工程路径");
+        String projectPath2 =projectPath+"//"+ scannerUtil.sc("子工程路径");
         System.out.println("工程根路径 :"+projectPath2+"\n");
         globalConfig.setOutputDir(projectPath2 + "/src/main/java");
         //Author设置作者
@@ -62,7 +62,7 @@ public class mapperGenerator {
          * 包配置
          */
         PackageConfig pc = new PackageConfig();
-        pc.setParent(ScannerQ.sc("主包名 (例如:com.sys 则会再com.sys下的entity/mapper/service/controller文件夹生成文件)"));
+        pc.setParent(scannerUtil.sc("主包名 (例如:com.sys 则会再com.sys下的entity/mapper/service/controller文件夹生成文件)"));
         mpg.setPackageInfo(pc);
 
         /**
@@ -127,7 +127,7 @@ public class mapperGenerator {
         //设置命名格式
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setInclude(ScannerQ.sc("表名,多个英文逗号分割").split(","));
+        strategy.setInclude(scannerUtil.sc("表名,多个英文逗号分割").split(","));
         //实体是否为lombok模型（默认 false）
         strategy.setEntityLombokModel(true);
         //生成 @RestController 控制器

@@ -85,7 +85,7 @@
                         type: 'warning'
                     }).then(() => {
                         this.getRequest('/logout')
-                        window.sessionStorage.removeItem('user')
+                        window.sessionStorage.clear()
                         this.$store.state.routes = []
                         this.$router.replace('/')
                         // 消息弹窗由axios封装统一处理后台message

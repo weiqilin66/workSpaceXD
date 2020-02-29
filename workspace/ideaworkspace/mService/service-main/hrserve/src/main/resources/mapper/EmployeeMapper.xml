@@ -109,28 +109,32 @@
         dname,j.`id` as jid,j.`name` as jname,pos.`id` as posid,pos.`name` as posname from employee e,nation
         n,politicsstatus p,department d,joblevel j,position pos where e.`nationId`=n.`id` and e.`politicId`=p.`id` and
         e.`departmentId`=d.`id` and e.`jobLevelId`=j.`id` and e.`posId`=pos.`id`
-       <!-- <if test="emp.name !=null and emp.name!=''">
-            and e.name like concat('%',#{emp.keyword},'%')
+        <if test="emp!=null">
+            <if test="emp.name !=null and emp.name!=''">
+                and e.name like concat('%',#{emp.name},'%')
+            </if>
+
+            <if test="emp.politicId !=null">
+                and e.politicId =#{emp.politicId}
+            </if>
+            <if test="emp.nationId !=null">
+                and e.nationId =#{emp.nationId}
+            </if>
+            <if test="emp.departmentId !=null">
+                and e.departmentId =#{emp.departmentId}
+            </if>
+            <if test="emp.jobLevelId !=null">
+                and e.jobLevelId =#{emp.jobLevelId}
+            </if>
+            <if test="emp.engageForm !=null and emp.engageForm!=''">
+                and e.engageForm =#{emp.engageForm}
+            </if>
+            <if test="emp.posId !=null">
+                and e.posId =#{emp.posId}
+            </if>
         </if>
-        <if test="emp.politicId !=null">
-            and e.politicId =#{emp.politicId}
-        </if>
-        <if test="emp.nationId !=null">
-            and e.nationId =#{emp.nationId}
-        </if>
-        <if test="emp.departmentId !=null">
-            and e.departmentId =#{emp.departmentId}
-        </if>
-        <if test="emp.jobLevelId !=null">
-            and e.jobLevelId =#{emp.jobLevelId}
-        </if>
-        <if test="emp.engageForm !=null and emp.engageForm!=''">
-            and e.engageForm =#{emp.engageForm}
-        </if>
-        <if test="emp.posId !=null">
-            and e.posId =#{emp.posId}
-        </if>
-        <if test="beginDateScope !=null">
+
+        <!--<if test="beginDateScope !=null">
             and e.beginDate between #{beginDateScope[0]} and #{beginDateScope[1]}
         </if>-->
         <if test="page !=null and size!=null">
@@ -174,6 +178,9 @@
         from employee
         where id = #{id,jdbcType=INTEGER}
     </select>
+    <select id="getMaxID" resultType="java.lang.Integer">
+        select max(workID) from employee
+    </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from employee
     where id = #{id,jdbcType=INTEGER}
@@ -205,7 +212,7 @@
         </foreach>
     </insert>
     <insert id="insert" parameterType="com.lwq.hr.entity.Employee">
-    insert into employee (id, name, gender, 
+    insert into employee (name, gender,
       birthday, idCard, wedlock, nationId, 
       nativePlace, politicId, email, 
       phone, address, departmentId, 
@@ -215,14 +222,14 @@
       contractTerm, conversionTime, notWorkDate, 
       beginContract, endContract, workAge
       )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=CHAR}, 
+    values (#{name,jdbcType=VARCHAR}, #{gender,jdbcType=CHAR},
       #{birthday,jdbcType=DATE}, #{idCard,jdbcType=CHAR}, #{wedlock,jdbcType=CHAR}, #{nationId,jdbcType=INTEGER}, 
       #{nativePlace,jdbcType=VARCHAR}, #{politicId,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, 
       #{phone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{departmentId,jdbcType=INTEGER}, 
       #{jobLevelId,jdbcType=INTEGER}, #{posId,jdbcType=INTEGER}, #{engageForm,jdbcType=VARCHAR}, 
       #{tiptopDegree,jdbcType=CHAR}, #{specialty,jdbcType=VARCHAR}, #{school,jdbcType=VARCHAR}, 
       #{beginDate,jdbcType=DATE}, #{workState,jdbcType=CHAR}, #{workID,jdbcType=CHAR}, 
-      #{contractTerm,jdbcType=DOUBLE}, #{conversionTime,jdbcType=DATE}, #{notWorkDate,jdbcType=DATE}, 
+      #{contractTerm,jdbcType=DOUBLE}, #{conversionTime,jdbcType=DATE}, #{notWorkDate},
       #{beginContract,jdbcType=DATE}, #{endContract,jdbcType=DATE}, #{workAge,jdbcType=INTEGER}
       )
   </insert>

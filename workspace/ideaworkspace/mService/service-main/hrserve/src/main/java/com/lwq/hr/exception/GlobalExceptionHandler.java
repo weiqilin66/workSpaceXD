@@ -1,6 +1,6 @@
 package com.lwq.hr.exception;
 
-import lwq.result.RespBean;
+import lwq.returnbean.RespBean;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

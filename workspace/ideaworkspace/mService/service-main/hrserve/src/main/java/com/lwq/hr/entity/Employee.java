@@ -1,8 +1,8 @@
 package com.lwq.hr.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -14,9 +14,9 @@ import java.util.Date;
  * @since 2020-01-28
  */
 
-public class Employee implements Serializable {
+public class Employee {
 
-    private Integer id;
+    private int id;
 
     private String name;
 
@@ -105,8 +105,7 @@ public class Employee implements Serializable {
 
     @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
     private Date conversionTime;
-
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
+    @JsonIgnore
     private Date notWorkDate;
 
     @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
@@ -114,7 +113,6 @@ public class Employee implements Serializable {
 
     @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
     private Date endContract;
-
     private Integer workAge;
     private Nation nation;
     private Politicsstatus politicsstatus;

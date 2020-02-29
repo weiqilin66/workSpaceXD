@@ -1,6 +1,6 @@
 package com.lwq.hr.controller;
 
-import lwq.result.RespBean;
+import lwq.returnbean.RespBean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

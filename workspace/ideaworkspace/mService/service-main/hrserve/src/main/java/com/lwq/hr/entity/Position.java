@@ -9,6 +9,7 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * <p>
@@ -37,5 +38,23 @@ public class Position implements Serializable {
 
     private Boolean enabled;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Position position = (Position) o;
+        return Objects.equals(name, position.name);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
+    public Position(String name) {
+        this.name = name;
+    }
+
+    public Position() {
+    }
 }

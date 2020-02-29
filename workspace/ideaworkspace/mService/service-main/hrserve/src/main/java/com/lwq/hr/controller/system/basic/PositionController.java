@@ -2,7 +2,7 @@ package com.lwq.hr.controller.system.basic;
 
 import com.lwq.hr.entity.Position;
 import com.lwq.hr.mapper.PositionMapper;
-import lwq.result.RespBean;
+import lwq.returnbean.RespBean;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.*;
 

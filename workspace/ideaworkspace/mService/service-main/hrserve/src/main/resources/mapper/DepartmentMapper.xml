@@ -26,4 +26,7 @@
     <select id="getAllDepByParentId" resultMap="ResultMapWithChildren">
         select * from department where parentId = #{pid}
     </select>
+    <select id="getAllDepWithoutChildren" resultType="com.lwq.hr.entity.Department">
+        select * from department
+    </select>
 </mapper>

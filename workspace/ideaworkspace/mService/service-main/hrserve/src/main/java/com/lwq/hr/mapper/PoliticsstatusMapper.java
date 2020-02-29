@@ -1,7 +1,10 @@
 package com.lwq.hr.mapper;
 
-import com.lwq.hr.entity.Politicsstatus;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.lwq.hr.entity.Politicsstatus;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface PoliticsstatusMapper extends BaseMapper<Politicsstatus> {
 
+    @Select("select * from politicsstatus")
+    List<Politicsstatus> getAll();
 }

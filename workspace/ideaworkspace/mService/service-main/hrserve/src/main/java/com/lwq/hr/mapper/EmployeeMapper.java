@@ -40,4 +40,6 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
     List<Employee> getEmployeeByPageWithSalary(@Param("page") Integer page, @Param("size") Integer size);
 
     Integer updateEmployeeSalaryById(@Param("eid") Integer eid, @Param("sid") Integer sid);
+
+    int getMaxID();
 }

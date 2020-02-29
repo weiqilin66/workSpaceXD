@@ -154,6 +154,10 @@
                         this.initJL();
                         this.JL.name = ''
                         this.JL.titleLevel = ''
+                        // empBasic页面联动
+                        if (window.sessionStorage.getItem('joblevels')) {
+                            window.sessionStorage.removeItem('joblevels')
+                        }
                     }
                 })
             },

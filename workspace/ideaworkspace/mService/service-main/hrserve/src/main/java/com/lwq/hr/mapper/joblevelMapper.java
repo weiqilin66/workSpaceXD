@@ -18,4 +18,5 @@ public interface joblevelMapper extends BaseMapper<Joblevel> {
 
     @Select("select * from joblevel")
     List<Joblevel> selectAll();
+
 }
