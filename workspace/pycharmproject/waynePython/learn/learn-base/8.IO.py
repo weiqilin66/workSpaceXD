@@ -34,6 +34,10 @@ with open('d:/test/io.txt', 'w', encoding='utf-8') as f3:
 
 # open的方式 r w a
 
+# 写入
+# string1 = json.dumps(self.items)  # dict转换成str 写入为二进制
+# string1 = json.dumps(self.items, ensure_ascii=False)  # 写中文
+
 
 
 

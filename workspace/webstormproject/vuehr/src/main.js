@@ -30,9 +30,9 @@ router.beforeEach((to, from, next)=>{
             initMenu(store,router)
             next()
         }else {
+            Message.warning('sir,请先登录')
             // 未登录&访问其他url: ,/先跳转到/login,?redirect携带登录成功后跳转的页面,在Login页判断要跳转的页面
             next('/?redirect='+to.path)
-            Message.warning('sir,请先登录')
         }
 
     }
