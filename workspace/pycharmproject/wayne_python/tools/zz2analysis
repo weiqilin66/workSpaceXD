@@ -1,0 +1,10 @@
+import re
+
+string ='username=wolfmonkey&password=linzhibin66&_token=2dG4jn9vjzyArSANEkt4T5MnyzH4BKq38nHB7ei5&_t=1583485312036'
+def main(string):
+    ret = re.sub('(.*?)=(.*?)&','\1: \2,\n',string)
+    print(ret)
+    return ret
+
+if __name__ == '__main__':
+    main(string)
