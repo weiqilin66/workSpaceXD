@@ -42,7 +42,7 @@ print(soup.select('#秦'))
 # a, .class , #id
 
 # 5. 层级选择器
-# div> p> a> .class
+# div> p> a> .class  >明确的下一级  空格 下级
 print('------------------层级选择器获取精确子层级----------------------------')
 print(soup.select('.tang > ul > li >a')[1])
 print(soup.select('.tang > ul > li >a')[1].text)     # 选择器配合获取属性和获取内容

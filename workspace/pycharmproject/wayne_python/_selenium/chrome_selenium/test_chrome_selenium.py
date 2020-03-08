@@ -1,15 +1,15 @@
 from selenium import webdriver
-# 导入chrome选项
 from selenium.webdriver.chrome.options import Options
 import time
 
 # ****************配置驱动************************
 path = r'd:/driverAndPlugs/chromedriver.exe'
 
-# 创建chrome浏览器驱动，无头模式）
+# 创建chrome浏览器驱动，无头模式
 chrome_options = Options()
 chrome_options.add_argument('--headless')
-browser = webdriver.Chrome(executable_path=path, options=chrome_options)
+chrome_options.add_argument('--disable-gpu')
+browser = webdriver.Chrome(executable_path=path, chrome_options=chrome_options)
 
 # ****************开始操作浏览器********************
 

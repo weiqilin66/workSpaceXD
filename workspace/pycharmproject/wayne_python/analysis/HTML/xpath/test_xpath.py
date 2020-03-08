@@ -4,6 +4,7 @@ from lxml import etree
 # xpath数组下标从1开始
 
 tree = etree.parse('../beautifulSoup/soup_test.html')
+tree2 = etree.HTML('../beautifulSoup/soup_test.html')  # parse接收任意文档 html解析html更好
 
 ret = tree.xpath('//div[1]/a')
 # 返回对象是列表
@@ -31,9 +32,15 @@ print(ret[0].text)
 # /bookstore/*	选取 bookstore 元素的所有子元素。
 # //*	选取文档中的所有元素。
 # //title[@*]	选取所有带有属性的 title 元素。
+# .  当前节点
 
 # 函数运算符
 # contains(text(),'') 包含''内容  contains(@class,'l') class属性包含l
 # starts-with(@class,"ba")
 # /text() 显示文本   //text()标签下所有文本
 # and or  !=  mod除
+# string(.)可以用于提取标签嵌套标签的所有内容
+
+# 额外的字符串函数
+# replace(x,y) 替换字符串中的x为y
+# strip('x y z') 删除字符串中包含的所有 x y z xyz xy zz...
