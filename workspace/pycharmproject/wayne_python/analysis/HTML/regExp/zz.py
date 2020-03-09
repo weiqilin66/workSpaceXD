@@ -1,5 +1,6 @@
 import re
-
+"""goods_match = re.search(r'g_page_config = (.*?)}};', response.text) 简洁写法
+"""
 str1 = '<p><div><span>猪</span></div></p>'
 
 # 子模式\1 + 单字符\w + 数量修饰符+

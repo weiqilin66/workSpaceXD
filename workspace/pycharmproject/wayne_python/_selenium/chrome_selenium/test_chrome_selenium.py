@@ -19,6 +19,7 @@ time.sleep(3)
 
 # 打印页面标题 "百度一下，你就知道"
 print(browser.title)
+# window.scrollTo(0, document.body.scrollHeight) 下拉到底部
 
 # 关闭浏览器
 browser.quit()

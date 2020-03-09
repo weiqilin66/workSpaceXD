@@ -37,7 +37,7 @@
     2. 
 
 ###输出指定格式
-1. 生成的文件目录下执行scrapy crawl spider文件名 -o 输出文件问
+1. 生成的文件目录下执行scrapy crawl spider文件名 -o 输出return的数据写入文件
     1. eg: scrapy crawl qiushibaike -o qiushibaike.json
     2. parse()方法:Spider must return Request, BaseItem, dict or None
 

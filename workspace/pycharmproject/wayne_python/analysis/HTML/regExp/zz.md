@@ -29,5 +29,5 @@
         re.M: 多行匹配
         re.S: 单行匹配    .*可匹配换行
     方法:
-        math/search/findall                 返回结果是list列表
+        math/search/findall                 findall返回结果是list列表 search 返回是对象
         re.sub(正则表达式, 替换内容, 字符串)   返回结果是字符串
