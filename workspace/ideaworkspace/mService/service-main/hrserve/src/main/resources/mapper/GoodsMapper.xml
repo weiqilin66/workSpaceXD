@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lwq.hr.mapper.GoodsMapper">
+
+    <resultMap id="BaseResultMap" type="com.lwq.hr.entity.Goods">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="kw" column="kw" jdbcType="VARCHAR"/>
+        <result property="shop" column="shop" jdbcType="VARCHAR"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="price" column="price" jdbcType="FLOAT"/>
+        <result property="sales" column="sales" jdbcType="VARCHAR"/>
+        <result property="freight" column="freight" jdbcType="FLOAT"/>
+        <result property="comment" column="comment" jdbcType="VARCHAR"/>
+        <result property="imgUrl" column="img_url" jdbcType="VARCHAR"/>
+        <result property="detailUrl" column="detail_url" jdbcType="VARCHAR"/>
+        <result property="etlDate" column="etl_date" jdbcType="VARCHAR"/>
+        <result property="etlTime" column="etl_time" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="maxAndMin" resultMap="BaseResultMap">
+        select  g.* from goods g
+        inner join
+        <![CDATA[
+        (select kw,max(price) as m from goods where price <800 GROUP BY kw) b
+        on g.kw = b.kw and g.price = b.m and etl_date = #{date}
+        and etl_time = (select max(etl_time) from goods where etl_date = #{date})
+        group by kw
+
+        union all
+
+        select g.* from goods g
+        inner join
+        (SELECT kw,min( price) as m from goods where price >100 GROUP BY kw) b
+        on g.kw = b.kw and g.price = b.m and etl_date = #{date}
+        and etl_time = (select max(etl_time) from goods where etl_date = #{date})
+         group by kw
+        ]]>
+        order by kw
+    </select>
+</mapper>
