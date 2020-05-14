@@ -18,6 +18,10 @@
 4. 展示 el-table 提交复杂的用el-form 
     * 使用el-form主要是为了rules数据校验
     * el-form-item 的prop数据校验, el-table-column 的prop遍历el-table的:data的key的依据
+    
+5. Axios同步请求 日期控件近n天ChartTrend.vue
+
+
 ###bugs:
 1. 已解决
     1. deleteRequest删除单个 不要使用 ?name = value  直接?后面加要删除的id 后端使用/{id} 占位符

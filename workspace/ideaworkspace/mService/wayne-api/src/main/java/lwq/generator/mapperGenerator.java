@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class mapperGenerator {
 
-    public void run(){
+    public void run() {
         /**
          * 代码生成器
          */
@@ -31,10 +31,31 @@ public class mapperGenerator {
          * 全局配置
          */
         GlobalConfig globalConfig = new GlobalConfig();
+        PackageConfig pc = new PackageConfig();
         //生成文件的输出目录
-        String projectPath = System.getProperty("user.dir");
-        String projectPath2 =projectPath+"//"+ scannerUtil.sc("子工程路径");
-        System.out.println("工程根路径 :"+projectPath2+"\n");
+        String projectPath = System.getProperty("user.dir");//工程根目录  xx/mService
+        String projectPath2;
+        String sonProjectPath = scannerUtil.sc("子工程路径");
+        if (sonProjectPath.equals("default")) {
+            /*
+                输入default 自动在hrserve下生产mbg
+             */
+            projectPath2 = projectPath + "//" + "service-main/hrserve";
+
+            pc.setParent("com.lwq.hr");
+            mpg.setPackageInfo(pc);
+        } else {
+            // 路径配置
+            projectPath2 = projectPath + "//" + sonProjectPath;
+            System.out.println("子工程根路径 :" + projectPath2 + "\n");
+            /**
+             * 包配置
+             */
+            pc = new PackageConfig();
+            pc.setParent(scannerUtil.sc("主包名 (例如:com.sys 则会再com.sys下的entity/mapper/service/controller文件夹生成文件)"));
+            mpg.setPackageInfo(pc);
+        }
+
         globalConfig.setOutputDir(projectPath2 + "/src/main/java");
         //Author设置作者
         globalConfig.setAuthor("LinWeiQi");
@@ -58,12 +79,6 @@ public class mapperGenerator {
         dataSourceConfig.setPassword(DataSourceProperties.PASSWORD);
         mpg.setDataSource(dataSourceConfig);
 
-        /**
-         * 包配置
-         */
-        PackageConfig pc = new PackageConfig();
-        pc.setParent(scannerUtil.sc("主包名 (例如:com.sys 则会再com.sys下的entity/mapper/service/controller文件夹生成文件)"));
-        mpg.setPackageInfo(pc);
 
         /**
          * 自定义配置
@@ -147,6 +162,7 @@ public class mapperGenerator {
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();
     }
+
     public static void main(String[] args) {
 
         new mapperGenerator().run();

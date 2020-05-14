@@ -1,22 +1,25 @@
 package com.lwq.hr;
 
-import com.lwq.hr.entity.Menu;
-import com.lwq.hr.mapper.MenuMapper;
+import com.lwq.hr.mapper.GoodsMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @SpringBootTest
 class HrTest {
 
     @Resource
-    MenuMapper menuMapper;
+    GoodsMapper goodsMapper;
     @Test
     void t1(){
-        List<Menu> menuById = menuMapper.getMenuById(5);
-        menuById.stream().forEach(System.out::println);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String now = dateFormat.format(new Date());
+        System.out.println(now);
+
     };
 
 }
+

@@ -37,9 +37,10 @@ print(ret6)
 str4 = 'you fool'
 p6 = re.compile('fool')
 ret7 = re.sub(p6,'smart',str4)
-ret9 = re.sub(r'you','I',str4)
+ret9 = re.sub(r'you','I',ret7)
 ret8 = p6.sub('smart',str4)
-
+print(ret9)
+print(type(ret9),'type')
 # ()匹配取值
 string = '<div>love forever</div>'
 print(re.compile(r'<div>(.*?)</div>').findall(string))

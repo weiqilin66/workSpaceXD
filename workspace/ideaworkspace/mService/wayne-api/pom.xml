@@ -28,6 +28,12 @@
             <version>2.3.29</version>
             <optional>true</optional>
         </dependency>
+        <!--mysql驱动-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
         <!-- ##################  基本依赖 #################### -->
         <dependency>
             <groupId>org.projectlombok</groupId>

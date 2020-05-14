@@ -52,7 +52,7 @@ public class Goods implements Serializable {
     /**
      * 销量
      */
-    private String sales;
+    private int sales;
 
     /**
      * 运费

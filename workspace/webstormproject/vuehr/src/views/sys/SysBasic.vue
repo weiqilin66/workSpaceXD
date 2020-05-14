@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!--标签页样式-->
         <el-tabs v-model="activeName" >
             <el-tab-pane label="部门管理" name="first"><DepMana></DepMana></el-tab-pane>
             <el-tab-pane label="职位管理" name="second"><PosMana></PosMana></el-tab-pane>

@@ -1,8 +1,8 @@
 <template>
     <div>
         <div>
-            <el-input placeholder="输入要搜索的店铺..." v-model="shopName" style="width: 300px;margin-right: 5px"/>
-            <el-input placeholder="输入要搜索的宝贝..." v-model="title" style="width: 300px;margin-right: 5px"/>
+            <el-input placeholder="输入要搜索的店铺..." v-model="shopName" style="width: 300px;margin-right: 5px" disabled/>
+            <el-input placeholder="输入要搜索的宝贝..." v-model="title" style="width: 300px;margin-right: 5px" disabled/>
             <el-button type="primary" icon="el-icon-search" @click="doSearch">搜索</el-button>
         </div>
 
@@ -95,11 +95,11 @@
             }
         },
         mounted() {
-            this.initData()
+            // this.initData()
         },
         methods: {
             doSearch() {
-
+                this.initData()
             },
             initData(){
                 this.getRequest('/statistics/table/').then(resp=>{

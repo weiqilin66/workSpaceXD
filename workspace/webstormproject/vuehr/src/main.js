@@ -43,6 +43,29 @@ import 'font-awesome/css/font-awesome.min.css'
 // 引入 vuex
 import store from './store'
 
+// // 使用vue-echarts
+// import ECharts from 'vue-echarts' // 在 webpack 环境下指向 components/ECharts.vue
+// // 手动引入 ECharts 各模块来减小打包体积
+// import 'echarts/lib/chart/bar'
+// import 'echarts/lib/component/tooltip'
+// import 'echarts-gl'
+// // 注册组件后即可使用
+// Vue.component('v-chart', ECharts)
+import charts from 'echarts'
+Vue.prototype.echarts = charts
+
+//时间格式化
+Vue.prototype.getyyyyMMdd=function(d) {
+    var curr_date = d.getDate();
+    var curr_month = d.getMonth() + 1;
+    var curr_year = d.getFullYear();
+    String(curr_month).length < 2 ? (curr_month = "0" + curr_month): curr_month;
+    String(curr_date).length < 2 ? (curr_date = "0" + curr_date): curr_date;
+    var yyyyMMdd = curr_year + "" + curr_month +""+ curr_date;
+    return yyyyMMdd;
+}
+
+
 new Vue({
     router,
     store,

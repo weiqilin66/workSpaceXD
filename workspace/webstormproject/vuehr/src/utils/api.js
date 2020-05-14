@@ -92,6 +92,8 @@ export const deleteRequest = (url) => {
         url: `${base}${url}`
     })
 }
+// 同步请求
+
 
 
 
