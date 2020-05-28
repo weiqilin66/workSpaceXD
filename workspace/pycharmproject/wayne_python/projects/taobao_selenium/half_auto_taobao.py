@@ -16,9 +16,10 @@ import openpyxl
 
 def start(random_good):
     chrome_path = r'd:/driverAndPlugs/chromedriver.exe'
+    mp3_path = r'd:/菊花台.mp3'
     options = webdriver.ChromeOptions()
     # 不加载图片
-    options.add_experimental_option("prefs",{"profile.managed_default_content_settings.images":2})
+    options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
     # 设置为开发者模式，防止被各大网站识别出来使用了Selenium  window.navigator.webdriver  检测
     options.add_experimental_option('excludeSwitches', ['enable-automation'])
     chrome = webdriver.Chrome(executable_path=chrome_path, chrome_options=options)
@@ -53,65 +54,107 @@ def json2info(json_):
 
 
 # 搜索爬取数据
-def data_by_search(chrome, search_good, crawl_type):
+def data_by_search(conn, cursor, etl_date, etl_time, chrome, search_good, crawl_type, pages):
     try:
         tb_input = chrome.find_elements_by_xpath("//input[@name='q']")[0]
         tb_btn = chrome.find_elements_by_xpath("//button")[0]
         tb_input.clear()
         tb_input.send_keys(search_good)
         tb_btn.click()
+        time.sleep(random.randint(10, 15))
         # 排序按钮     综合排序/销量/信用/价格从低到高/价格从高到低/总价从低到高/总价从高到低
         sort_btn = chrome.find_elements_by_xpath("//li/a[@data-key='sort']")
         # 销量排序
-        if crawl_type == 1:
-            sales_btn = sort_btn[1]
-            sales_btn.click()
+        if crawl_type == 1:  # 下一页不用再按销量排行和搜索
+            sort_btn[1].click()
             time.sleep(random.randint(10, 15))
             # 价格100+
-            chrome.find_elements_by_xpath("//input[@class='J_SortbarPriceInput input']")[0].send_keys(100)
-            time.sleep(1)
-            chrome.find_elements_by_xpath("//button")[1].click()
-            time.sleep(random.randint(10, 15))
+            # chrome.find_elements_by_xpath("//input[@class='J_SortbarPriceInput input']")[0].send_keys(100)
+            # time.sleep(1)
+            # chrome.find_elements_by_xpath("//button")[1].click()
+            # time.sleep(random.randint(10, 15))
     except common.exceptions.WebDriverException as e:
-        print('webdriver异常: ', e)
+        print('--webdriver异常: ', e)
+        # playsound(mp3_path)
         tkinter.messagebox.showinfo('tip', 'webdriver异常')
+        # print("关闭弹窗休息200s")
+        # time.sleep(200)
         tb_input = chrome.find_elements_by_xpath("//input[@name='q']")[0]
         tb_btn = chrome.find_elements_by_xpath("//button")[0]
         tb_input.clear()
         tb_input.send_keys(search_good)
         tb_btn.click()
-        # 排序按钮     综合排序/销量/信用/价格从低到高/价格从高到低/总价从低到高/总价从高到低
+        time.sleep(random.randint(10, 15))
         sort_btn = chrome.find_elements_by_xpath("//li/a[@data-key='sort']")
-        # 销量排序
         if crawl_type == 1:
-            sales_btn = sort_btn[1]
-            sales_btn.click()
-            time.sleep(random.randint(10, 15))
-            # 价格100+
-            chrome.find_elements_by_xpath("//input[@class='J_SortbarPriceInput input']")[0].send_keys(100)
-            time.sleep(1)
-            chrome.find_elements_by_xpath("//button")[1].click()
+            sort_btn[1].click()
             time.sleep(random.randint(10, 15))
 
     # 下拉到底部
     chrome.execute_script('window.scrollTo(0, document.body.scrollHeight)')
+    time.sleep(2)
     # 拉取html
     html = chrome.page_source
     json_ = re.findall(r'g_page_config = (.*?)}};', html)[0]
     if json_ == '':
-        return json_
+        print('未搜索到: ', search_good)
+        return
     json_ = json_ + '}}'
-    return json_
+    # 分析json 写入数据库
+    good_list = json2info(json_)
+    print("crawl: %s" % search_good, '\n首页size: ', len(good_list))
+    info2mysql(good_list, conn, cursor, etl_date, etl_time, search_good)
+    # 下一页
+    if pages == 1:
+        return
+
+    for page in range(0, pages - 1):
+        # 下一页按钮不可用 返回
+        totalPage = chrome.find_elements_by_xpath("//div[@class='pager']//ul[@class='items']//li/a[@class='link']/span[@class='icon icon-btn-next-2-disable']")  # 只有一页
+        if len(totalPage) == 0:
+            return
+        try:
+            next_btn = chrome.find_element_by_xpath('//li[@class="item next"]//a')
+            next_btn.click()
+            time.sleep(random.randint(10, 15))
+        except common.exceptions.WebDriverException as e:
+            print('--webdriver异常: ', e)
+            # playsound(mp3_path)
+            tkinter.messagebox.showinfo('tip', 'webdriver异常')
+            # print("关闭弹窗休息200s")
+            # time.sleep(200)
+            next_btn = chrome.find_element_by_xpath('//li[@class="item next"]//a')  # 窗口长度不能缩小变短 加载不了下一页js
+            next_btn.click()
+            time.sleep(random.randint(10, 15))
+
+        # 下拉到底部
+        chrome.execute_script('window.scrollTo(0, document.body.scrollHeight)')
+        # 拉取html
+        html = chrome.page_source
+        json_ = re.findall(r'g_page_config = (.*?)}};', html)[0]
+        if json_ == '':
+            print('翻页未搜索到: ', search_good)
+            return
+        json_ = json_ + '}}'
+        # 分析json
+        good_list = json2info(json_)
+        print('第',page+2,'页size: ', len(good_list))
+    # 写入数据库
+        info2mysql(good_list, conn, cursor, etl_date, etl_time, search_good)
 
 
 # 插入数据库1
 def info2mysql(good_list, conn, cursor, etl_date, etl_time, kw):
     # 一个good_list是一个网页数据 统一设置一个时间
+
     for good in good_list:
         shop = good['shop']  # 店铺名
         title = good['title']  # 宝贝标题
         price = float(good['price'])  # 价格
-        sales = int(good['sales'].strip('+人付款收货'))  # 销量
+        if '万' in good['sales']:
+            sales = float(good['sales'].strip('+万人付款收货')) * 10000  # 销量
+        else:
+            sales = int(good['sales'].strip('+人付款收货'))  # 销量
         if good['freight'] == '':  # 运费
             freight = 0
         else:
@@ -125,6 +168,11 @@ def info2mysql(good_list, conn, cursor, etl_date, etl_time, kw):
         #     continue
         # 这部分商品低价或者高价销量高是有研究价值的
         # sql语句
+        del_sql = """
+            delete from goods where title = %s and etl_date = %s and shop =%s
+        """
+        cursor.execute(del_sql, (title, etl_date, shop))
+        conn.commit()
         insert_sql = """
         insert into goods(shop,title,price,sales,freight,etl_date,etl_time,kw,detail_url,img_url) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
         """
@@ -175,7 +223,7 @@ def sel_shops(cursor):
     return shop_list
 
 
-# 根据店铺查询数据
+# 根据店铺查询指定宝贝
 def data_by_shop(chrome, good, shop):
     try:
         shop_input = chrome.find_elements_by_xpath("//input[@name='q']")[0]
@@ -238,14 +286,16 @@ def read_goods_by_excel():
     ps4_list = []
     search_goods = []
     for cases in list(sh.rows)[1:]:
-        case_switch = 'switch' + cases[0].value
-        if cases[1].value is not None:
-            case_ps4 = 'ps4' + cases[1].value
+        if cases[0].value is not None:
+            case_switch = 'switch ' + cases[0].value
+            switch_list.append(case_switch)
+            search_goods.append(case_switch)
+
+        if cases[2].value is not None:
+            case_ps4 = 'ps4 ' + cases[2].value
             ps4_list.append(case_ps4)
             search_goods.append(case_ps4)
-        switch_list.append(case_switch)
-        search_goods.append(case_switch)
-    # print(switch_list,ps4_list)
+
     # 关闭工作薄
     wb.close()
     return search_goods
@@ -254,7 +304,7 @@ def read_goods_by_excel():
 # 爬取店铺所有商品
 def crawl_all_f_shop(chrome, shop, cursor, conn, etl_date, etl_time):
     totalPage = chrome.find_elements_by_xpath("//span[@class='page-info']")
-    if len(totalPage)==0:
+    if len(totalPage) == 0:
         time.sleep(10)
         return
     total = totalPage[0].text
@@ -270,7 +320,7 @@ def crawl_all_f_shop(chrome, shop, cursor, conn, etl_date, etl_time):
                 dl_list = chrome.find_elements_by_xpath("//dl//img")
         except common.exceptions.WebDriverException as e:
             print('--webdriver异常: ', e)
-            # playsound("path")
+            # playsound(mp3_path)
             tkinter.messagebox.showinfo('tip', 'webdriver异常')
             print("关闭弹窗休息200s")
             time.sleep(200)
@@ -314,7 +364,7 @@ def crawl_all_f_shop(chrome, shop, cursor, conn, etl_date, etl_time):
                 next_btn.click()
             except common.exceptions.WebDriverException as e:
                 print('--webdriver异常: ', e)
-                # playsound("path")
+                # playsound(mp3_path)
                 tkinter.messagebox.showinfo('tip', 'webdriver异常')  # 手动滑块
                 print("关闭弹窗休息200s")
                 time.sleep(200)
@@ -324,15 +374,14 @@ def crawl_all_f_shop(chrome, shop, cursor, conn, etl_date, etl_time):
     return error_str
 
 
-def delete_data(cursor, etl_date,shop):
+def delete_data(cursor, etl_date, shop):
     sel_sql = """
         delete from goods_shop where etl_date = %s and shop = %s
     """
-    cursor.execute(sel_sql,(etl_date,shop[1]))
+    cursor.execute(sel_sql, (etl_date, shop[1]))
 
 
 def updateShop(cursor, conn, shop):
-
     sql = """
         update shop set enable = 0 where name = %s
     """
@@ -348,9 +397,38 @@ def UpdateAllShop(cursor, conn):
     conn.commit()
 
 
+def read_goods_by_sql(conn, cursor):
+    sel_sql = """
+        select name from tb_search where enabled =1
+    """
+    cursor.execute(sel_sql)
+    shop_list = cursor.fetchall()
+    return shop_list
+
+
+def enabled_goods(conn, cursor, shopName):
+    update_eql = """
+        update tb_search set enabled = 0 where name = %s
+    """
+    cursor.execute(update_eql, shopName)
+    conn.commit()
+
+
+def enabled_goods_one(conn, cursor):
+    update_eql = """
+        update tb_search set enabled = 1 
+    """
+    cursor.execute(update_eql)
+    conn.commit()
+
+
 def main():
-    # search_goods = read_goods_by_excel()
-    search_goods = ["香蕉", "苹果", "梨", "葡萄"]
+    # 链接mysql
+    conn = pymysql.connect('localhost', 'root', 'root', 'vhr')
+    # 创建游标
+    cursor = conn.cursor()
+    search_goods = read_goods_by_sql(conn, cursor)
+    # search_goods = ["香蕉", "苹果", "梨", "葡萄"]
     # print('爬取列表: ', search_goods)
     random_good = random.randint(0, len(search_goods) - 1)
     chrome = start(search_goods[random_good])
@@ -358,70 +436,49 @@ def main():
     time.sleep(15)
     login(chrome)
     print('登录成功:', chrome.current_url)
-    # 链接mysql
-    conn = pymysql.connect('localhost', 'root', 'root', 'vhr')
-    # 创建游标
-    cursor = conn.cursor()
+
     # 数据日期
     etl_date = time.strftime("%Y%m%d", time.localtime())
     etl_time = time.strftime("%H:%M:%S", time.localtime())
-    # 爬取数据--销量排行
-    # print('-----  销量排行  -----')
-    # for search_good in search_goods:
-    #     json_ = data_by_search(chrome, search_good, 1)
-    #     if json_ == '':
-    #         print(search_good + ': 未搜索到宝贝')
-    #         continue
-    #     # 随机请求间隔
-    #     time.sleep(random.randint(10, 20))
-    #     # 分析json
-    #     good_list = json2info(json_)
-    #     # 写入数据库
-    #     kw = search_good
-    #     print(kw)
-    #     info2mysql(good_list, conn, cursor, etl_date, etl_time, kw)
-    # 综合排序爬取一次
-    # json_ = get_json_data(chrome, search_good,0)
-    # time.sleep(random.randint(2, 10))
-    # good_list = json2info(json_)
-    # kw = search_good
-    # print('综合排序: '+kw)
-    # info2mysql(good_list, conn, cursor, etl_date, etl_time, kw)
+    print('-----  销量排行  -----')
+    count = 0
+    for search_good in search_goods:
+        pages = 3
+        if count > 40:  # 后续宝贝热度低
+            pages = 2
+        data_by_search(conn, cursor, etl_date, etl_time, chrome, search_good, 1, pages)
+        count = count + 1
+        enabled_goods(conn, cursor, search_good)
+    enabled_goods_one(conn, cursor)
 
     # 爬取数据--代表店铺
-    # 店铺跳转
-    print('-------------  代表店铺  -------------------')
-    shop_list = sel_shops(cursor)
-    print("猎杀名单:")
-    for s in shop_list:
-        print(s[1])
-    for shop in shop_list:
-        delete_data(cursor, etl_date,shop)
-        switch_url = shop[2]
-        ps4_url = shop[3]
-        chrome.get(switch_url)
-        time.sleep(10)
-        print('########店铺:', shop[1], ' ###### switch #########')
-        # 爬取指定商品
-        # for good in search_goods:
-        #     time.sleep(random.randint(30, 50))
-        #     item = data_by_shop(chrome, good, shop)
-        #     item2mysql(cursor, conn, item, good, etl_date, etl_time)
-
-        # 爬取所有商品
-        crawl_all_f_shop(chrome, shop, cursor, conn, etl_date, etl_time)
-        if ps4_url is not None:
-            chrome.get(ps4_url)
-            time.sleep(10)
-            print('########店铺:', shop[1], ' ###### ps4 #########')
-            # 爬取所有商品
-            crawl_all_f_shop(chrome, shop, cursor, conn, etl_date, etl_time)
-        # 该店铺爬取完 enable设置为 0 当天不用重复爬取了
-        updateShop(cursor, conn, shop)
-        print(shop[1], "--猎杀完毕--休息下")
-        time.sleep(random.randint(90, 150))
-    # 全部爬取完 enable设置为 1
-    UpdateAllShop(cursor, conn)
+    # print('-------------  代表店铺  -------------------')
+    # shop_list = sel_shops(cursor)
+    # print("猎杀名单:")
+    # for s in shop_list:
+    #     print(s[1])
+    # for shop in shop_list:
+    #     delete_data(cursor, etl_date,shop)
+    #     switch_url = shop[2]
+    #     ps4_url = shop[3]
+    #     chrome.get(switch_url)
+    #     time.sleep(10)
+    #     print('########店铺:', shop[1], ' ###### switch #########')
+    #     # 爬取switch商品
+    #     crawl_all_f_shop(chrome, shop, cursor, conn, etl_date, etl_time)
+    # 
+    #     if ps4_url is not None:
+    #         chrome.get(ps4_url)
+    #         time.sleep(10)
+    #         print('########店铺:', shop[1], ' ###### ps4 #########')
+    #         # 爬取ps4商品
+    #         crawl_all_f_shop(chrome, shop, cursor, conn, etl_date, etl_time)
+    #     # 该店铺爬取完 enable设置为 0 当天不用重复爬取了
+    #     updateShop(cursor, conn, shop)
+    #     print(shop[1], "--猎杀完毕--休息下")
+    #     time.sleep(random.randint(90, 150))
+    # # 全部爬取完 enable设置为 1
+    # UpdateAllShop(cursor, conn)
     chrome.close()
     # 关闭游标和连接
     cursor.close()
