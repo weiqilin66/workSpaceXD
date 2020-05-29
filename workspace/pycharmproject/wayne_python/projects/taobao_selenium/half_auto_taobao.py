@@ -111,7 +111,7 @@ def data_by_search(conn, cursor, etl_date, etl_time, chrome, search_good, crawl_
     for page in range(0, pages - 1):
         # 下一页按钮不可用 返回
         totalPage = chrome.find_elements_by_xpath("//div[@class='pager']//ul[@class='items']//li/a[@class='link']/span[@class='icon icon-btn-next-2-disable']")  # 只有一页
-        if len(totalPage) == 0:
+        if len(totalPage) > 0:
             return
         try:
             next_btn = chrome.find_element_by_xpath('//li[@class="item next"]//a')
