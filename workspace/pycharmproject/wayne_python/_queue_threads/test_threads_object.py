@@ -10,7 +10,7 @@ crawl_list = []
 parse_list = []
 
 
-# 采集线程
+# 采集线程 继承threading
 class CrawlThread(threading.Thread):
     def __init__(self, name, data_que, page_que):
         super(CrawlThread, self).__init__()

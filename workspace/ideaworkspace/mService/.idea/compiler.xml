@@ -7,36 +7,43 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="config-service" />
+        <module name="thread-nio" />
+        <module name="config-client" />
+        <module name="a-demo" />
+        <module name="redis" />
+        <module name="eureka" />
+        <module name="wayne-api" />
+        <module name="service-freemarker" />
+        <module name="service-demo" />
+        <module name="lwqAPI" />
+        <module name="spring-security" />
+        <module name="zuul" />
         <module name="hrserve" />
+        <module name="rest-jpa" />
+        <module name="service-learn" />
+        <module name="wayneMBG" />
+        <module name="service-A" />
+        <module name="spring-security-dynamic" />
+        <module name="spring-security-mybatis" />
+        <module name="testdemo" />
+        <module name="service-Upload-Download" />
+        <module name="config" />
+        <module name="aaa-customize-config" />
+        <module name="thread" />
+        <module name="service-main" />
         <module name="service-C" />
         <module name="service-B" />
-        <module name="service-A" />
-        <module name="rest-jpa" />
-        <module name="lwqAPI" />
-        <module name="wayneMBG" />
-        <module name="zuul" />
-        <module name="config" />
-        <module name="spring-security-oauth2" />
-        <module name="service-demo" />
-        <module name="testdemo" />
-        <module name="a-demo" />
-        <module name="config-client" />
-        <module name="feign" />
-        <module name="spring-security-mybatis" />
-        <module name="spring-security-dynamic" />
-        <module name="spring-security" />
-        <module name="service-main" />
-        <module name="ribbon" />
-        <module name="service-Upload-Download" />
-        <module name="service-freemarker" />
-        <module name="eureka" />
-        <module name="config-service" />
-        <module name="redis" />
-        <module name="service-learn" />
-        <module name="wayne-api" />
         <module name="service-message" />
-        <module name="aaa-customize-config" />
+        <module name="spring-security-oauth2" />
+      </profile>
+      <profile name="Annotation profile for feign" enabled="true">
+        <sourceOutputDir name="../target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
         <module name="mybatis_plus-druid" />
+        <module name="feign" />
+        <module name="ribbon" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -99,6 +106,8 @@
       <module name="spring-security-oauth2" options="-parameters" />
       <module name="test-demo" options="-parameters" />
       <module name="testdemo" options="-parameters" />
+      <module name="thread" options="-parameters" />
+      <module name="thread-nio" options="-parameters" />
       <module name="wayne-api" options="-parameters" />
       <module name="wayneMBG" options="-parameters" />
       <module name="zuul" options="-parameters" />

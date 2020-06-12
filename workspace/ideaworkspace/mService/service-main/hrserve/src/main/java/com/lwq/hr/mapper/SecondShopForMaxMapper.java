@@ -16,6 +16,12 @@ import java.util.List;
  */
 public interface SecondShopForMaxMapper extends BaseMapper<SecondShopForMax> {
 
-    @Select("select * from second_shop_for_max")
+    @Select("select * from second_shop_for_max where enabled = 1")
     List<SecondShopForMax> selectAll();
+    // 折线图
+    @Select("select * from second_shop_for_max")
+    List<SecondShopForMax> selectAll2();
+
+    @Select("select * from black_list_shop where enabled = 1")
+    List<SecondShopForMax> selBlackList();
 }

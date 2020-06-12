@@ -6,11 +6,11 @@ import router from "../router";
 // axios的httpCode=200
 Axios.interceptors.response.use(success => {
 
-        if (success.status && success.status === 200 && success.data.status === 500) {
+        if (success.status && success.status === 200 && success.data.status === 500) {//请求成功后台报错500
             Message.error(success.data.message);
             return
         }
-        if (success.data.message) {
+        if (success.data.message) {//显示请求成功的msg
             Message.success(success.data.message)
             // 后台未登录跨域CORS处理,修改到导航守卫中判断处理
             // 二次修理:当后台登录过期,浏览器一直开着sessionStorage未过期,此时只会进入initMenu方法并报错
@@ -39,7 +39,8 @@ Axios.interceptors.response.use(success => {
         }
     }
 )
-
+// 超时设置10分钟
+Axios.defaults.timeout=600000
 // 定义base 灵活定义url
 let base = ''
 

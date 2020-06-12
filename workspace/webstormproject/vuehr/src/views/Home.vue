@@ -4,6 +4,7 @@
             <!--header-->
             <el-header class="homeHeader" :style="customColor">
                 <div>
+                    <!--E 下拉框 el-dropdown-item command值传入@command方法中-->
                     <el-dropdown @command="changeTheme">
                         <span class="el-dropdown-link"
                               style="font-size: 30px;font-family: 华文行楷;color: #ffffff;cursor: pointer;">灼猪</span>
@@ -29,7 +30,7 @@
                 <!--侧边栏-->
                 <el-aside width="200px">
                     <el-menu router>
-                        <!-- index 区分是否是同一个菜单 循环遍历也要修改-->
+                        <!-- index 区分是否是同一个菜单 index+''数值变字符串-->
                         <el-submenu :index="index+''" v-for="(item,index) in routes" v-if="!item.hidden" :key="index">
                             <template slot="title">
                                 <i :class="item.iconCls" :style="customColorLeft"/>
@@ -75,6 +76,9 @@
                 return this.$store.state.routes
             }
         },
+        mounted() {
+            this.initExcelData()
+        },
         methods: {
             // 个人中心下拉框配置
             dropdownHandler(cmd) {
@@ -113,8 +117,16 @@
                     this.customColor = 'background-color: #409eff;'
                     this.customColorLeft = 'margin-right:6px; color: #409eff'
                 }
+            },
+            initExcelData() {
+                this.getRequest("/statistics/chart/initExcel").then(resp=>{
+                    if (resp) {
+                        console.log("goodExcel初始化导入成功")
+                    }
+                })
             }
-        }
+        },
+
     }
 </script>
 

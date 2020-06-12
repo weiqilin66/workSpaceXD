@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author LinWeiQi
@@ -16,23 +16,25 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @GetMapping("/hello")
-    public String hello(){
+    public String hello() {
 
         return "hello security";
     }
+
     @GetMapping("/admin/get")
-    public String admin(){
+    public String admin() {
 
         return "admin";
     }
+
     @GetMapping("/dba/get")
-    public String dba(){
+    public String dba() {
 
         return "dba";
     }
 
     @GetMapping("/user/get")
-    public String user(){
+    public String user() {
 
         return "user";
     }

@@ -13,7 +13,7 @@
     import ChartDifferent from "../../components/sta/ChartDifferent";
     import ChartTrend from "../../components/sta/ChartTrend";
     export default {
-        name: "StaScore",
+        name: "staChart",
         data(){
             return{
                 activeName: 'ChartTrend'

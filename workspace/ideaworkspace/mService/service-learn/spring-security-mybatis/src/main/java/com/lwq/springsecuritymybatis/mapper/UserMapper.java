@@ -8,14 +8,14 @@ import java.util.List;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author LinWeiQi
  * @since 2020-01-19
  */
 @Mapper
-public interface UserMapper  {
+public interface UserMapper {
 
     User loadUserByUsername(String username);
 

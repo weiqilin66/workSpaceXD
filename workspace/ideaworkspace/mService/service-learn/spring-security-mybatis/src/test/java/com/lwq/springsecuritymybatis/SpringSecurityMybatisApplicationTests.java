@@ -12,6 +12,7 @@ class SpringSecurityMybatisApplicationTests {
 
     @Resource
     UserMapper userMapper;
+
     @Test
     void contextLoads() {
         User root = userMapper.loadUserByUsername("root");

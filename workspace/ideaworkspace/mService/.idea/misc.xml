@@ -28,6 +28,8 @@
         <option value="$PROJECT_DIR$/service-main/pom.xml" />
         <option value="$PROJECT_DIR$/service-learn/aaa-customize-config/pom.xml" />
         <option value="$PROJECT_DIR$/service-main/hrserve/pom.xml" />
+        <option value="$PROJECT_DIR$/service-learn/pom.xml" />
+        <option value="$PROJECT_DIR$/service-learn/thread-nio/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

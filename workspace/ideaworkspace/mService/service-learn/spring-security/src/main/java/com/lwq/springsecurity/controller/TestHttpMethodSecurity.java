@@ -14,20 +14,22 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestHttpMethodSecurity {
     // 有无角色都能访问的接口
     @GetMapping("/hello")
-    public String hello(){
+    public String hello() {
         String resStr = "hello security!";
         return resStr;
     }
+
     // SecurityConfig配置后只有admin角色才能访问
     @GetMapping("/admin/hello")
-    public String admin(){
+    public String admin() {
         String resStr = "";
         resStr = "hello admin";
-        return resStr;        
+        return resStr;
     }
+
     // SecurityConfig配置后至少有角色才能访问
     @RequestMapping("/user/hello")
-    public String user(){
+    public String user() {
         String resStr = "";
         resStr = "hello user";
         return resStr;
@@ -35,15 +37,15 @@ public class TestHttpMethodSecurity {
 
     @Autowired
     SecurityService securityService;
-    
+
     @GetMapping("/get1")
-    public String get1(){
-       
+    public String get1() {
+
         return securityService.admin();
     }
 
     @GetMapping("/get2")
-    public String get2(){
+    public String get2() {
 
         return securityService.user();
     }

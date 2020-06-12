@@ -24,7 +24,7 @@ import java.util.List;
 public class User implements UserDetails {
 
     private static final long serialVersionUID = 1L;
-    private int id ;
+    private int id;
 
     public int getId() {
         return id;
@@ -89,7 +89,7 @@ public class User implements UserDetails {
         // 手动放入
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
         for (Role role : roles) {
-            authorities.add(new SimpleGrantedAuthority("ROLE_"+ role.getName()));
+            authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()));
         }
         return authorities;
     }

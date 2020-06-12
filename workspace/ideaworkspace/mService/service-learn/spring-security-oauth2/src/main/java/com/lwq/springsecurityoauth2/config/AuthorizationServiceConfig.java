@@ -26,23 +26,24 @@ public class AuthorizationServiceConfig extends AuthorizationServerConfigurerAda
     RedisConnectionFactory redisConnectionFactory;
     @Autowired
     UserDetailsService userDetailsService;
+
     @Bean
-    PasswordEncoder passwordEncoder(){
+    PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
                 .withClient("password")
-                .authorizedGrantTypes("password","refresh_token")
+                .authorizedGrantTypes("password", "refresh_token")
                 .accessTokenValiditySeconds(1800)
                 .resourceIds("rid")
                 .scopes("all")
                 .secret("$2a$10$lgqCrFZRustUo5RLAjQxcu7tabFo9RFSBhNZ");
     }
+
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.tokenStore(new RedisTokenStore(redisConnectionFactory))

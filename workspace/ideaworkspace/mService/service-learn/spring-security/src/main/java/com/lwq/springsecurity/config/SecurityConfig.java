@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Description:   废弃,使用MultiHttpSecurity
+ * @Description: 废弃, 使用MultiHttpSecurity
  * @author: LinWeiQi
  */
 //@Configuration
@@ -31,10 +31,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //默认密码必须做加密处理
     // 不加密
     @Bean
-    PasswordEncoder passwordEncoder(){
+    PasswordEncoder passwordEncoder() {
 
         return NoOpPasswordEncoder.getInstance();
     }
+
     // 全局配置用户信息
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -49,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/admin/**").hasRole("admin")
-                .antMatchers("/user/**").hasAnyRole("admin","user")
+                .antMatchers("/user/**").hasAnyRole("admin", "user")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginProcessingUrl("/doLogin")
@@ -63,8 +64,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         resp.setContentType("application/json;charset=utf-8");
                         PrintWriter out = resp.getWriter();
                         Map<String, Object> map = new HashMap<>();
-                        map.put("status",200);
-                        map.put("msg",authentication.getCredentials());
+                        map.put("status", 200);
+                        map.put("msg", authentication.getCredentials());
                         out.write(new ObjectMapper().writeValueAsString(map));
                         out.flush();
                         out.close();
@@ -76,13 +77,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         resp.setContentType("application/json;charset=utf-8");
                         PrintWriter out = resp.getWriter();
                         Map<String, Object> map = new HashMap<>();
-                        map.put("status",401);
+                        map.put("status", 401);
                         if (e instanceof LockedException) {
-                            map.put("msg","账户被锁定,登录异常");
-                        }else if (e instanceof BadCredentialsException){
-                            map.put("msg","用户名或密码错误,登录异常");
-                        }else{
-                            map.put("msg","登录异常");
+                            map.put("msg", "账户被锁定,登录异常");
+                        } else if (e instanceof BadCredentialsException) {
+                            map.put("msg", "用户名或密码错误,登录异常");
+                        } else {
+                            map.put("msg", "登录异常");
                         }
 
                         out.write(new ObjectMapper().writeValueAsString(map));
@@ -92,6 +93,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 }) // 失败的处理
                 .and()
                 .csrf().disable()
-                ;
+        ;
     }
 }

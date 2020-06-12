@@ -11,18 +11,48 @@
             </div>
             <div>
                 <el-input placeholder="关键字...机型 游戏主名 游戏附名" v-model="kw" style="width: 400px;margin-right: 5px"
-                          @keydown.enter.native="doSearch(kw)"/>
-                <el-button type="primary" icon="el-icon-search" @click="changeChart2(kw)">搜索</el-button>
+                          />
+<!--                @keydown.enter.native="doSearch(kw)"-->
+                <el-button type="primary" icon="el-icon-search" @click="reSet" >重置</el-button>
             </div>
         </div>
         <div style="margin-bottom: 100px;display: flex;justify-content: center;flex-wrap: wrap;width: 90%">
 
             <el-button v-for="(item,index) in btnList" :type="item.type" :key="index"
-                       style="margin-top: 3px" @click="changeChart2(item.name)" plain>{{item.name}}
+                       style="margin-top: 3px" @click="changeChart2(item.name)" plain>
+                <a id="toChart">{{item.name}}</a>
             </el-button>
         </div>
+        <el-table
+                v-show="objList.length!==0"
+                :data="objList"
+                stripe
+                style="width: 100%">
+            <el-table-column
+                    prop="shop"
+                    label="店铺"
+                    width="180">
+            </el-table-column>
+            <el-table-column
+                    prop="price"
+                    label="价格"
+                    width="180">
+            </el-table-column>
+            <el-table-column
+                    prop="sales"
+                    label="销量"
+                    width="180">
+            </el-table-column>
 
+            <el-table-column
+                    label="地址">
+                <template slot-scope="scope">
+                    <a :href="scope.row.detailUrl" target="_blank">{{scope.row.detailUrl}}</a>
+                </template>
+            </el-table-column>
+        </el-table>
         <div id="echarts" ref="echarts"></div>
+        <div><a href="#toChart">-</a></div>
     </div>
 
 </template>
@@ -38,8 +68,9 @@
             return {
                 kw: '',
                 days: 7,
+                // btnList:[], computed的值不能在此处定义
+                objList:[],
                 etlDate: [],
-                btnList: [],//快捷按钮列表
                 chartData: {
                     // 配置标题
                     title: {
@@ -57,7 +88,19 @@
                     },
                     // 图例
                     legend: {
-                        data: ['宁波老猎人电玩']
+                        data: ['宁波老猎人电玩'],
+                        width:'70%',
+                        selector: [
+                            {
+                                type: 'all or inverse',
+                                // 可以是任意你喜欢的 title
+                                title: '全选'
+                            },
+                            {
+                                type: 'inverse',
+                                title: '反选'
+                            }
+                        ]
                     },
                     // 工具(下载...)
                     toolbox: {
@@ -101,11 +144,40 @@
                 }
             }
         },
+        watch:{
+            // 监视关键字筛选store中的btnList
+            kw(val){
+                let temList = this.$store.state.bakBtnList
+                if (val) {//为空重置btnList
+                    let tem2 = this.$store.state.btnList
+                    let tem3 = []
+                    tem2.forEach(item=>{
+                        if (item.name.includes(val)) {
+                            tem3.push(item)
+                        }
+                    })
+                    this.$store.commit("initBtnList",tem3)
+                }else {
+                    this.$store.commit("initBtnList",temList)
+
+                }
+
+
+
+            }
+        },
+        computed:{
+          btnList(){
+              return this.$store.state.btnList
+          }
+        },
         mounted() {
-            this.getKw()
-            this.drawLine()
+            this.drawLine() //必须第一个显示此组件 否则初始化失败
         },
         methods: {
+            reSet(){
+              this.kw=''
+            },
             drawLine() {
                 // 基于准备好的dom，初始化echarts实例
                 // let myChart = this.echarts.init(document.getElementById('echarts'));
@@ -117,6 +189,7 @@
                 this.changeChart2(kw)
             },
             changeChart2(kw) {
+                window.scrollTo(0, document.documentElement.clientHeight);//滚动到底部定位视图
                 this.getXDate()
                 // 横坐标日期
                 this.chartData.xAxis[0].data = this.etlDate
@@ -143,28 +216,18 @@
                                         position: 'top'
                                     }
                                 },
-
                                 data: []
                             }
                             // 变量作为属性名使用 由 . 改成 []
                             sery.data=resp[shop]
                             this.chartData.series.push(sery)
-                            console.log(sery);
+                            // console.log(sery);
                         })
 
                         this.drawLine()//重新绘制图表加载数据
+                        this.objList=resp.objList
                     }
                 })
-            },
-            // 获取 x轴的日期数组
-            getYyyyMMdd(d) {
-                var curr_date = d.getDate();
-                var curr_month = d.getMonth() + 1;
-                var curr_year = d.getFullYear();
-                String(curr_month).length < 2 ? (curr_month = "0" + curr_month) : curr_month;
-                String(curr_date).length < 2 ? (curr_date = "0" + curr_date) : curr_date;
-                var yyyyMMdd = curr_year + "" + curr_month + "" + curr_date;
-                return yyyyMMdd;
             },
             // 获取 x轴的日期数组
             getXDate(num) {
@@ -177,17 +240,10 @@
                 for (let i = 0; i < num; i++) {
                     const start = new Date();
                     start.setDate(start.getDate() - i);
-                    this.etlDate.push(this.getYyyyMMdd(start))
+                    this.etlDate.push(this.getyyyyMMdd(start))
                 }
-            },
-            getKw() {
-                this.getRequest("/statistics/chart/goodList").then(resp => {
-                    if (resp) {
-                        this.btnList = resp.data
-                    }
-                })
             }
-            /*
+            /* // 同步实例
                         async changeChart(kw) {
                             this.etlDate = []
                             if (this.selDate.length === 0) {//默认近15天数据
@@ -242,58 +298,6 @@
                         },
             */
 
-            /*
-                    initChartAsync(kw, resp) {
-                        if (resp) {
-                            console.log('初始化数据:'+resp)
-                            this.dataList = resp
-                            // console.log(this.dataList);
-                            // 初始化数据
-                            this.chartData.series = []
-                            // 店铺图例
-                            let legendShop = []
-                            // 图标样式
-                            this.chartData.yAxis = [{
-                                type: 'value',
-                                // max: 400,
-                                // min: 200,
-                            }]
-
-                            // 标题
-                            this.chartData.title['text'] = kw
-
-                            this.dataList.forEach(good => {
-                                legendShop.push(good['shop'])
-                                let sery = {
-                                    name: good['shop'],
-                                    type: 'line',
-                                    areaStyle: {},
-                                    label: {
-                                        normal: {
-                                            show: true,
-                                            position: 'top'
-                                        }
-                                    },
-                                    data: [good['price']]
-                                }
-                                this.chartData.series.push(sery)
-                            })
-                            this.chartData.legend.data = legendShop
-
-                        }
-                    },
-        */
-            /*getNextDataAsync(resp) {
-                if (resp) {
-                    let x = 0
-                    resp.forEach(good => {
-                        this.chartData.series[x].data.push(good['price'])
-                        x++
-                    })
-
-                }
-
-            },*/
         },
 
     }

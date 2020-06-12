@@ -22,7 +22,7 @@ Vue.prototype.deleteRequest = deleteRequest
 import {initMenu} from "./utils/menu";
 import {Message} from "element-ui";
 // 导航守卫 拦截方法如果不是登录页的页面跳转,调用initMenu方法
-router.beforeEach((to, from, next)=>{
+router.beforeEach((to, from, next)=>{////每次router跳转都会执行此方法
     if(to.name==='登录'){
         next() // 放行
     }else {
@@ -64,6 +64,7 @@ Vue.prototype.getyyyyMMdd=function(d) {
     var yyyyMMdd = curr_year + "" + curr_month +""+ curr_date;
     return yyyyMMdd;
 }
+
 
 
 new Vue({

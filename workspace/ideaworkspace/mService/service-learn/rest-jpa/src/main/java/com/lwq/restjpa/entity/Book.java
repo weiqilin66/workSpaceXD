@@ -14,9 +14,9 @@ import javax.persistence.Id;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id ;
-    private String bookName ;
-    private String author ;
+    private int id;
+    private String bookName;
+    private String author;
 
 
     public int getId() {

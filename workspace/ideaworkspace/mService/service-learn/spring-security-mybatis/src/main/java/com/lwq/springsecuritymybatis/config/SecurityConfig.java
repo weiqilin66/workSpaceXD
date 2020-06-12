@@ -20,10 +20,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     UserService userService;
 
     @Bean
-    PasswordEncoder passwordEncoder(){
+    PasswordEncoder passwordEncoder() {
 
         return new BCryptPasswordEncoder();
     }
+
     // 用户加载策略->数据库的用户
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

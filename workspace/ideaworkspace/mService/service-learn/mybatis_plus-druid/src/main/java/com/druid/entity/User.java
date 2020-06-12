@@ -13,7 +13,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class User{
+public class User {
 
     private static final long serialVersionUID = 1L;
 

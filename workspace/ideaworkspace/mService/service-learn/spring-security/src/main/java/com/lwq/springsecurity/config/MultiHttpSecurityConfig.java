@@ -16,16 +16,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * @author: LinWeiQi
  */
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true) // 可以在方法上配置权限 不只controller
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true) // 可以在方法上配置权限 不只controller
 public class MultiHttpSecurityConfig {
 
     // springSecurity要求必须加密
     @Bean
-    PasswordEncoder passwordEncoder(){
+    PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
         // 不加密
 //      return NoOpPasswordEncoder.getInstance();
     }
+
     // 公共配置
     @Autowired
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -37,12 +38,12 @@ public class MultiHttpSecurityConfig {
     }
 
     /**
-     * @TODO   多httpSecurity配置要指定顺序
-     * @date   2020/1/19
+     * @TODO 多httpSecurity配置要指定顺序
+     * @date 2020/1/19
      */
     @Configuration
     @Order(1)   // 越小优先级越高 不加默认优先级最低
-    public static class AdminSecurityConfig extends WebSecurityConfigurerAdapter{
+    public static class AdminSecurityConfig extends WebSecurityConfigurerAdapter {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http.antMatcher("/admin/**").authorizeRequests().
@@ -51,7 +52,7 @@ public class MultiHttpSecurityConfig {
     }
 
     @Configuration
-    public static class OtherSecurityConfig extends WebSecurityConfigurerAdapter{
+    public static class OtherSecurityConfig extends WebSecurityConfigurerAdapter {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()

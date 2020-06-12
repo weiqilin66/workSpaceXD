@@ -12,21 +12,21 @@ import org.springframework.stereotype.Service;
 public class SecurityService {
 
     @PreAuthorize("hasRole('admin')")
-    public String admin(){
+    public String admin() {
         String resStr = "";
         resStr = "hello admin ";
         return resStr;
     }
 
-   @Secured("ROLE_user")  // 和@PreAuthorize()注解类似
-   public String user(){
+    @Secured("ROLE_user")  // 和@PreAuthorize()注解类似
+    public String user() {
 
-       return "hello user";
-   }
+        return "hello user";
+    }
 
-   @PreAuthorize("hasAnyRole('admin','user')")
-   public String hello(){
+    @PreAuthorize("hasAnyRole('admin','user')")
+    public String hello() {
 
-       return "hello security";
-   }
+        return "hello security";
+    }
 }

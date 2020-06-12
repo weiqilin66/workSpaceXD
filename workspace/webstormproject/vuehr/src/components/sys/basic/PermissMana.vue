@@ -104,7 +104,7 @@
                 })
             },
             change(rid) {
-                // change事件只出发开始的点击事件,不触发关闭
+                // change事件只触发开始的点击事件,不触发关闭
                 if (rid) {
                     // 预选中
                     this.getPermissionsId(rid)

@@ -22,7 +22,7 @@ def start(random_good):
     options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
     # 设置为开发者模式，防止被各大网站识别出来使用了Selenium  window.navigator.webdriver  检测
     options.add_experimental_option('excludeSwitches', ['enable-automation'])
-    chrome = webdriver.Chrome(executable_path=chrome_path, chrome_options=options)
+    chrome = webdriver.Chrome(executable_path=chrome_path, options=options)
     url = 'https://s.taobao.com/'
     chrome.get(url)
     # chrome.maximize_window()  # 窗口最大化方便扫码

@@ -27,6 +27,9 @@ public class RespBean {
     public static RespBean ok() {
         return new RespBean(200, null, null);
     }
+    public static RespBean ok( Object o) {
+        return new RespBean(200, null, o);
+    }
     public static RespBean error() {
         return new RespBean(500, null, null);
     }
