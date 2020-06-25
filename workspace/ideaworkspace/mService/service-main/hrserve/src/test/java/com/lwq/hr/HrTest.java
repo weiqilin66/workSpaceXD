@@ -1,7 +1,9 @@
 package com.lwq.hr;
 
+import com.lwq.hr.entity.MyFocus;
 import com.lwq.hr.entity.MyStock;
 import com.lwq.hr.mapper.GoodsMapper;
+import com.lwq.hr.mapper.MyFocusMapper;
 import com.lwq.hr.mapper.MyStockMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +20,8 @@ class HrTest {
     MyStockMapper stockMapper;
     @Resource
     GoodsMapper goodsMapper;
+    @Resource
+    MyFocusMapper myFocusMapper;
     @Test
     void t1(){
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -31,5 +35,10 @@ class HrTest {
         System.out.println(all);
     }
 
+    @Test
+    void t3(){
+        List<MyFocus> list = myFocusMapper.queryAll();
+        System.out.println(list);
+    }
 }
 

@@ -1,8 +1,3 @@
-import time
+from my_appium.fish import MySql2
 
-# print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-# print(time.strftime("%Y-%m-%d", time.localtime()))
-# print(time.strftime("%H:%M:%S", time.localtime()))
-string = '33人付款'
-s = string.strip('人款收货')
-print(int(s))
+MySql2().commit('update fish_kw_price set price = %s where kw = %s',(1,'怪物猎人'))

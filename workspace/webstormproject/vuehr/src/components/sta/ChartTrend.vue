@@ -145,6 +145,19 @@
             }
         },
         watch:{
+    /*
+        watch 监听对象属性写法
+            'listQuery.orgName'():{
+
+            }
+        自定义组件 同步 自定义方法名.sync eg:sonProp.sync  子组件的sonProp发生变化 父组件动态响应
+        $emit(event,[arg])触发event事件,后面数组参数
+        eg:
+            <input-org
+            :sonProp = "status"      父组件传递属性名sonProp 属性值为status  子组件中 data()外定义 props:['sonProp']获取到变量status
+            @eventName = "getData"    子组件通过$emit(eventName,参数) 来调用父组件中的getData方法 ,通过传参给getData实现给父组件传参
+            >
+    */
             // 监视关键字筛选store中的btnList
             kw(val){
                 let temList = this.$store.state.bakBtnList

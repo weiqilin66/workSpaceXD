@@ -7,13 +7,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="service-message" />
         <module name="config-service" />
         <module name="thread-nio" />
         <module name="config-client" />
-        <module name="a-demo" />
         <module name="redis" />
         <module name="eureka" />
         <module name="wayne-api" />
+        <module name="thread" />
         <module name="service-freemarker" />
         <module name="service-demo" />
         <module name="lwqAPI" />
@@ -23,18 +24,17 @@
         <module name="rest-jpa" />
         <module name="service-learn" />
         <module name="wayneMBG" />
-        <module name="service-A" />
         <module name="spring-security-dynamic" />
         <module name="spring-security-mybatis" />
         <module name="testdemo" />
         <module name="service-Upload-Download" />
         <module name="config" />
         <module name="aaa-customize-config" />
-        <module name="thread" />
+        <module name="a-demo" />
         <module name="service-main" />
         <module name="service-C" />
         <module name="service-B" />
-        <module name="service-message" />
+        <module name="service-A" />
         <module name="spring-security-oauth2" />
       </profile>
       <profile name="Annotation profile for feign" enabled="true">

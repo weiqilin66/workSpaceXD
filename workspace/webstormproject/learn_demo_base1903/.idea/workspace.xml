@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9946173-1daf-4a59-8313-1f6dddf4e0ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../IDE配置/webstorm/settings.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../../../IDE配置/webstorm/settings.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../goods.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,11 +29,6 @@
     <exe-path />
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="5" />
-    <option name="width" value="1294" />
-    <option name="height" value="768" />
   </component>
   <component name="ProjectId" id="1Wxa0rKzDvxu34EWAIqOXeEDPSh" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -145,6 +140,7 @@
       <workItem from="1580093484328" duration="1638000" />
       <workItem from="1580631328819" duration="29000" />
       <workItem from="1580905892310" duration="976000" />
+      <workItem from="1592969065695" duration="2305000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1574317426057</created>

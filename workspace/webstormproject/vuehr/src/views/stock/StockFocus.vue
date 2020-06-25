@@ -1,95 +1,43 @@
 <template>
     <div>
-        <div style="display: flex;">
-<!--            <el-input placeholder="输入商品名称自动检索... " v-model="goodName" style="width: 400px;margin-right: 5px"/>-->
-            <MyInput :cData="cData" @resp="getCData"/>
+        <div>
+            <el-input placeholder="输入商品名称自动检索... " v-model="goodName" style="width: 400px;margin-right: 5px"/>
             <el-button type="warning" icon="el-icon-search" @click="showAdd">添加商品</el-button>
-            <el-button type="success" icon="el-icon-search" @click="initStock">刷新数据</el-button>
+            <el-button type="success" icon="el-icon-search" @click="initFocus">刷新数据</el-button>
 
         </div>
         <div>
             <el-table
                     :data="tableData"
                     height="1150"
-                    style="width:100%;margin-top: 5px"
+                    style="width:50%;margin-top: 5px"
                     :row-class-name="tableRowClassName">
                 <el-table-column
                         prop="label"
                         label="☆"
                         align="center"
-                        width="50">
-                </el-table-column>
-                <el-table-column
-                        prop="kw"
-                        label="商品名称"
-                        align="center"
-                        width="180">
-                </el-table-column>
-                <el-table-column
-                        prop="price"
-                        label="回收价"
-                        align="center"
-                        width="180">
-                </el-table-column>
-
-                <el-table-column
-                        label="库存"
-                        sortable
-                        align="center"
-                        prop="stock"
-                        width="280">
-                    <template slot-scope="scope">
-                        <el-input-number v-model="scope.row.stock" @change="handleChange(scope.row)"
-                                         :min="0" :max="9999"/>
-                    </template>
-                </el-table-column>
-
-                <el-table-column
-                        prop="diff"
-                        label="差价"
-                        sortable
-                        align="center"
-                        width="80">
-                </el-table-column>
-                <el-table-column
-                        prop="price2"
-                        label="猎人价"
-                        align="center"
-                        width="180">
-                </el-table-column>
-                <el-table-column
-                        prop="title"
-                        label="商品标题"
-                        align="center"
-                        width="400">
-                </el-table-column>
-                <el-table-column
-                        prop="comment"
-                        label="备注"
-                        align="center"
                         width="100">
                 </el-table-column>
-                <el-table-column label="操作" align="center"
-                                 width="250px">
+                <el-table-column
+                        prop="name"
+                        label="商品名称"
+                        align="center"
+                        width="380">
+                </el-table-column>
+
+                <el-table-column
+                        label="标识">
                     <template slot-scope="scope">
-                        <el-button @click="showVisible(scope.index,scope.row)">编辑</el-button>
-                        <el-button type="danger" @click="handleDel(scope.index,scope.row)">删除</el-button>
+                        <el-switch
+                                @change="changeEnabled(scope.row)"
+                                v-model="scope.row.enabled">
+                        </el-switch>
                     </template>
                 </el-table-column>
+
             </el-table>
-            <!--分页-->
-            <!--<div style="display: flex;justify-content: flex-end">
-                <el-pagination
-                        ref="pagination"
-                        background
-                        @current-change="pageChange"
-                        @size-change="sizeChange"
-                        :page-sizes="[20,30,50,100]"
-                        layout="sizes, prev, pager, next, jumper, ->, total, slot"
-                        :total="total">
-                </el-pagination>
-            </div>-->
-            <!--编辑弹窗-->
+
+            <!--&lt;!&ndash;编辑弹窗&ndash;&gt;
             <el-dialog
                     title="编辑"
                     :visible.sync="dialogVisible"
@@ -101,7 +49,7 @@
                                 <el-tag size="normal">平台</el-tag>
                             </td>
                             <td>
-                                <el-select v-model="updateGood.label" placeholder="请选择标题" style="margin-left: 10px" >
+                                <el-select v-model="updateGood.label" placeholder="请选择标题" style="margin-left: 10px">
                                     <el-option
                                             v-for="item in options"
                                             :key="item"
@@ -150,7 +98,7 @@
                             <td>
                                 <el-tag size="normal">商品标题</el-tag>
                             </td>
-                            <td width="1000" >
+                            <td width="1000">
                                 <el-input style="width: 100%;margin-left: 10px" v-model="updateGood.title"/>
                             </td>
                         </tr>
@@ -160,7 +108,7 @@
                 <el-button @click="dialogVisible = false">取 消</el-button>
                 <el-button type="primary" @click="handleUpate">确 定</el-button>
             </span>
-            </el-dialog>
+            </el-dialog>-->
             <!--添加弹窗-->
             <el-dialog
                     title="添加"
@@ -173,7 +121,7 @@
                                 <el-tag size="normal">平台</el-tag>
                             </td>
                             <td>
-                                <el-select v-model="addGood.label" placeholder="请选择标题" style="margin-left: 10px" >
+                                <el-select v-model="addGood.label" placeholder="请选择标题" style="margin-left: 10px">
                                     <el-option
                                             v-for="item in options"
                                             :key="item"
@@ -188,51 +136,33 @@
                                 <el-tag size="normal">商品名称</el-tag>
                             </td>
                             <td width="1000">
-                                <el-input style="width: 50%;margin-left: 10px" v-model="addGood.kw"
-                                @change = "selTitle(addGood.kw)"/>
+                                <el-input style="width: 50%;margin-left: 10px" v-model="addGood.name"/>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <el-tag size="normal">商品标题</el-tag>
+                                <el-tag size="normal">关键词</el-tag>
                             </td>
-                            <td>
-                            <el-select v-model="addGood.title" placeholder="请选择标题" style="margin-left: 10px" >
-                                <el-option
-                                        v-for="item in goodTitles"
-                                        :key="item"
-                                        :label="item"
-                                        :value="item">
-                                </el-option>
-                            </el-select>
-                            </td>
-                           <!--
                             <td width="1000">
-                                <el-input style="width: 50%;margin-left: 10px" v-model="addGood.title"/>
-                            </td>-->
-                        </tr>
-                        <tr style="margin-top: 3px">
-                            <td>
-                                <el-tag size="normal">回收价</el-tag>
-                            </td>
-                            <td>
-                                <el-input style="width: 50%;margin-left: 10px" v-model="addGood.price"/>
+                                <el-input style="width: 50%;margin-left: 10px" v-model="addGood.kw"/>
                             </td>
                         </tr>
-                        <tr style="margin-top: 3px">
+                        <tr>
                             <td>
-                                <el-tag size="normal">库存</el-tag>
+                                <el-tag size="normal">标识</el-tag>
                             </td>
                             <td>
-                                <el-input style="width: 50%;margin-left: 10px" v-model="addGood.stock"
-                                          @keydown.enter.native="handleAdd"/>
+                                <el-switch
+                                v-model="addGood.enabled">
+                                </el-switch>
                             </td>
+
                         </tr>
                     </table>
                 </div>
                 <span slot="footer" class="dialog-footer">
                 <el-button @click="addDialogVisible = false">取 消</el-button>
-                <el-button type="primary" @click="beforeAdd">确 定</el-button>
+                <el-button type="primary" @click="handleAdd">确 定</el-button>
             </span>
             </el-dialog>
         </div>
@@ -249,99 +179,108 @@
     }
 </style>
 <script>
-    import MyInput from "../../components/public/MyInput";
-
     export default {
         name: "PerEmp",
-        components:{
-            MyInput,
-        },
         data() {
             return {
-                cData:{
-                    bak:[],
-                    kw:'kw'
-                },
-                size:'',
-                total:0,
+                size: '',
+                total: 0,
                 num: 1,
                 goodName: '',
                 dialogVisible: false,
                 addDialogVisible: false,
-                options:["NS","PS4"],
+                options: ["NS", "PS4"],
                 addGood: {
-                    label:'',
-                    kw:'',
-                    title: '',
-                    price: '',
-                    stock: ''
+                    label: '',
+                    name: '',
+                    enabled: '',
+                    kw:''
                 },
-                goodTitles:['输入商品名称在选择此项'],
+                goodTitles: ['输入商品名称在选择此项'],
                 updateGood: {
-                    label:'',
-                    kw:'',
-                    title: '',
-                    price: '',
-                    stock: '',
-                    comment:''
+                    label: '',
+                    name: '',
+                    enabled: ''
                 },
                 tableData: [],
                 tableDataBak: [],
             }
         },
+        watch: {
+            goodName(val) {
+                let tmp = []
+                if (val) {
+                    this.tableData.forEach(item => {
+                        if (item.kw.includes(val)) {
+                            tmp.push(item)
+                        }
+                    })
+                    this.tableData = tmp
+                } else {
+                    this.tableData = this.tableDataBak
+                }
+
+                let temList = this.$store.state.bakBtnList
+                if (val) {//为空重置btnList
+                    let tem2 = this.$store.state.btnList
+                    let tem3 = []
+                    tem2.forEach(item => {
+                        if (item.name.includes(val)) {
+                            tem3.push(item)
+                        }
+                    })
+                    this.$store.commit("initBtnList", tem3)
+                } else {
+                    this.$store.commit("initBtnList", temList)
+
+                }
+
+
+            }
+        },
         mounted() {
-            this.initStock()
+            this.initFocus()
         },
         methods: {
-            getCData(data){
-                this.tableData=data
+            changeEnabled(row) {
+                this.putRequest("/stock/focus/", row).then(resp => {
+                    if (resp) {
+                        this.$message.success('修改成功!')
+                        this.initFocus()
+                    }
+                })
             },
-            pageChange(currentPage) {
-                this.page = currentPage
-                this.initData()
-            },
-            sizeChange(currentSize) {
-                this.size = currentSize
-                this.initData()
-            },
-            selTitle(kw){
-              this.getRequest("/stock/stock1/getTitle?kw="+kw).then(resp=>{
-                  if (resp) {
-                      this.goodTitles = resp.data
-                  }
-              })
-            },
-            beforeAdd(){
+            /*beforeAdd() {
                 this.postRequest("/stock/stock1/check", this.addGood).then(resp => {
                     if (resp.data) {
-                        this.$confirm(resp.data+',是否继续添加该商品','提示'
-                            ,{
+                        this.$confirm(resp.data + ',是否继续添加该商品', '提示'
+                            , {
                                 confirmButtonText: '确定',
                                 cancelButtonText: '取消',
                                 type: 'warning'
-                            }).then(()=>{
-                                this.handleAdd()
-                        }).catch(()=>{
+                            }).then(() => {
+                            this.handleAdd()
+                        }).catch(() => {
                             this.$message.warning('已取消添加')
                         })
-                    }else {
+                    } else {
 
                         this.handleAdd()
                     }
                 })
-            },
+            },*/
             handleAdd() {
-                this.postRequest("/stock/stock1/", this.addGood).then(resp => {
+                this.postRequest("/stock/focus/", this.addGood).then(resp => {
                     if (resp) {
-                        this.initStock()
+                        this.initFocus()
                         this.addDialogVisible = false
                     }
                 })
             },
-            handleUpate() {
-                this.putRequest('/stock/stock1/', this.updateGood).then(resp => {
+           /* handleUpate() {
+                this.putRequest('/stock/focus/', this.updateGood).then(resp => {
                     if (resp) {
-                        this.initStock()
+                        this.initFocus()
                         this.dialogVisible = false
                         this.$message.success("修改成功!")
                     }
@@ -350,13 +289,13 @@
             handleDel(index, row) {
                 this.$confirm('此操作将删除商品 [ ' + row.kw + ' ] 是否继续?',
                     '提示', {
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
-                    type: 'warning'
-                }).then(() => {
-                    this.deleteRequest("/stock/stock1/" + row.id).then(resp => {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                    this.deleteRequest("/stock/focus/" + row.id).then(resp => {
                         if (resp) {
-                            this.initStock()
+                            this.initFocus()
                         }
                     })
                 }).catch(() => {
@@ -365,8 +304,8 @@
                         message: '已取消删除'
                     });
                 });
-            this.initStock()
-            },
+                this.initFocus()
+            },*/
             showVisible(index, data) {
                 this.dialogVisible = true
                 Object.assign(this.updateGood, data)
@@ -376,24 +315,22 @@
                 this.addGood = {}
             },
             handleChange(row) {
-                Object.assign(this.updateGood,row)
+                Object.assign(this.updateGood, row)
                 this.handleUpate()
             },
             tableRowClassName({row, rowIndex}) {
-                if (row.diff < 15) {
-                    return 'warning-row';
-                } else if (row.diff >25) {
+                if (row.enabled ===true) {
                     return 'success-row';
-                }else if (row.diff ==-1){
-                    return '';
+                } else {
+                    return 'warning-row';
                 }
-                return '';
             },
-            initStock() {
-                this.getRequest('/stock/stock1/').then(resp => {
+            initFocus() {
+                this.getRequest('/stock/focus/').then(resp => {
                     if (resp) {
-                        this.tableData = resp.data
-                        this.cData.bak = resp.data
+                        this.tableData = resp
+                        this.tableDataBak = resp
+                        // console.log(this.tableData);
                     }
                 })
             }
