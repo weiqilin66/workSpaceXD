@@ -16,3 +16,7 @@ zuul:
     api-feign:
       path: /api-feign/**
       serviceId: service-feign
+
+    api-vhr:
+      path: /api-vhr/**
+      serviceId: hr
