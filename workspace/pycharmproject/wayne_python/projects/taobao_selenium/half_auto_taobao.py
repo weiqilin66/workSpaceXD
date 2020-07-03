@@ -37,7 +37,12 @@ def start(random_good):
 # 解析json数据
 def json2info(json_):
     json_dic = json.loads(json_)
-    good_items = json_dic['mods']['itemlist']['data']['auctions']
+    try:
+        good_items = json_dic['mods']['itemlist']['data']['auctions']
+    except:
+        print('筛选条件过多,搜索不到该商品!')
+        return 1
+
     good_list = []
     for good_item in good_items:
         goods = {
@@ -101,8 +106,11 @@ def data_by_search(conn, cursor, etl_date, etl_time, chrome, search_good, crawl_
         return
     json_ = json_ + '}}'
     # 分析json 写入数据库
+    print("crawl: %s" % search_good)
     good_list = json2info(json_)
-    print("crawl: %s" % search_good, '\n首页size: ', len(good_list))
+    if good_list==1:
+        return
+    print('首页size: ', len(good_list))
     info2mysql(good_list, conn, cursor, etl_date, etl_time, search_good)
     # 下一页
     if pages == 1:
