@@ -1,6 +1,6 @@
-package com.lwq.threadnio.service.test_priority;
+package com.lwq.threadnio.service._priority;
 
-import com.lwq.threadnio.service.MyThread1;
+import com.lwq.threadnio.service._thread.MyThread1;
 
 /**
  * @Description: priority继承性 随机性

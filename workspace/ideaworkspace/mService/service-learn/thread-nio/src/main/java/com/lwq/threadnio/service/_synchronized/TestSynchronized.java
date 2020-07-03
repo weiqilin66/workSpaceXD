@@ -1,7 +1,7 @@
-package com.lwq.threadnio.service.test_synchronized;
+package com.lwq.threadnio.service._synchronized;
 
 /**
- * @Description: synchronized取得的锁都是对象锁，而不是把一段代码或方法当做锁
+ * @Description: 非静态synchronized取得的锁都是对象锁，而不是把一段代码或方法当做锁
  * @author: LinWeiQi
  */
 public class TestSynchronized {
@@ -11,6 +11,7 @@ public class TestSynchronized {
     synchronized public void setValue(String username, String password) {
         try {
             this.username = username;
+            System.out.println("name="+Thread.currentThread().getName()+" set userName 完成");
             Thread.sleep(5000);
             this.password = password;
 
@@ -23,6 +24,12 @@ public class TestSynchronized {
     }
     //该方法前加上synchronized关键字就同步了
     public void getValue() {
+        System.out.println("getValue method thread name="
+                + Thread.currentThread().getName() + " username=" + username
+                + " password=" + password);
+    }
+
+    synchronized public void getSynValue() {
         System.out.println("getValue method thread name="
                 + Thread.currentThread().getName() + " username=" + username
                 + " password=" + password);

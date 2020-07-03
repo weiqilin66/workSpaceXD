@@ -1,4 +1,4 @@
-package com.lwq.threadnio.service.condition;
+package com.lwq.threadnio.service._reentrantlock;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;

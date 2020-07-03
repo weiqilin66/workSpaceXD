@@ -1,4 +1,4 @@
-package com.lwq.threadnio.service;
+package com.lwq.threadnio.service._thread;
 
 import org.springframework.stereotype.Service;
 
@@ -6,7 +6,8 @@ import org.springframework.stereotype.Service;
  * @Description:
  * 使用线程池的方式也是最推荐的一种方式
  * 推荐实现Runnable接口方式开发多线程，因为Java单继承但是可以实现多个接口
- * 不推荐继承thread
+ * 不推荐继承thread来创建线程
+ * new Thread()创建线程 start()开启线程
  * synchronized 可解决单对象实例变量的线程安全问题
  * @author: LinWeiQi
  */

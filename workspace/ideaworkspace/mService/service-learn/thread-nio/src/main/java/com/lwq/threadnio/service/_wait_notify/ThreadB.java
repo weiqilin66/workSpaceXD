@@ -1,30 +1,29 @@
-package com.lwq.threadnio.service.wait_notify;
+package com.lwq.threadnio.service._wait_notify;
 
 /**
- * @Description: synchronized(Object) --class锁
  *
- * notify()执行后并不会立即释放锁
+ * notify()执行后并不会立即释放锁,必须执行完notify()方法所在的synchronized代码块后才释放
  *
- * @author: LinWeiQi
  */
 public class ThreadB extends Thread {
-    private Object lock;
+    private Object object;
 
-    public ThreadB(Object lock) {
+    public ThreadB(Object object) {
         super();
-        this.lock = lock;
+        this.object = object;
     }
 
     @Override
     public void run() {
         try {
-            synchronized (lock) {
+            synchronized (object) {
                 for (int i = 0; i < 10; i++) {
                     MyList.add();
                     System.out.println("添加了" + (i + 1) + "个元素!");
                     if (MyList.size() == 5) {
-                        lock.notify();
+                        object.notify();
                         System.out.println("已发出通知！");
+                        //可通过return释放锁
 //                        return;
                     }
                     Thread.sleep(1000);
