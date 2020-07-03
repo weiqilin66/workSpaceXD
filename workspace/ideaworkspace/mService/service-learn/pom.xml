@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.lwq</groupId>
-    <artifactId>thread</artifactId>
+    <artifactId>service-learn</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>thread</name>
+    <name>service-learn</name>
     <description>Demo project for thread</description>
 
     <properties>
