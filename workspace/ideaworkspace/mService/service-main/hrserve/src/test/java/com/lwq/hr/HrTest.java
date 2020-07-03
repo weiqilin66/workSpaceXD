@@ -1,12 +1,13 @@
 package com.lwq.hr;
 
-import com.lwq.hr.entity.MyFocus;
-import com.lwq.hr.entity.MyStock;
+
+import com.lwq.hr.entity.Hr;
 import com.lwq.hr.mapper.GoodsMapper;
+import com.lwq.hr.mapper.HrMapper;
 import com.lwq.hr.mapper.MyFocusMapper;
-import com.lwq.hr.mapper.MyStockMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.util.AntPathMatcher;
 
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
@@ -17,7 +18,7 @@ import java.util.List;
 class HrTest {
 
     @Resource
-    MyStockMapper stockMapper;
+    HrMapper hrMapper;
     @Resource
     GoodsMapper goodsMapper;
     @Resource
@@ -31,14 +32,14 @@ class HrTest {
     };
     @Test
     void t2(){
-        List<MyStock> all = stockMapper.getAll();
+        List<Hr> all = hrMapper.getAllHrs(-1);
         System.out.println(all);
     }
 
-    @Test
-    void t3(){
-        List<MyFocus> list = myFocusMapper.queryAll();
-        System.out.println(list);
+    public static void main(String[] args) {
+        AntPathMatcher antPathMatcher =new AntPathMatcher();
+        boolean match = antPathMatcher.match("/statistics/chart/**", "/statistics/chart/");
+        System.out.println(match);
     }
 }
 
