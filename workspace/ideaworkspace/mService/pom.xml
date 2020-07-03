@@ -138,7 +138,6 @@
 
     <modules>
         <module>wayne-api</module>
-        <module>service-freemarker</module>
         <module>service-learn</module>
         <module>service-A</module>
         <module>service-B</module>
