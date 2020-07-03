@@ -1,4 +1,4 @@
-package com.lwq.threadnio.service.wait_notify;
+package com.lwq.threadnio.service._wait_notify;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,5 +17,4 @@ public class MyList {
     public static int size() {
         return list.size();
     }
-
 }
