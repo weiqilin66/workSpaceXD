@@ -8,7 +8,7 @@ eureka:
   instance:
     hostname: localhost
   client:
-    #两个false来生命自己是service不是client
+    #两个false来声明自己是service不是client
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
