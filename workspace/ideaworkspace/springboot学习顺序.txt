@@ -1,3 +1,0 @@
-sc 1-5
-config-client
-eureka-service

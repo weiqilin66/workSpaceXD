@@ -18,12 +18,10 @@
         <option value="$PROJECT_DIR$/config/config-service/pom.xml" />
         <option value="$PROJECT_DIR$/service-A/service-Upload-Download/pom.xml" />
         <option value="$PROJECT_DIR$/service-learn/mybatis_plus-druid/pom.xml" />
-        <option value="$PROJECT_DIR$/service-learn/feign/pom.xml" />
         <option value="$PROJECT_DIR$/service-learn/redis/pom.xml" />
         <option value="$PROJECT_DIR$/service-learn/rest-jpa/pom.xml" />
         <option value="$PROJECT_DIR$/service-learn/spring-security/pom.xml" />
         <option value="$PROJECT_DIR$/service-learn/spring-security-mybatis/pom.xml" />
-        <option value="$PROJECT_DIR$/service-learn/ribbon/pom.xml" />
         <option value="$PROJECT_DIR$/service-learn/spring-security-oauth2/pom.xml" />
         <option value="$PROJECT_DIR$/service-main/pom.xml" />
         <option value="$PROJECT_DIR$/service-learn/aaa-customize-config/pom.xml" />
@@ -39,6 +37,7 @@
         <option value="$PROJECT_DIR$/service-A/service-demo/pom.xml" />
         <option value="$PROJECT_DIR$/service-A/service-message-yuntongxun/pom.xml" />
         <option value="$PROJECT_DIR$/service-feign/pom.xml" />
+        <option value="$PROJECT_DIR$/service-freemarker/pom.xml" />
         <option value="$PROJECT_DIR$/service-hi/pom.xml" />
         <option value="$PROJECT_DIR$/service-learn/a-demo/pom.xml" />
         <option value="$PROJECT_DIR$/service-miya/pom.xml" />
