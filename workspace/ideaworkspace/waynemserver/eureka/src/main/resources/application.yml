@@ -1,0 +1,29 @@
+# 集群部署
+# 启动多个Eureka实例, 多个实例之间互相注册,互相同步数据,共同组成一个Eureka集群
+# 1.修改host 2.2个配置文件
+
+# java -jar eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=a
+# 指定生效文件(application-a.yml生效) 默认只有application.yml生效
+
+
+
+server:
+  port: 1111
+
+spring:
+  application:
+    name: eureka
+#  profiles:
+#    active:
+
+#在默认情况下eureka server也是一个eureka client ,必须要指定一个 server
+eureka:
+  instance:
+    hostname: localhost
+  client: # 两个false来声明自己是service不是client
+    registerWithEureka: false # false当前项目不注册在注册中心上 集群部署要设为true互相注册
+    fetchRegistry: false # 是否从注册中心获取注册信息 集群部署要设为true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+
