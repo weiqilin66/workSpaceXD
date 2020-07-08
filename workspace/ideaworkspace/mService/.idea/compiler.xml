@@ -8,27 +8,27 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="thread-nio" />
-        <module name="service-main" />
+        <module name="mybatis_plus-druid" />
         <module name="redis" />
         <module name="wayne-api" />
+        <module name="thread" />
         <module name="service-demo" />
         <module name="lwqAPI" />
         <module name="spring-security" />
         <module name="hrserve" />
-        <module name="spring-security-mybatis" />
         <module name="rest-jpa" />
         <module name="service-learn" />
         <module name="wayneMBG" />
-        <module name="mybatis_plus-druid" />
-        <module name="aaa-customize-config" />
+        <module name="spring-security-oauth2" />
+        <module name="spring-security-dynamic" />
         <module name="config-client" />
         <module name="testdemo" />
         <module name="config" />
-        <module name="config-service" />
+        <module name="aaa-customize-config" />
         <module name="a-demo" />
-        <module name="thread" />
-        <module name="spring-security-dynamic" />
-        <module name="spring-security-oauth2" />
+        <module name="service-main" />
+        <module name="spring-security-mybatis" />
+        <module name="config-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
