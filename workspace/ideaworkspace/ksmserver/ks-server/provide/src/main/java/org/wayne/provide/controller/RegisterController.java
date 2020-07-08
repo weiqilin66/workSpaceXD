@@ -4,9 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.wayne.commons.User;
-
-import javax.ws.rs.POST;
+import org.wayne.commons.entity.User;
 
 /**
  * @Description:

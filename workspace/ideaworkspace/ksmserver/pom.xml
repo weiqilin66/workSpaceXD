@@ -12,7 +12,6 @@
     <modules>
         <module>ks-server/provide</module>
         <module>ks-server/consumer</module>
-        <module>commons</module>
     </modules>
 
 </project>

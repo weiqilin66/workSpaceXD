@@ -1,16 +1,16 @@
 package org.wayne.provide.controller;
 
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.wayne.commons.User;
+import org.springframework.web.bind.annotation.*;
+import org.wayne.commons.entity.User;
 
-import javax.ws.rs.POST;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
- * @Description:
+ * @Description:  @RateLimiter(name = "rA")//开启限流
  * @author: LinWeiQi
  */
 @RestController
@@ -20,10 +20,19 @@ public class HelloProController {
     String port;
 
     @RequestMapping("/hello")
+    @RateLimiter(name = "rA")//开启限流
     public String hello(){
+        System.out.println(new Date());
         return "hello, i come from "+port;
     }
+    @RequestMapping("/error1")
+    public String error1(){
 
+        String s = "hello, i come from " + port;
+        System.out.println(s);
+        int i =1/0;
+        return s;
+    }
     @RequestMapping("/hello2")
     public String hello2(String name){
 
@@ -45,4 +54,27 @@ public class HelloProController {
         return user;
     }
 
+    @DeleteMapping("/user3/{id}")
+    public String user3(@PathVariable Integer id){
+        return "del success:"+id;
+    }
+    //普通请求方式 一个请求发送一个
+    @GetMapping("/comUser")
+    public User getUserById(Integer id){
+        return  new User();
+    }
+
+    //请求合并,ids多种处理方式都可以,这里举例pathVariable (consumer传入1,2,3,4) 这个接口也可以处理单个请求
+    @GetMapping("/user/{ids}")
+    public List<User> getUserByIds(@PathVariable String ids){
+        String[] split = ids.split(",");
+        //模拟业务 实际可能是查数据库
+        List<User> users = new ArrayList<>();
+        for (String s : split) {
+            User user = new User();
+            user.setId(Integer.parseInt(s));
+            users.add(user);
+        }
+        return users;
+    }
 }

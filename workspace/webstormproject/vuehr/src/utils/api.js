@@ -81,6 +81,7 @@ export const putRequest = (url, params) => {
         data: params
     })
 }
+// url传参
 export const getRequest = (url) => {
     return Axios({
         method: 'get',

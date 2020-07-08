@@ -8,7 +8,8 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  *
 1. 读读共享
 两个线程同时运行read方法，你会发现两个线程可以同时或者说是几乎同时运行lock()方法后面的代码，输出的两句话显示的时间一样。这样提高了程序的运行效率
-
+lock.readLock().lock();//读锁
+lock.writeLock().lock();//写锁
 2. 写写互斥
 3. 读写互斥
  */
