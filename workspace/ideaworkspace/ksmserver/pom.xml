@@ -9,9 +9,6 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <description>Be brave after knowing your shame</description>
-    <modules>
-        <module>ks-server/provide</module>
-        <module>ks-server/consumer</module>
-    </modules>
+
 
 </project>

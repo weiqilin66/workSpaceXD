@@ -34,7 +34,7 @@ public class HelloProController {
         return s;
     }
     @RequestMapping("/hello2")
-    public String hello2(String name){
+    public String hello2(@RequestParam("name") String name){ //@RequestParam注解后参数为必传否则400 BadRequest 类似的加了@RequestBody没传Json也是400
 
         return name;
     }

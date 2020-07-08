@@ -9,8 +9,6 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/eureka-service/pom.xml" />
-        <option value="$PROJECT_DIR$/zuul/pom.xml" />
-        <option value="$PROJECT_DIR$/eureka/pom.xml" />
         <option value="$PROJECT_DIR$/config/pom.xml" />
         <option value="$PROJECT_DIR$/config/service-config/pom.xml" />
         <option value="$PROJECT_DIR$/config/client-config/pom.xml" />
@@ -34,8 +32,11 @@
       <set>
         <option value="$PROJECT_DIR$/lwq-API/pom.xml" />
         <option value="$PROJECT_DIR$/mybatis-plus-MBG/pom.xml" />
+        <option value="$PROJECT_DIR$/service-A/pom.xml" />
         <option value="$PROJECT_DIR$/service-A/service-demo/pom.xml" />
         <option value="$PROJECT_DIR$/service-A/service-message-yuntongxun/pom.xml" />
+        <option value="$PROJECT_DIR$/service-B/pom.xml" />
+        <option value="$PROJECT_DIR$/service-C/pom.xml" />
         <option value="$PROJECT_DIR$/service-feign/pom.xml" />
         <option value="$PROJECT_DIR$/service-freemarker/pom.xml" />
         <option value="$PROJECT_DIR$/service-hi/pom.xml" />

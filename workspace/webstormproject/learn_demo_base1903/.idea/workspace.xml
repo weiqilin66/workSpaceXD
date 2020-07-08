@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e9946173-1daf-4a59-8313-1f6dddf4e0ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../goods.txt" beforeDir="false" />
-    </list>
+    <list default="true" id="e9946173-1daf-4a59-8313-1f6dddf4e0ee" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,6 +139,7 @@
       <workItem from="1580631328819" duration="29000" />
       <workItem from="1580905892310" duration="976000" />
       <workItem from="1592969065695" duration="2305000" />
+      <workItem from="1593422242616" duration="34000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1574317426057</created>
