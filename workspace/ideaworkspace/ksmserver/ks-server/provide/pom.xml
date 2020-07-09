@@ -8,7 +8,6 @@
         <artifactId>ks-server</artifactId>
         <groupId>org.wayne</groupId>
         <version>0.0.1-SNAPSHOT</version>
-        <!--        <relativePath>../pom.xml</relativePath>-->
     </parent>
 
     <artifactId>provide</artifactId>

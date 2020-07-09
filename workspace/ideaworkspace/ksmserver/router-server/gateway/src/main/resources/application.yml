@@ -1,7 +1,8 @@
+# 集成hystrix
 # 限流
 # 路径重写
 # 动态路由
-# 集成hystrix
+
 spring:
   cloud:
     gateway:
@@ -13,7 +14,7 @@ spring:
           predicates: # 断言(以...为根据)
             - Method=GET
 #            - Path=/provide-api/** # 效果和下面一样
-            - Path=/provide-api/{segment}  # 整个Path路径都会转发到provide 既http://localhost:2223/provide-api/xx 所以404
+            - Path=/provide-api/{segment}  # 整个Path路径都会转发到provide 既转发到http://localhost:2223/provide-api/xx 所以404
 
           # 数组 - 开头
         - id: wayne_route

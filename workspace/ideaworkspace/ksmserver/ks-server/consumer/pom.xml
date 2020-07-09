@@ -38,7 +38,7 @@
 <!--                    <groupId>io.github.resilience4j</groupId>-->
 <!--                    <artifactId>resilience4j-circuitbreaker</artifactId>-->
 <!--                </exclusion>-->
-                <exclusion>
+                <exclusion><!--限流为provide中处理-->
                     <groupId>io.github.resilience4j</groupId>
                     <artifactId>resilience4j-ratelimiter</artifactId>
                 </exclusion>

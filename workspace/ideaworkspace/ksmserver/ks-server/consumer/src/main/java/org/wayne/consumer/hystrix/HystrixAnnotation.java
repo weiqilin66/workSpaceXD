@@ -64,6 +64,7 @@ public class HystrixAnnotation {
         return restTemplate.getForObject("http://provide/hello",String.class);
     }
     //缓存生命周期
+    //合并请求需要开启缓存
     public void hc(){
         //开始生效
         HystrixRequestContext hystrixRequestContext = HystrixRequestContext.initializeContext();

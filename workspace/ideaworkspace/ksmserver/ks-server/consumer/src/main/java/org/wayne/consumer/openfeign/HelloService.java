@@ -22,7 +22,7 @@ public interface HelloService {
     //传参
     // GET 必须加@requestParam("xx") 指定变量名
     // POST 必须@requestBody
-    //DELETE 必须加@PathVariable
+    // DELETE 必须加@PathVariable
     @GetMapping("/hello2")
     String hello2(@RequestParam("name") String name);
 

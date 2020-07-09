@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
- * @Description: zuul权限过滤器
+ * @Description: zuul过滤器
  * @author: LinWeiQi
  */
 @Component
@@ -36,7 +36,7 @@ public class PermissionFilter extends ZuulFilter {
     @Override
     public boolean shouldFilter() {
 //        return false;
-        //具体过滤post请求
+        //举例过滤post请求
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
         String methodType = RequestMethod.OPTIONS.name();
