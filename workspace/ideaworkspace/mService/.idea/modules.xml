@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/service-learn/lambda-stream/lambda-stream.iml" filepath="$PROJECT_DIR$/service-learn/lambda-stream/lambda-stream.iml" />
-      <module fileurl="file://$PROJECT_DIR$/service-learn/service-learn.iml" filepath="$PROJECT_DIR$/service-learn/service-learn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lambda-stream/lambda-stream.iml" filepath="$PROJECT_DIR$/lambda-stream/lambda-stream.iml" />
     </modules>
   </component>
 </project>

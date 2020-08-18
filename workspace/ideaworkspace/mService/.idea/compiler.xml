@@ -7,33 +7,26 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="thread-nio" />
-        <module name="mybatis_plus-druid" />
-        <module name="redis" />
-        <module name="wayne-api" />
-        <module name="thread" />
-        <module name="service-demo" />
-        <module name="lwqAPI" />
-        <module name="spring-security" />
-        <module name="hrserve" />
-        <module name="rest-jpa" />
-        <module name="service-learn" />
         <module name="wayneMBG" />
-        <module name="spring-security-oauth2" />
+        <module name="service-demo" />
         <module name="spring-security-dynamic" />
-        <module name="config-client" />
+        <module name="hrserve" />
+        <module name="thread-nio" />
         <module name="testdemo" />
-        <module name="config" />
-        <module name="aaa-customize-config" />
+        <module name="rabbitmq" />
+        <module name="redis" />
         <module name="a-demo" />
-        <module name="service-main" />
-        <module name="spring-security-mybatis" />
-        <module name="config-service" />
+        <module name="lwqAPI" />
+        <module name="wayne-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="a-demo" target="1.8" />
+      <module name="aaa-customize-config" target="1.8" />
       <module name="B-thief" target="1.8" />
+      <module name="config" target="1.8" />
+      <module name="config-client" target="1.8" />
+      <module name="config-service" target="1.8" />
       <module name="eureka" target="1.8" />
       <module name="eureka-fornow" target="1.8" />
       <module name="feign" target="1.8" />
@@ -41,6 +34,8 @@
       <module name="lambda-stream" target="1.8" />
       <module name="lwq-API" target="1.8" />
       <module name="mybatis-plus-MBG" target="1.8" />
+      <module name="mybatis_plus-druid" target="1.5" />
+      <module name="rest-jpa" target="1.8" />
       <module name="ribbon" target="1.8" />
       <module name="service-A" target="1.8" />
       <module name="service-B" target="1.8" />
@@ -49,13 +44,19 @@
       <module name="service-feign" target="1.8" />
       <module name="service-freemarker" target="1.8" />
       <module name="service-hi" target="1.8" />
+      <module name="service-learn" target="1.8" />
+      <module name="service-main" target="1.8" />
       <module name="service-message" target="1.8" />
       <module name="service-message-yuntongxun" target="1.8" />
       <module name="service-miya" target="1.8" />
       <module name="service-ribbon" target="1.8" />
       <module name="service-Upload-Download" target="1.8" />
+      <module name="spring-security" target="1.8" />
       <module name="spring-security-dynamic" target="1.8" />
+      <module name="spring-security-mybatis" target="1.8" />
+      <module name="spring-security-oauth2" target="1.8" />
       <module name="test-demo" target="1.8" />
+      <module name="thread" target="1.8" />
       <module name="wayneMBG" target="1.8" />
       <module name="zuul" target="1.8" />
     </bytecodeTargetLevel>
@@ -77,7 +78,8 @@
       <module name="lwq-API" options="-parameters" />
       <module name="lwqAPI" options="-parameters" />
       <module name="mybatis-plus-MBG" options="-parameters" />
-      <module name="mybatis_plus-druid" options="-parameters" />
+      <module name="mybatis_plus-druid" options="" />
+      <module name="rabbitmq" options="-parameters" />
       <module name="redis" options="-parameters" />
       <module name="rest-jpa" options="-parameters" />
       <module name="ribbon" options="-parameters" />
@@ -103,7 +105,7 @@
       <module name="testdemo" options="-parameters" />
       <module name="thread" options="-parameters" />
       <module name="thread-nio" options="-parameters" />
-      <module name="wayne-api" options="-parameters" />
+      <module name="wayne-api" options="" />
       <module name="wayneMBG" options="-parameters" />
       <module name="zuul" options="-parameters" />
     </option>
