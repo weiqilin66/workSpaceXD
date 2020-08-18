@@ -1,0 +1,46 @@
+Spring Security 多种加密方案共存，老破旧系统整合利器！
+1.PasswordEncoder
+2.PasswordEncoder 在哪里起作用
+3.默认的是什么？
+4.体验
+5.意义何在？
+
+关于密码加密的问题，松哥之前已经和大家聊过了，参考：
+这篇文章中，松哥给大家介绍了两种密码加密方案，但是两种都是独立使用的！能不能在同一个项目中同时存在多种密码加密方案呢？答案是肯定的！
+今天松哥就来和大家聊一聊，如何在 Spring Security 中，让多种不同的密码加密方案并存。
+本文是 Spring Security 系列第 31 篇，阅读前面文章有助于更好的理解本文：
+为什么要加密？常见的加密算法等等这些问题我就不再赘述了，大家可以参考之前的：Spring Boot 中密码加密的两种姿势！，咱们直接来看今天的正文。
+在 Spring Security 中，跟密码加密/校验相关的事情，都是由 PasswordEncoder 来主导的，PasswordEncoder 拥有众多的实现类：
+
+这些实现类，有的已经过期了，有的用处不大。对于我们而言，最常用的莫过于 BCryptPasswordEncoder。
+PasswordEncoder 本身是一个接口，里边只有三个方法：
+PasswordEncoder 的实现类，则具体实现了这些方法。
+对于我们开发者而言，我们通常都是在 SecurityConfig 中配置一个 PasswordEncoder 的实例，类似下面这样：
+剩下的事情，都是由系统调用的。今天我们就来揭开系统调用的神秘面纱！我们一起来看下系统到底是怎么调用的！
+首先，松哥在前面的文章中和大家提到过，Spring Security 中，如果使用用户名/密码的方式登录，密码是在 DaoAuthenticationProvider 中进行校验的，大家可以参考：SpringSecurity 自定义认证逻辑的两种方式(高级玩法)。
+我们来看下 DaoAuthenticationProvider 中密码是如何校验的：
+可以看到，密码校验就是通过 passwordEncoder.matches 方法来完成的。
+那么 DaoAuthenticationProvider 中的 passwordEncoder 从何而来呢？是不是就是我们一开始在 SecurityConfig 中配置的那个 Bean 呢？
+我们来看下 DaoAuthenticationProvider 中关于 passwordEncoder 的定义，如下：
+从这段代码中可以看到，在 DaoAuthenticationProvider 创建之时，就指定了 PasswordEncoder，似乎并没有用到我们一开始配置的 Bean？其实不是的！在 DaoAuthenticationProvider 创建之时，会制定一个默认的 PasswordEncoder，如果我们没有配置任何 PasswordEncoder，将使用这个默认的 PasswordEncoder，如果我们自定义了 PasswordEncoder 实例，那么会使用我们自定义的 PasswordEncoder 实例！
+从何而知呢？
+我们再来看看 DaoAuthenticationProvider 是怎么初始化的。
+DaoAuthenticationProvider 的初始化是在 InitializeUserDetailsManagerConfigurer#configure 方法中完成的，我们一起来看下该方法的定义：
+从这段代码中我们可以看到：
+至此，就真相大白了，我们配置的 PasswordEncoder 实例确实用上了。
+同时大家看到，如果我们不进行任何配置，默认的 PasswordEncoder 也会被提供，那么默认的 PasswordEncoder 是什么呢？我们就从这个方法看起：
+继续：
+可以看到：
+我们来看下 DelegatingPasswordEncoder 的定义：
+这段代码比较长，我来和大家挨个解释下：
+OK，至此，相信大家都明白了 DelegatingPasswordEncoder 的工作原理了。
+如果我们想同时使用多个密码加密方案，看来使用 DelegatingPasswordEncoder 就可以了，而 DelegatingPasswordEncoder 默认还不用配置。
+接下来我们稍微体验一下 DelegatingPasswordEncoder 的用法。
+首先我们来生成三个密码作为测试密码：
+生成结果如下：
+接下来，我们把这三个密码拷贝到 SecurityConfig 中去：
+这里三个用户使用三种不同的密码加密方式。
+配置完成后，重启项目，分别使用 javaboy/123、sang/123 以及 江南一点雨/123 进行登录，发现都能登录成功。
+为什么我们会有这种需求？想在项目种同时存在多种密码加密方案？其实这个主要是针对老旧项目改造用的，密码加密方式一旦确定，基本上没法再改了（你总不能让用户重新注册一次吧），但是我们又想使用最新的框架来做密码加密，那么无疑，DelegatingPasswordEncoder 是最佳选择。
+好啦，这就是今天和小伙伴们分享的多种密码加密方案问题，感兴趣的小伙伴记得点个在看鼓励下松哥哦～
+喜欢这篇文章吗？扫码关注公众号【江南一点雨】，【江南一点雨】专注于 SPRING BOOT+微服务以及前后端分离技术，每天推送原创技术干货，关注后回复 JAVA，领取松哥为你精心准备的 JAVA 干货!

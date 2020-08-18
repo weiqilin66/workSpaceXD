@@ -1,0 +1,39 @@
+Spring Security 配置中的 and 到底该怎么理解？
+1.原始配置
+2.代码层面的理解
+3.小结
+
+我们先来看一个简单的配置：
+这样的配置在 Spring Security 中很常见，通过 and 方法，可以将所有的配置连接在一起，一条线下来，所有的东西都配置好了。
+但是有小伙伴对这里的 and 表示很迷，不知道什么时候 and 方法该出场，什么时候 and 不该出场！
+所以今天松哥就花点时间来和大家聊一下这里的 and 方法，希望大家看完完整后，能够明白 and 到底怎么玩！
+本文是 Spring Security 系列第 33 篇，阅读前面文章有助于更好的理解本文：
+在 Spring Boot 出现之前，我们使用 Spring Security ，都是通过 XML 文件来配置 Spring Security 的，即使现在大家在网上搜索 Spring Security 的文章，还是能够找到很多 XML 配置的。
+但是小伙伴们明白，无论是 XML 配置还是 Java 配置，只是在用不同的方式描述同一件事情，从这里角度来看，我们现在所使用的 Java 配置，和以前使用的 XML 配置，应该有某种异曲同工之妙。
+可能有小伙伴没见过 XML 配置的 Spring Security，我在这里给大家简单举几个例子：
+这段 XML 大家稍微瞅一眼大概就能明白其中的含义：
+如果我们使用了 Java 配置，这些 XML 配置都有对应的写法，例如 .anyRequest().authenticated() 就是配置拦截规则的，.formLogin() 是配置表单登录细节的。
+仅仅从语义层面来理解，and 有点类似于 XML 中的结束标签，每当 and 出现，当前的配置项就结束了，可以开启下一个配置了。
+那么从代码层面上，这个要如何理解呢？
+小伙伴们知道，Spring Security 中的功能是由一系列的过滤器来实现的，默认的过滤器一共有 15 个，这 15 个过滤器松哥以后会和大家挨个介绍。
+每一个过滤器都有一个对应的 configurer 来对其进行配置，例如我们常见的 UsernamePasswordAuthenticationFilter 过滤器就是通过 AbstractAuthenticationFilterConfigurer 来进行配置的。
+这些 configure 都有一个共同的父类，那就是 SecurityConfigurer，给大家大致看一下 SecurityConfigurer 的继承关系图：
+
+可以看到，它的实现类还是蛮多的。
+SecurityConfigurer 的源码很简单：
+就两个方法，第一个 init 用来做初始化操作，第二个 configure 用来做具体的配置。
+在 Spring Security 框架初始化的时候，会把所有的这些 xxxConfigurer 收集起来，然后再统一调用每一个 xxxConfigurer 里边的 init 和 configure 方法（松哥在以后的文章中会和大家详细讨论这个过程），调用完成后，Spring Security 默认的过滤器链就形成了。
+这就是我们所说的 xxxConfigurer 的作用！
+在文章一开始，松哥列出来的示例代码中，HttpSecurity 中其实就是在配置各种各样的 xxxConfigurer。
+SecurityConfigurer 有一个重要的实现类就是 SecurityConfigurerAdapter，默认的 15 个过滤器的 Configurer 类都是继承自它！而在 SecurityConfigurerAdapter 中就多出来一个方法：
+没错，就是大家所熟知的 and 方法。and 方法的返回值是一个 SecurityBuilder 的子类，其实就是 HttpSecurity，也就是 and 方法总是让我们回到 HttpSecurity，从而开启新一轮的 xxxConfigurer 配置。
+我们再来瞅一眼 HttpSecurity 中到底都有啥方法（方法比较多，我这里仅列举一部分）：
+
+可以看到，每一个类型的配置，都有一个对应的返回 Configure 的方法，例如 OpenIDLoginConfigurer、HeadersConfigurer、CorsConfigurer 等等，大家注意，每一个 configure 方法都有一个 HttpSecurity 作为泛型，这实际上就指定了 and 方法的返回类型。
+我再举个例子，大家可能更清楚一些，以 HttpSecurity 中 RememberME 的配置为例，有两个方法：
+这就是我们在 configure(HttpSecurity http) 方法中的配置过程。
+通过前面的讲解，不知道小伙伴们有没有看懂呢？我再给大家总结下。
+Spring Security 的功能主要是通过各种各样的过滤器来实现的，各种各样的过滤器都由对应的 xxxConfigurer 来进行配置，我们在 configure(HttpSecurity http) 中所做的配置其实就是在配置 xxxConfigurer，也是在间接的配置过滤器，每一个 and 方法会将我们带回到 HttpSecurity 实例中，从而开启新一轮的配置。
+大致就是这样！
+小伙伴们如果觉得有收获，记得点个在看鼓励下松哥哦～
+喜欢这篇文章吗？扫码关注公众号【江南一点雨】，【江南一点雨】专注于 SPRING BOOT+微服务以及前后端分离技术，每天推送原创技术干货，关注后回复 JAVA，领取松哥为你精心准备的 JAVA 干货!

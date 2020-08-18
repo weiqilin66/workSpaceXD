@@ -44,7 +44,7 @@
                 this.fullscreenLoading = true
                 this.$refs.loginForm.validate((valid) => {
                     if (valid) {
-                        this.postKeyValueRequest('/doLogin', this.loginForm).then(resp => {
+                        /*this.postKeyValueRequest('/doLogin', this.loginForm).then(resp => {
                             this.fullscreenLoading = false
                             // Axios封装已经判断http状态,此时的response就是后端的respBean
                             if (resp) {
@@ -55,7 +55,18 @@
                                 // router push() 可后退 replace() 替换不可后退
                                 this.$router.replace((path==='/'||path===undefined)?'/home':path)
                             }
-                        })
+                        })*/
+                        //伪登录
+                        const user = {
+                            username: 'admin',
+                            password: '123'
+                        }
+                        window.sessionStorage.setItem('user', JSON.stringify(user))
+                        //获取当前的url路径的redirect的value
+                        let path = this.$route.query.redirect;
+                        // router push() 可后退 replace() 替换不可后退
+                        this.$router.replace((path==='/'||path===undefined)?'/home':path)
+
                     } else {
                         this.$message.error('请确认输入用户名及密码')
                         return false;

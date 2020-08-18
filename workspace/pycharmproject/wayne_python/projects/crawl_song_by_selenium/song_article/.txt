@@ -1,0 +1,47 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+所以，Schema 目前在 XML 约束这块更具备优势，也在逐渐替代 DTD。
+大家在日常开发中，这两种约束可能都见过，但是有的人可能没注意。我给大家简单举一个例子。
+早期的 Spring 配置头部是这样的(Spring2.x)，这就是 DTD 约束：
+现在大家看到的 Spring 配置头部一般都是这样，这就是 Schema 约束：
+schema 约束对命名空间有着很好的支持，命名空间可以防止命名冲突，schema 中的名称空间和约束文件都是成对出现的。
+有了约束，XML 文件中该写什么不该写什么就固定下来了，这样框架才能成功解析出 XML 文件。
+但是大家同时也发现了一个新的问题，无论是 DTD 还是 Schema 约束，给出的约束文件地址都是一个在线地址，这就意味着项目启动时必须能够访问到该在线地址，才能加载到约束文件，如果访问在线约束文件失败，那么项目启动也会失败。
+为了解决这个问题，框架一般都是将约束文件放在本地的，在本地哪里呢？实际上就在你下载的 jar 包里。以 spring-beans 为例，在下载的 jar 包里有如下两个文件：
+
+spring.handlers 文件内容如下：
+这其实一个映射配置，每一个名称空间对应的处理类在这里进行配置。
+spring.schemas 文件内容如下（部分）：
+可以看到，各种版本以及没有版本号的约束文件，都对应了同一个文件，就是 org/springframework/beans/factory/xml/spring-beans.xsd，打开这个文件目录，我们就可以看到约束文件：
+
+所以我们虽然在 Spring 的 XML 配置中看到的约束文件是一个在线地址，实际上约束文件是从本地 jar 中读取的。
+EntityResolver 就是用来处理 XML 验证的。我们先来看下 EntityResolver 接口的定义：
+接口中就只有一个方法，就是加载约束文件。在 Spring 中，EntityResolver 的实现类是 DelegatingEntityResolver：
+在 DelegatingEntityResolver 类中：
+由于现在大部分都是 schema 约束，所以这里我们就来重点看下 PluggableSchemaResolver 类的实现：
+在上篇文章中，我们获取 EntityResolver 是通过 getEntityResolver 方法来获取的：
+这里最终返回的是 ResourceEntityResolver，ResourceEntityResolver 继承自 DelegatingEntityResolver，当调用 resolveEntity 方法时，也是先调用父类的该方法，进行处理，如果父类方法处理成功了，就直接返回父类方法给出的结果，如果父类方法处理失败了，则在 ResourceEntityResolver 中通过资源的相对路径再次尝试加载。
+好啦，经过上面的介绍，相信大家对于 XMl 约束和 EntityResolver 都有一定的了解啦。
+后记
+本文刚写完，微信群里就有小伙伴问了一个一模一样的问题：
+
+松哥不禁感叹，源码并非离我们很远的东西，阅读源码可以有效解决我们日常开发中一些实实在在的问题！
+如果觉得有收获，记得点个在看鼓励下松哥哦～
+喜欢这篇文章吗？扫码关注公众号【江南一点雨】，【江南一点雨】专注于 SPRING BOOT+微服务以及前后端分离技术，每天推送原创技术干货，关注后回复 JAVA，领取松哥为你精心准备的 JAVA 干货!

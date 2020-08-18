@@ -138,8 +138,6 @@
 
     <modules>
         <module>wayne-api</module>
-        <module>service-learn</module>
-        <module>service-main</module>
     </modules>
 
 

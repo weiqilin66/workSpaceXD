@@ -6,8 +6,10 @@ import org.wayne.commons.entity.User;
 import org.wayne.consumer.openfeign.HelloService;
 
 /**
- * @Description: 工厂方式返回  +配置文件中配置开启
+ * @Description: 工厂方式返回 FallbackFactory<熔断的接口> +配置文件中配置开启
  * implements FallbackFactory<HelloService>
+ * # 开启feign服务降级
+ * feign.hystrix.enabled=true
  * @author: LinWeiQi
  */
 @Component

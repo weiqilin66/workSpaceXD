@@ -77,7 +77,7 @@
             }
         },
         mounted() {
-            this.initExcelData()
+            // this.initExcelData()
         },
         methods: {
             // 个人中心下拉框配置

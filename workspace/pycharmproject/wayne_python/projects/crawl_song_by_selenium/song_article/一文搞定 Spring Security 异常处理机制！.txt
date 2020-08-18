@@ -1,0 +1,35 @@
+一文搞定 Spring Security 异常处理机制！
+1.异常分类
+2.ExceptionTranslationFilter
+3.自定义处理
+4.小结
+
+今天来和小伙伴们聊一聊 Spring Security 中的异常处理机制。
+在 Spring Security 的过滤器链中，ExceptionTranslationFilter 过滤器专门用来处理异常，在 ExceptionTranslationFilter 中，我们可以看到，异常被分为了两大类：认证异常和授权异常，两种异常分别由不同的回调函数来处理，今天松哥就来和大家分享一下这里的条条框框。
+Spring Security 中的异常可以分为两大类，一种是认证异常，一种是授权异常。
+认证异常就是 AuthenticationException，它有众多的实现类：
+
+可以看到，这里的异常实现类还是蛮多的，都是都是认证相关的异常，也就是登录失败的异常。这些异常，有的松哥在之前的文章中都和大家介绍过了，例如下面这段代码(节选自：Spring Security 做前后端分离，咱就别做页面跳转了！统统 JSON 交互)：
+另一类就是授权异常 AccessDeniedException，授权异常的实现类比较少，因为授权失败的可能原因比较少。
+
+ExceptionTranslationFilter 是 Spring Security 中专门负责处理异常的过滤器，默认情况下，这个过滤器已经被自动加载到过滤器链中。
+有的小伙伴可能不清楚是怎么被加载的，我这里和大家稍微说一下。
+当我们使用 Spring Security 的时候，如果需要自定义实现逻辑，都是继承自 WebSecurityConfigurerAdapter 进行扩展，WebSecurityConfigurerAdapter 中本身就进行了一部分的初始化操作，我们来看下它里边 HttpSecurity 的初始化过程：
+可以看到，在 getHttp 方法的最后，调用了 configure(http);，我们在使用 Spring Security 时，自定义配置类继承自 WebSecurityConfigurerAdapter 并重写的 configure(HttpSecurity http) 方法就是在这里调用的，换句话说，当我们去配置 HttpSecurity 时，其实它已经完成了一波初始化了。
+在默认的 HttpSecurity 初始化的过程中，调用了 exceptionHandling 方法，这个方法会将 ExceptionHandlingConfigurer 配置进来，最终调用 ExceptionHandlingConfigurer#configure 方法将 ExceptionTranslationFilter 添加到 Spring Security 过滤器链中。
+我们来看下 ExceptionHandlingConfigurer#configure 方法源码：
+可以看到，这里构造了两个对象传入到 ExceptionTranslationFilter 中：
+具体的处理逻辑则在 ExceptionTranslationFilter 中，我们来看一下：
+ExceptionTranslationFilter 的源码比较长，我这里列出来核心的部分和大家分析：
+AuthenticationEntryPoint 的默认实现类是 LoginUrlAuthenticationEntryPoint，因此默认的认证异常处理逻辑就是 LoginUrlAuthenticationEntryPoint#commence 方法，如下：
+可以看到，就是重定向，重定向到登录页面（即当我们未登录就去访问一个需要登录才能访问的资源时，会自动重定向到登录页面）。
+AccessDeniedHandler 的默认实现类则是 AccessDeniedHandlerImpl，所以授权异常默认是在 AccessDeniedHandlerImpl#handle 方法中处理的：
+可以看到，这里就是服务端跳转返回 403。
+前面和大家介绍了 Spring Security 中默认的处理逻辑，实际开发中，我们可以需要做一些调整，很简单，在 exceptionHandling 上进行配置即可。
+首先自定义认证异常处理类和授权异常处理类：
+然后在 SecurityConfig 中进行配置，如下：
+配置完成后，重启项目，认证异常和授权异常就会走我们自定义的逻辑了。
+好啦，今天主要和小伙伴们分享了 Spring Security 中的异常处理机制，感兴趣的小伙伴可以试一试哦～
+文中代码下载地址：https://github.com/lenve/spring-security-samples
+小伙伴们如果觉得有收获，记得点个在看鼓励下松哥哦～
+喜欢这篇文章吗？扫码关注公众号【江南一点雨】，【江南一点雨】专注于 SPRING BOOT+微服务以及前后端分离技术，每天推送原创技术干货，关注后回复 JAVA，领取松哥为你精心准备的 JAVA 干货!

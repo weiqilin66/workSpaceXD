@@ -3,29 +3,20 @@ let proxyObj = {}
 
 proxyObj['/'] = {
     ws: false,
-    // target: 'http://localhost:1111', // zuul
-    target: 'http://localhost:8081',
-    changeOrigin: true,
-    pathRewrite: {
-        '/': ''
-    }
-}
-let proxyObj2={};
-proxyObj2['/'] = {
-    ws: false,
-    target: 'http://192.168.45.131:8081',
+    target: 'http://localhost:9000',//转发目标
     changeOrigin: true,
     pathRewrite: {
         '/': ''
     }
 }
 
+
 module.exports = {
     devServer: {
         host: 'localhost',
-        port: 8080,
-        proxy: proxyObj
-        // proxy: proxyObj2 //本地前台连ubutun后台使用
+        port: 8081,     //启动的端口
+        open: true,     //启动完毕自动打开
+        proxy: proxyObj //代理
     },
     // vue-echarts
     transpileDependencies: [

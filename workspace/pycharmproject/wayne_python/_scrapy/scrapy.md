@@ -1,20 +1,20 @@
-###爬虫框架是也
+###爬虫框架
 1. 核心内容 :引擎,下载器,spiders,调度器(schedule),管道(pipeline)
 2. 使用流程
     1. items.py中定义数据结构
     2. spiders中创建文件爬取数据
     3. pipelines.py中操作数据存储数据
- 
-###使用
-1. 创建项目 scrapy startproject 项目名称
-2. 有__init__.py 是一个包 可导入
 3. 目录结构
     1. items.py 定义数据结构文件
     2. middlewares.py 中间件
     3. pipeline.py 管道文件
     4. setting.py 配置文件
+###使用
+1. 创建项目 scrapy startproject 项目名称
+2. 有__init__.py 是一个包 可导入
+
 4. 修改配置 settings.py USER_AGENT修改为自己的UA 取消遵循robots协议False
-5. 创建爬虫文件 进入项目目录 scrapy genspider 文件名 域名
+5. 创建爬虫文件 进入项目目录 scrapy genspider 文件名 爬取的域名
 6. 执行爬虫文件 进入spiders文件夹 scrapy crawl 文件名
 
 ###response属性和方法

@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.concurrent.Future;
 
 /**
- * @Description: 请求合并
+ * @Description: 请求合并-查询条件是同一个字段
  * @author: LinWeiQi
  */
 @Service

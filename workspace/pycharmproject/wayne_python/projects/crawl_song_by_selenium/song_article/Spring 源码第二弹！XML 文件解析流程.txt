@@ -1,0 +1,34 @@
+Spring 源码第二弹！XML 文件解析流程
+1.XmlBeanDefinitionReader
+2.走流程
+3.小结
+
+Spring 源码继续开整！
+上篇文章中，松哥和大家分享了 Spring 中配置文件的加载方式，如果小伙伴们还没看过，一定先看一下，这有助于更好的理解本文，传送门：Spring 源码第一篇开整！配置文件是怎么加载的？。
+上篇文章和大家分享了 Spring 中是如何加载本地配置文件的，如何将加载到的本地配置文件通过一个 InputStream 返回。了解到这一点之后，接下来就是对 InputStream 的解析了。
+本文我们就来看一下整个解析流程是什么样子的。
+在上篇文章中，小伙伴们可以看到，XmlBeanFactory 中加载 XML 文件流的对象是 XmlBeanDefinitionReader，因此关于 XML 的解析我们就从 XmlBeanDefinitionReader 开始讲起。
+先来看一张 XmlBeanDefinitionReader 的继承关系图：
+
+这张继承关系图中涉及到了几个接口，我这里和大家说一下：
+这是 XmlBeanDefinitionReader 的继承关系。
+打开 XmlBeanDefinitionReader 的源码，我们发现还有两个关键的对象：
+担心有的小伙伴可能不知道 Document 是啥，我这里再稍微说两句。Document 就是 XML 解析时获取到的文档对象，Document 对象代表了一个 XML 文档的模型树，所有的其他 Node 都以一定的顺序包含在 Document 对象之内，排列成一个树状结构，以后对 XML 文档的所有操作都与解析器无关，直接在这个 Document 对象上进行操作即可。主流的 XML 解析方式有 SAX 解析、DOM 解析以及 Pull 解析。如果大家对于 XML 文件解析不熟悉的话，可以自行复习，松哥这里就不再啰嗦了。
+好了，了解了 XmlBeanDefinitionReader 的继承关系以及里边定义的两个关键类之后，我们来大概梳理一下 XmlBeanDefinitionReader 的功能：
+把这些先搞清楚之后，接下来我们来走流程。
+不知道还记不记得上篇文章中松哥给出的一个简单案例：
+我们就跟着 XmlBeanFactory 的构造方法来走一遍。
+先来看 XmlBeanFactory 的构造方法：
+XmlBeanFactory 的源码很简单，其实它的主要功能都在 DefaultListableBeanFactory 中实现了，松哥后面会专门写一篇文章来介绍 DefaultListableBeanFactory，这里我们先不做过多展开。
+XmlBeanFactory 中定义了 XmlBeanDefinitionReader 用来读取 Resource，默认情况下，parentBeanFactory 为 null，具体的读取操作则是由 XmlBeanDefinitionReader#loadBeanDefinitions 方法提供的，我们来看下该方法：
+在上面第 6 步的时候，调用了 doLoadBeanDefinitions 方法，这个方法要做的事情就是去将资源文件解析成 Document 对象，如下：
+可以看到，这里就是调用 doLoadDocument 进行资源解析，最终获取到一个 Document 对象。
+我们来看一下 doLoadDocument 方法：
+可以看到，这里最终调用的是 documentLoader#loadDocument 方法，documentLoader 也就是松哥在第一小节和大家介绍的 DefaultDocumentLoader 对象。
+该方法的调用，一共需要五个参数：
+具体的调用如下：
+这里我就不做过多解释了，基本上到了 XML 解析的范畴了。小伙伴们自行复习一下 Java 中 XML 的解析方式。
+本文松哥主要和大家介绍了在 Spring 中，我们如何获取到一个 Document 对象，拿到 Document 对象，接下来解析 Document 对象，获取各种属性，就能定义出 BeanDefinition 了。
+但是如果大家从来没有研究过 Spring 源码，相信本文中可能还有很多让你疑惑的地方，例如 EntityResolver 到底是干嘛用的？ValidationMode 又是啥？那么小伙伴们不要着急，这些东西松哥会在接下来的文章中像大家挨个介绍。
+好啦，今天就先说这么多，如果大家觉得有收获，记得点个在看鼓励下松哥哦～
+喜欢这篇文章吗？扫码关注公众号【江南一点雨】，【江南一点雨】专注于 SPRING BOOT+微服务以及前后端分离技术，每天推送原创技术干货，关注后回复 JAVA，领取松哥为你精心准备的 JAVA 干货!

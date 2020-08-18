@@ -1,0 +1,40 @@
+神奇！自己 new 出来的对象一样也可以被 Spring 容器管理！
+1.ObjectPostProcessor 的作用
+2.框架举例
+3.为什么这样
+4.小结
+
+按理说自己 new 出来的对象和容器是没有关系的，但是在 Spring Security 框架中也 new 了很多对象出来，一样也可以被容器管理，那么它是怎么做到的？
+今天来和大家聊一个略微冷门的话题，Spring Security 中的 ObjectPostProcessor 到底是干嘛用的？
+本文是 Spring Security 系列第 32 篇，阅读前面文章有助于更好的理解本文：
+如果大家研究过松哥的微人事项目，就会发现里边的动态权限配置有这样一行代码：
+这里的 withObjectPostProcessor 到底该如何理解？
+今天松哥就来和大家揭开谜题。
+我们先来看下 ObjectPostProcessor 到底有啥作用，先来看一下这个接口的定义：
+接口中就只有一个 postProcess 方法。
+我们再来看看 ObjectPostProcessor 的继承关系：
+
+两个比较重要的实现类，其中 AutowireBeanFactoryObjectPostProcessor 值得一说，来看下 AutowireBeanFactoryObjectPostProcessor 的定义：
+AutowireBeanFactoryObjectPostProcessor 的源码很好理解：
+由此可见，ObjectPostProcessor 的主要作用就是手动注册实例到 Spring 容器中去（并且让实例走一遍 Bean 的生命周期）。
+正常来说，我们项目中的 Bean 都是通过自动扫描注入到 Spring 容器中去的，然而在 Spring Security 框架中，有大量的代码不是通过自动扫描注入到 Spring 容器中去的，而是直接 new 出来的，这样做的本意是为了简化项目配置。
+这些直接 new 出来的代码，如果想被 Spring 容器管理该怎么办呢？那就得 ObjectPostProcessor 出场了。
+接下来我随便举几个框架中对象 new 的例子，大家看一下 ObjectPostProcessor 的作用：
+HttpSecurity 初始化代码（WebSecurityConfigurerAdapter#getHttp）：
+WebSecurity 初始化代码（WebSecurityConfiguration#setFilterChainProxySecurityConfigurer）：
+Spring Security 框架源码中，随处可见手动装配。Spring Security 中，过滤器链中的所有过滤器都是通过对应的 xxxConfigure 来进行配置的，而所有的 xxxConfigure 都是继承自 SecurityConfigurerAdapter，如下：
+
+而在这些 xxxConfigure 的 configure 方法中，无一例外的都会让他们各自配置的管理器去 Spring 容器中走一圈，例如 AbstractAuthenticationFilterConfigurer#configure 方法：
+其他的 xxxConfigurer#configure 方法也都有类似的实现，小伙伴们可以自行查看，我就不再赘述了。
+直接将 Bean 通过自动扫描注册到 Spring 容器不好吗？为什么要搞成这个样子？
+在 Spring Security 中，由于框架本身大量采用了 Java 配置，并且没有将对象的各个属性都暴露出来，这样做的本意是为了简化配置。然而这样带来的一个问题就是需要我们手动将 Bean 注册到 Spring 容器中去，ObjectPostProcessor 就是为了解决该问题。
+一旦将 Bean 注册到 Spring 容器中了，我们就有办法去增强一个 Bean 的功能，或者需修改一个 Bean 的属性。
+例如一开始提到的动态权限配置代码：
+权限管理本身是由 FilterSecurityInterceptor 控制的，系统默认的 FilterSecurityInterceptor 已经创建好了，而且我也没办法修改它的属性，那么怎么办呢？我们可以利用 withObjectPostProcessor 方法，去修改 FilterSecurityInterceptor 中的相关属性。
+上面这个配置生效的原因之一是因为 FilterSecurityInterceptor 在创建成功后，会重走一遍 postProcess 方法，这里通过重写 postProcess 方法就能实现属性修改，我们可以看下配置 FilterSecurityInterceptor 的方法（AbstractInterceptUrlConfigurer#configure）：
+可以看到，securityInterceptor 对象创建成功后，还是会去 postProcess 方法中走一遭。
+看懂了上面的代码，接下来我再举一个例子小伙伴们应该一下就能明白：
+在这里，我把配置好的 UsernamePasswordAuthenticationFilter 过滤器再拎出来，修改一下用户名的 key（正常来说，修改用户名的 key 不用这么麻烦，这里主要是给大家演示 ObjectPostProcessor 的效果），修改完成后，以后用户登录时，用户名就不是 username 而是 name 了。
+好了，只要小伙伴们掌握了上面的用法，以后在 Spring Security 中，如果想修改某一个对象的属性，但是却不知道从哪里下手，那么不妨试试 withObjectPostProcessor！
+小伙伴们如果觉得有收获，记得点个在看鼓励下松哥哦～
+喜欢这篇文章吗？扫码关注公众号【江南一点雨】，【江南一点雨】专注于 SPRING BOOT+微服务以及前后端分离技术，每天推送原创技术干货，关注后回复 JAVA，领取松哥为你精心准备的 JAVA 干货!

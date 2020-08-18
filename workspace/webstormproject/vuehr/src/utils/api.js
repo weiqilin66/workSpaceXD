@@ -42,7 +42,7 @@ Axios.interceptors.response.use(success => {
 // 超时设置10分钟
 Axios.defaults.timeout=600000
 // 定义base 灵活定义url
-let base = ''
+let base = '/api'
 
 // 封装请求方法,并加入到Vue.prototype中供直接调用
 

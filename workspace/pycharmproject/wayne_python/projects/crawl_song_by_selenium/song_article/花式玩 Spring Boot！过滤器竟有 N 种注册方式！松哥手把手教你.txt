@@ -1,0 +1,28 @@
+花式玩 Spring Boot！过滤器竟有 N 种注册方式！松哥手把手教你
+1.@WebFilter
+2.@Bean
+3.FilterRegistrationBean
+4.扩展
+5.小结
+
+要说在 Spring Boot 中注册过滤器有三种方式，你都能想到哪些呢？今天松哥就来和大家聊一聊 Spring Boot 中注册过滤器的三种方式！
+其实本来是想和大家聊 Spring Security 过滤器链的问题的，结果看源码看着看着就跑题了，索性就先和大家聊一聊 Spring Boot 中注册过滤器的三种方式，算是给 后面的 Spring Security 打一点基础。
+通过 @WebFilter 注解来标记一个过滤器，这种方式相信大家很容易想到。这是将 Servlet 中的那一套东西直接拿到 Spring Boot 上用。
+具体做法就是通过 @WebFilter 注解来标记一个 Filter，如下：
+在 @WebFilter 注解中可以配置过滤器的拦截规则。这个注解要生效，还需要我们在项目启动类上配置 @ServletComponentScan 注解，如下：
+@ServletComponentScan 注解虽然名字带了 Servlet，但是实际上它不仅仅可以扫描项目中的 Servlet 容器，也可以扫描 Filter 和 Listener。
+这是我们在 Spring Boot 中使用过滤器的第一种方式，在实际项目中，这种方式使用较少，因为这种方式有一个很大的弊端就是无法指定 Filter 的优先级，如果存在多个 Filter 时，无法通过 @Order 指定优先级。
+第二种方式就是将过滤器配置成 Bean，注册到 Spring 容器中去。这种方法不再需要 @ServletComponentScan 注解，只要一个 Bean 即可，如下：
+这种方式看起来很方便，一个注解将 Filter 纳入到 Spring 容器中即可。而且这种方式还有一个优势，就是如果存在多个 Filter，可以通过 @Order 注解指定多个 Filter 的优先级，像下面这样：
+虽然解决了优先级问题，但是大家发现这种方式好像没有办法设置 Filter 的拦截规则！是的，直接定义 Bean 的话，默认的拦截规则就是 /* 即拦截所有请求，开发者无法进行自定义配置。
+那么有没有办法即配置拦截规则，又配置优先级呢？接下来介绍的第三种方案可以鱼与熊掌兼得。
+第三种方案还是将 Filter 封装成一个 Bean，但这个 Bean 是 FilterRegistrationBean，通过 FilterRegistrationBean 我们既可以配置 Filter 的优先级，也可以配置 Filter 的拦截规则。
+一般在项目中，我们都是使用 FilterRegistrationBean 来配置过滤器，一起来看一个案例：
+FilterRegistrationBean 到底是什么来头呢？这里也和大家分享下。
+Spring Boot 为了方便大家向 Servlet 容器中注册 Servlet、Filter 以及 Listener，提供了一个 Bean 注册的抽象类 RegistrationBean，如下：
+RegistrationBean 有众多的实现类，我们之前使用的 FilterRegistrationBean 只是其中之一：
+
+实现类的作用一目了然：
+今天就和小伙伴们分享一下 Spring Boot 中过滤器的三种注册方式，顺带和大家分享了一下 FilterRegistrationBean 的继承体系，小伙伴们可以根据 FilterRegistrationBean 的继承体系中的实现类，自行尝试一下 Servlet 和 Listener 的注册方式～本文案例下载地址：https://github.com/lenve/javaboy-code-samples
+好啦，如果大家觉得有收获的话，记得点个在看鼓励下松哥哦～
+喜欢这篇文章吗？扫码关注公众号【江南一点雨】，【江南一点雨】专注于 SPRING BOOT+微服务以及前后端分离技术，每天推送原创技术干货，关注后回复 JAVA，领取松哥为你精心准备的 JAVA 干货!

@@ -22,7 +22,7 @@ public class BatchCommand extends HystrixCommand<List<User>> {
         this.userService =userService;
     }
 
-    //熔断功能方法主体
+    //功能方法主体
     @Override
     protected List<User> run() throws Exception {
         return userService.getUserByIds(ids);

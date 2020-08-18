@@ -1,5 +1,5 @@
 # 集群部署
-# 启动多个Eureka实例, 多个实例之间互相注册,互相同步数据,共同组成一个Eureka集群
+# 启动多个Eureka实例, 多个实例之间互相注册,互相同步数据,共同组成一个Eureka集群,以某个可用注册中心为副本来同步数据
 # 1.修改host 2.2个配置文件
 # java -jar eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=a
 # 指定生效文件(application-a.yml生效) 默认只有application.yml生效

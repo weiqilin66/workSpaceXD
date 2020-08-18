@@ -3,16 +3,10 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId><!--此分组的dependency无需指定版本号由parent统一管理-->
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.1.RELEASE</version>
-        <!--指定父项目pom的相对位置,默认是../pom.xml-->
-        <relativePath/>
-    </parent>
+
     <groupId>com.lwq</groupId>
     <artifactId>wayne-api</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
 
     <dependencies>
         <!--添加 代码生成器 依赖-->
@@ -32,6 +26,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.18</version>
             <scope>runtime</scope>
         </dependency>
         <!-- ##################  基本依赖 #################### -->
@@ -39,11 +34,9 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
+            <version>1.18.10</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+
 
         <!--###################  业务依赖    ###################-->
         <!--excel2003-->
